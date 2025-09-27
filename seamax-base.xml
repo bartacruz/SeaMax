@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+    <sim>
+        <model>
+            <path archive="y">Aircraft/SeaMax/Models/seamax.xml</path>
+            <livery>
+                <file type="string"></file>
+            </livery>
+            <door-positions>
+                <canopy>
+                    <position-norm type="float">0</position-norm>
+                </canopy>
+                <crew>
+                    <position-norm type="float">0</position-norm>
+                </crew>
+            </door-positions>
+        </model>
+        <view n="0">
+            <name type="string">Cockpit View</name>
+            <internal archive="y">true</internal>
+            <config>
+                <x-offset-m archive="y"> -0.27 </x-offset-m>                <!-- Right -->
+                <y-offset-m archive="y"> 1.17 </y-offset-m>                <!-- Up    -->
+                <z-offset-m archive="y"> 1.54 </z-offset-m>                <!-- Back  -->
+                <pitch-offset-deg type="double">-10</pitch-offset-deg>
+                <default-field-of-view-deg type="double">110h</default-field-of-view-deg>
+            </config>
+        </view>
+
+        <sound>
+            <path>Aircraft/A24-Viking/Sounds/a24-sound.xml</path>
+        </sound>
+        <weight n="0">
+            <name type="string">Pilot</name>
+            <weight-lb type="double">160</weight-lb>
+            <max-lb type="int">240</max-lb>
+            <min-lb type="int">0</min-lb>
+        </weight>
+        <weight n="1">
+            <name type="string">Co-Pilot</name>
+            <weight-lb type="double">0</weight-lb>
+            <max-lb type="int">240</max-lb>
+            <min-lb type="int">0</min-lb>
+        </weight>
+        <weight n="2">
+            <name type="string">Storage left</name>
+            <weight-lb type="double">10</weight-lb>
+            <max-lb type="int">45</max-lb>
+            <min-lb type="int">0</min-lb>
+        </weight>
+        <weight n="3">
+            <name type="string">Storage right</name>
+            <weight-lb type="double">10</weight-lb>
+            <max-lb type="int">45</max-lb>
+            <min-lb type="int">0</min-lb>
+        </weight>
+        <weight n="4">
+            <name type="string">Ballast</name>
+            <weight-lb type="double">0</weight-lb>
+            <max-lb type="int">15</max-lb>
+            <min-lb type="int">0</min-lb>
+        </weight>
+        <systems include="Systems/rules.xml"/>
+    </sim>
+    <payload>
+        <weight>
+			<name type="string">Pilot</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+			<arm-in alias="/fdm/jsbsim/inertia/pointmass-location-X-inches[0]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">300.0</max-lb>
+		</weight>
+		<weight>
+			<name type="string">Co-Pilot</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
+			<arm-in alias="/fdm/jsbsim/inertia/pointmass-location-X-inches[1]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">300.0</max-lb>
+		</weight>
+        <weight>
+			<name type="string">Storage pilot</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"/>
+			<arm-in alias="/fdm/jsbsim/inertia/pointmass-location-X-inches[2]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">45</max-lb>
+		</weight>
+        <weight>
+			<name type="string">Storage co-pilot</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]"/>
+			<arm-in alias="/fdm/jsbsim/inertia/pointmass-location-X-inches[3]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">45</max-lb>
+		</weight>
+    </payload>
+    <engines>
+        <engine>
+            <t-pressure-diff type="float">0</t-pressure-diff>
+            <t-pressure-norm type="float">0</t-pressure-norm>
+        </engine>
+    </engines>
+    <controls>
+        <fuel>
+            <tank-selector type="int">1</tank-selector>
+        </fuel>
+        <engines>
+            <engine>
+                <mixture type="float">1</mixture>
+                <hackman type="bool">false</hackman>
+            </engine>
+        </engines>
+    </controls>
+
+
+    <nasal>
+        <hackman>
+            <file>Aircraft/SeaMax/Nasal/hackman.nas</file>
+        </hackman>
+
+    </nasal>
+</PropertyList>

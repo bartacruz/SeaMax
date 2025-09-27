@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<PropertyList>
+
+    <path>SeaMax.ac</path>
+    <model>
+        <usage>interior</usage>
+        <path>Interior/interior.xml</path>
+    </model>
+    <effect>
+      <inherits-from>Effects/model-transparent</inherits-from>
+      <object-name>canopy glass</object-name>
+    </effect>
+    <animation>
+        <name>Propeller</name>
+        <object-name>prop</object-name>
+        <object-name>prop base</object-name>
+        <object-name>prop edge</object-name>
+      </animation>
+
+      <animation>
+        <type>spin</type>
+        <object-name>Propeller</object-name>
+        <object-name>PropBlurSlow</object-name>
+        <object-name>PropBlurFast</object-name>
+        <condition>
+          <greater-than>
+            <property>engines/engine[0]/rpm</property>
+            <value> 5 </value>
+          </greater-than>
+        </condition>
+        <property>engines/engine[0]/rpm</property>
+        <factor> 0.411 </factor>
+        <center>
+          <x-m> 3.2937 </x-m>
+          <y-m>  0.000 </y-m>
+          <z-m>  1.7199 </z-m>
+        </center>
+        <axis>
+          <x> -1 </x>
+          <y>  0 </y>
+          <z>  0 </z>
+        </axis>
+      </animation>
+
+      <animation>
+        <type>select</type>
+        <object-name>Propeller</object-name>
+        <condition>
+          <less-than>
+            <property>engines/engine[0]/rpm</property>
+            <value>500</value>
+          </less-than>
+        </condition>
+      </animation>
+      <animation>
+        <type>select</type>
+        <object-name>PropBlurSlow</object-name>
+        <condition>
+          <and>
+            <greater-than-equals>
+              <property>engines/engine[0]/rpm</property>
+              <value>500</value>
+            </greater-than-equals>
+            <less-than>
+              <property>engines/engine[0]/rpm</property>
+              <value>1000</value>
+            </less-than>
+          </and>
+        </condition>
+      </animation>
+      <animation>
+        <type>select</type>
+        <object-name>PropBlurFast</object-name>
+        <condition>
+          <greater-than-equals>
+            <property>engines/engine[0]/rpm</property>
+            <value>1000</value>
+          </greater-than-equals>
+        </condition>
+      </animation>
+
+
+
+
+
+      <!-- Aileron Left -->
+      <animation>
+        <type>rotate</type>
+        <object-name>aileron left</object-name>
+        <property>controls/flight/aileron</property>
+        <interpolation>
+          <entry><ind>-1</ind><dep>-22.0</dep></entry>
+          <entry><ind> 0</ind><dep>  1.5</dep></entry>
+          <entry><ind> 1</ind><dep> 22.0</dep></entry>
+        </interpolation>   
+        <axis>
+          <x1-m>2.766</x1-m>
+          <y1-m>-4.905</y1-m>
+          <z1-m>1.4345</z1-m>
+          <x2-m>2.766</x2-m>
+          <y2-m>-2.831</y2-m>
+          <z2-m>1.3683</z2-m>
+        </axis>
+      </animation>
+      
+      <!-- Aileron Right-->
+      <animation>
+        <type>rotate</type>
+        <object-name>aileron right</object-name>
+        <property>controls/flight/aileron</property>
+        <interpolation>
+          <entry><ind>-1</ind><dep>22.0</dep></entry>
+          <entry><ind> 0</ind><dep>  1.5</dep></entry>
+          <entry><ind> 1</ind><dep> -22.0</dep></entry>
+        </interpolation>   
+        <axis>
+          <x1-m>2.766</x1-m>
+          <y1-m>2.831</y1-m>
+          <z1-m>1.3683</z1-m>
+          <x2-m>2.766</x2-m>
+          <y2-m>4.905</y2-m>
+          <z2-m>1.4345</z2-m>
+        </axis>
+      </animation>
+
+      <!-- Elevator-->
+      <animation>
+        <type>rotate</type>
+        <object-name>elevator left</object-name>
+        <object-name>elevator right</object-name>
+        <property>controls/flight/elevator</property>
+        <interpolation>
+          <entry><ind>-1</ind><dep>-26</dep></entry>
+          <entry><ind> 0</ind><dep>  0</dep></entry>
+          <entry><ind> 1</ind><dep> 23</dep></entry>
+        </interpolation>   
+        <center>
+          <x-m>5.72</x-m> 
+          <y-m>0</y-m>
+          <z-m>1.36</z-m>
+        </center>
+        <axis>
+          <x>0</x>
+          <y>-1</y>
+          <z>0</z>
+        </axis>
+      </animation>
+
+      <!-- Rudder-->
+      <animation>
+        <type>rotate</type>
+        <object-name>rudder</object-name>
+        <property>controls/flight/rudder</property>
+        <factor>-22</factor>
+        <!-- <interpolation>
+          <entry><ind>-1</ind><dep>-22.0</dep></entry>
+          <entry><ind> 0</ind><dep>  0</dep></entry>
+          <entry><ind> 1</ind><dep> 22.0</dep></entry>
+        </interpolation>    -->
+        <axis>
+          <x1-m>5.62</x1-m>
+          <y1-m>0</y1-m>
+          <z1-m>1.91</z1-m>
+          <x2-m>5.435</x2-m>
+          <y2-m>0</y2-m>
+          <z2-m>0.817</z2-m>
+        </axis>
+      </animation>
+
+      <!-- Left gear -->
+      <animation>
+        <type>rotate</type>
+        <object-name>lg assy</object-name>
+        <!-- <object-name>lg brake line</object-name> -->
+        <object-name>lg door</object-name>
+        <object-name>lg tire</object-name>
+        <object-name>lg wheel</object-name>
+        <property>gear/gear[1]/position-norm</property>
+        <interpolation>
+          <entry><ind>0.0</ind><dep>100</dep></entry>
+          <entry><ind>1.0</ind><dep> 0.0</dep></entry>
+        </interpolation>   
+        <axis>
+          <x2-m> 2.6793</x2-m>
+          <y2-m> -0.60175</y2-m>
+          <z2-m> 0.323</z2-m>
+          <x1-m> 3.1072</x1-m>
+          <y1-m> -0.55247 </y1-m>
+          <z1-m> 0.333</z1-m>
+        </axis>
+        <!-- <axis>
+          <x2-m> 2.31</x2-m>
+          <y2-m>-0.6917</y2-m>
+          <z2-m> 0.323</z2-m>
+          <x1-m> 2.677</x1-m>
+          <y1-m>-0.6424 </y1-m>
+          <z1-m> 0.3338</z1-m>
+        </axis> -->
+      </animation>
+      <animation>
+        <type>translate</type>
+        <object-name>lg strut</object-name>
+        <property>gear/gear[1]/position-norm</property>
+        <interpolation>
+          <entry><ind>0.0</ind><dep>1</dep></entry>
+          <entry><ind>1.0</ind><dep> 0.0</dep></entry>
+        </interpolation>
+        <axis>
+          <x>0</x>
+          <y>0.1</y>
+          <z>0.1</z>
+        </axis>
+      </animation>
+
+      <!-- Right gear -->
+      <animation>
+        <type>rotate</type>
+        <object-name>rg assy</object-name>
+        <!-- <object-name>lg brake line</object-name> -->
+        <object-name>rg door</object-name>
+        <!-- <object-name>rg tire</object-name> -->
+        <object-name>tire right</object-name> 
+        <object-name>rg wheel</object-name>
+        <property>gear/gear[2]/position-norm</property>
+        <interpolation>
+          <entry><ind>0.0</ind><dep>-100</dep></entry>
+          <entry><ind>1.0</ind><dep> 0.0</dep></entry>
+        </interpolation>   
+        <axis>
+          <x2-m> 2.6793</x2-m>
+          <y2-m> 0.60175</y2-m>
+          <z2-m> 0.323</z2-m>
+          <x1-m> 3.1072</x1-m>
+          <y1-m> 0.55247 </y1-m>
+          <z1-m> 0.333</z1-m>
+        </axis>
+      </animation>
+      <animation>
+        <type>translate</type>
+        <object-name>rg strut</object-name>
+        <property>gear/gear[2]/position-norm</property>
+        <interpolation>
+          <entry><ind>0.0</ind><dep>1</dep></entry>
+          <entry><ind>1.0</ind><dep> 0.0</dep></entry>
+        </interpolation>
+        <axis>
+          <x>0</x>
+          <y>-0.1</y>
+          <z> 0.1</z>
+        </axis>
+      </animation>
+
+      <!-- Canopy -->
+      <animation>
+        <type>rotate</type>
+        <object-name>canopy</object-name>
+        <object-name>canopy glass</object-name>
+        <property>sim/model/door-positions/canopy/position-norm</property>
+        <interpolation>
+          <entry><ind>0.0</ind><dep>0</dep></entry>
+          <entry><ind>1.0</ind><dep>80.0</dep></entry>
+        </interpolation>
+        <center>
+          <x-m>0.52</x-m>
+          <y-m>0</y-m>
+          <z-m>0.97</z-m>
+        </center>
+        <axis>
+          <x>0</x>
+          <y>-1</y>
+          <z>0</z>
+        </axis>
+      </animation>
+
+</PropertyList>
+  

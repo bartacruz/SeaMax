@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>seamax-interior.ac</path>
+
+  <model>
+    <path>Instruments/asi-kt/asi-kt.xml</path>
+    <offsets>
+      <x-m> 1.12</x-m>
+      <y-m>-0.37 </y-m>
+      <z-m> 0.87 </z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>Instruments/rpm/rpm.xml</path>
+    <offsets>
+      <x-m> 1.11 </x-m>
+      <y-m>-0.37 </y-m>
+      <z-m> 0.77 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Instruments/turn/turn.xml</path>
+    <offsets>
+      <x-m> 1.12 </x-m>
+      <y-m>-0.27 </y-m>
+      <z-m> 0.87 </z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>/Aircraft/Instruments-3d/hi/hi.xml</path>
+    <offsets>
+      <x-m> 1.11 </x-m>
+      <y-m>-0.27 </y-m>
+      <z-m> 0.77 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Instruments/alt/alt.xml</path>
+    <offsets>
+      <x-m> 1.12 </x-m>
+      <y-m>-0.17 </y-m>
+      <z-m> 0.87 </z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>Instruments/vsi/vsi.xml</path>
+    <offsets>
+      <x-m> 1.11 </x-m>
+      <y-m>-0.17 </y-m>
+      <z-m> 0.77 </z-m>
+    </offsets>
+  </model>
+  
+
+  <animation>
+    <type>rotate</type>
+    <object-name>yoke</object-name>
+    <object-name>yoke cover</object-name>
+    <property>controls/flight/elevator</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>-23</dep></entry>
+      <entry><ind> 0</ind><dep>  0</dep></entry>
+      <entry><ind> 1</ind><dep> 23</dep></entry>
+    </interpolation>   
+    <center>
+      <x-m> 1.27</x-m> 
+      <y-m> 0</y-m>
+      <z-m> 0.5</z-m>
+    </center>
+    <axis>
+      <x> 0</x>
+      <y>-1</y>
+      <z> 0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>yoke</object-name>
+    <object-name>yoke cover</object-name>    
+    <property>controls/flight/aileron</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>-23</dep></entry>
+      <entry><ind> 0</ind><dep>  0</dep></entry>
+      <entry><ind> 1</ind><dep> 23</dep></entry>
+    </interpolation>   
+    <center>
+      <x-m> 1.27</x-m> 
+      <y-m> 0</y-m>
+      <z-m> 0.5</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y> 0</y>
+      <z> 0</z>
+    </axis>
+  </animation>
+
+</PropertyList>

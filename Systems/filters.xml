@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<PropertyList>
+    <filter>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>
+            <expression>
+                <product>
+                    <property>engines/engine/rpm</property>
+                    <value>0.411</value>
+                </product>
+            </expression>
+        </input>
+        <output>engines/engine/prop-rpm</output>
+    </filter>
+    <!-- <predict-simple>
+        <name>rpm in 10 seconds predictor</name>
+        <debug>false</debug>
+        <input>/engines/engine/rpm</input>
+        <output>/engines/engine/rpm-ahead</output>
+        <seconds>10.0</seconds>
+        <filter-gain>0.0</filter-gain>
+    </predict-simple> -->
+    <filter>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>
+            <expression>
+                <difference>
+                    <property>engines/engine/egt-degf</property>
+                    <property>environment/temperature-degf</property>
+                </difference>
+            </expression>
+        </input>
+        <output>engines/engine/t-egt-abs</output>
+
+    </filter>
+
+    <filter>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>
+            <expression>
+                <div>
+                    <property>engines/engine/mp-inhg</property>
+                    <property>environment/pressure-inhg</property>
+                </div>
+            </expression>
+        </input>
+        <output>engines/engine/t-pressure-diff</output>
+    </filter>
+    <filter>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>
+            <expression>
+                <product>
+                    <property>controls/engines/engine/throttle</property>
+                    <property>engines/engine/mp-inhg</property>
+                </product>
+            </expression>
+        </input>
+        <output>engines/engine/t-pressure-norm</output>
+    </filter>
+
+<!-- 
+    <filter>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>
+            <condition>
+                <property>engines/engine/running</property>
+            </condition>
+            <expression>
+                <log>
+                    <div>
+                        <prod>
+                            <max>
+                                <value>0.1</value>
+                                <property>controls/engines/engine/throttle</property>
+                            </max>
+                            <value>1000</value>
+                        </prod>
+
+                        <dif>
+                            <property>engines/engine/rpm</property>
+                            <value>1800</value>
+                        </dif>
+
+                    </div>
+                </log>
+            </expression>
+        </input>
+        <reference>0</reference>
+        <output>engines/engine/t-throttle-rpm</output>
+    </filter> -->
+
+
+</PropertyList>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList     include="seamax-base.xml">
+
+  <sim>
+
+    <description>SeaMax M22 (JSBSim)</description>
+    <authors>
+      <author     n="0">
+        <name     type="string">Julio Santa Cruz (Barta)</name>
+      </author>
+    </authors>
+
+    <aircraft-version>0.1</aircraft-version>
+    <status>Alpha</status>
+    <minimum-fg-version>2018.2.0</minimum-fg-version>
+
+    <flight-model archive="y">jsb</flight-model>
+    <aero         archive="y">seamax-2-jsb</aero>
+
+    <rating>
+      <FDM        type="int"> 1 </FDM>
+      <systems    type="int"> 1 </systems>
+      <cockpit    type="int"> 1 </cockpit>
+      <model      type="int"> 4 </model>
+    </rating>
+    <model>
+        <variant type="int">0</variant>
+    </model>
+      <tags>
+        <tag>seamax</tag>
+        <tag>2010s</tag>
+        <tag>amphibious</tag>
+        <tag>propeller</tag>
+        <tag>piston</tag>
+        <tag>single-engine</tag>
+        <tag>fixed-pitch</tag>
+        <tag>compositor</tag>
+        <tag>HDR</tag>
+      </tags>
+  
+    </sim>
+  
+  </PropertyList>
+  

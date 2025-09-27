@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<airplane mass="715" version="YASIM_VERSION_CURRENT" mtow-lbs="1320">
+    <approach speed="45" aoa="2" fuel="0.5">
+        <control-setting axis="/controls/engines/engine[0]/throttle" value="0.3"/>
+        <control-setting axis="/controls/engines/engine[0]/mixture" value="1"/>
+        <control-setting axis="/controls/flight/flaps" value="1"/>
+        <control-setting axis="/sim/weight[0]/weight-lb"             value ="160"/>
+        <control-setting axis="/sim/weight[1]/weight-lb"             value ="160"/>
+    </approach>
+
+    <!-- Cruise configuration -->
+    <cruise speed="94" alt="6000" fuel="0.8">
+        <control-setting axis="/controls/engines/engine[0]/throttle" value="0.75"/>
+        <control-setting axis="/controls/engines/engine[0]/mixture" value="0.65"/>
+        <control-setting axis="/controls/flight/flaps" value="0"/>
+        <control-setting axis="/sim/weight[0]/weight-lb"             value ="160"/>
+        <control-setting axis="/sim/weight[1]/weight-lb"             value ="160"/>
+V
+    </cruise>
+
+    <cockpit x="-1.9" y="0" z="0.9"/>
+    <fuselage ax="0" ay="0" az="0.86" bx="-1.17" by="0" bz="0.79" width="1" taper="0.1" midpoint="1"/>
+    <fuselage ax="-0.595" ay="0" az="0.91" bx="-1.169" by="0" bz="0.91" width="1.3" taper="0.375" midpoint="1"/>
+    <fuselage ax="-1.169" ay="0" az="0.91" bx="-2.541" by="0" bz="0.9" width="1.5" taper="0.8" midpoint="1"/>
+    <fuselage ax="-2.541" ay="0" az="0.9" bx="-3.36" by="0" bz="0.90" width="1.5" taper="0.2" midpoint="0"/>
+
+    <fuselage ax="-2.541" ay="0.5" az="0.639" bx="-3.741" by="0" bz="0.539" width="0.5" taper="1" midpoint="0.5"/>
+    <fuselage ax="-2.541" ay="-0.5" az="0.639" bx="-3.741" by="0" bz="0.539" width="0.5" taper="1" midpoint="0.5"/>
+    <fuselage ax="-2.45" ay="0" az="0.45" bx="-3.741" by="0" bz="0.639" width="0.5" taper="1" midpoint="0.5"/>
+
+    <!-- tail -->
+    <fuselage ax="-3.721" ay="0" az="0.539" bx="-5.28" by="0" bz="0.992" width="0.4" taper="0.8" midpoint="0"/>
+    <!-- <fuselage ax="" ay="" az="" bx="" by="" bz="" width="" taper="0.375" midpoint="1"/> -->
+
+    <wing x="-2.858" y="0.2" z="1.647" chord="1.5" length="4.8" taper="1" camber="0.01">
+        <stall aoa="16" width="8" peak="1.5"/>
+        <flap0 start="0.14" end="0.56" lift="1.2" drag="1.25"/>
+        <flap1 start="0.561" end="0.960" lift="1.2" drag="1.2"/>
+
+        <control-input control="FLAP0" axis="/controls/flight/flaps"/>
+        <control-input control="FLAP1" axis="/controls/flight/aileron" split="true"/>
+        <control-input control="FLAP1" axis="/controls/flight/aileron-trim" split="true"/>
+
+        <control-output control="FLAP0" prop="/surface-positions/flap-pos-norm"/>
+        <control-output control="FLAP1" prop="/surface-positions/left-aileron-pos-norm" side="left"/>
+        <control-output control="FLAP1" prop="/surface-positions/right-aileron-pos-norm" side="right"/>
+
+        <control-speed control="FLAP0" transition-time="2"/>
+    </wing>
+    <hstab x="-5.41" y="0.2" z="1.581" chord="0.86" length="1.3" taper="1">
+        <stall aoa="16" width="8" peak="1.5"/>
+        <flap0 start="0" end="1" lift="1.9" drag="1.2"/>
+
+        <control-input control="FLAP0" axis="/controls/flight/elevator"/>
+        <control-input control="FLAP0" axis="/controls/flight/elevator-trim"/>
+
+        <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+    </hstab>
+
+    <vstab x="-5.35" y="0" z="1" chord="1.41" length="1.46" taper="0.354" sweep="25">
+        <stall aoa="16" width="1" peak="1.5"/>
+        <flap0 start="0" end="1" lift="1.75" drag="1.2"/>
+
+        <control-input control="FLAP0" axis="/controls/flight/rudder" invert="true"/>
+        <control-input control="FLAP0" axis="/controls/flight/rudder-trim" invert="true"/>
+
+        <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+    </vstab>
+
+    <!-- engine by Pierre Geoffroy
+
+       ROTAX 912 S ULS
+
+       source : https://en.wikipedia.org/wiki/Rotax_912
+
+       propeller: Albastar / Wezel Flugzeugtechnik AS 180
+       =================================================================================
+       TO-/MC- engine power(kW): 100/90
+                           RPM : 5800/5500
+       propeller max RPM: 2387
+       diameter: 1,80 m
+       Mass        :     60 kg  ( 132.3 lb  )
+       Displacment : 1211.2 cm3 ( 73.91 in3 )
+       Gear ratio 0.411
+  -->
+    <!-- <propeller x="-3.22" y="0.0" z="1.8" mass="60" moment="1.24" radius="0.90" cruise-power="75" cruise-rpm="2100" cruise-speed="94" cruise-alt="6000" takeoff-power="95" takeoff-rpm="2270" gear-ratio="0.411">
+        <actionpt x="-3.82" y="0.0" z="2" />
+        <piston-engine eng-rpm="5800" eng-power="100" displacement="82.6" compression="9">
+            <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle" />
+            <control-input control="STARTER" axis="/controls/engines/engine[0]/starter" />
+            <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos" />
+            <control-input control="MIXTURE" axis="/controls/engines/engine[0]/mixture" />
+        </piston-engine>
+    </propeller> -->
+    <propeller x="-3.22" y="0.0" z="1.8" radius="0.96" mass="132.3" moment="1.5" cruise-speed="105" cruise-rpm="2263" cruise-alt="6000" cruise-power="79" takeoff-power="81" takeoff-rpm="2387" gear-ratio="0.412">
+             <actionpt x="-3.82" y="0.0" z="2" />
+             <dir x="0.9986" y="0.0" z="0.05234" />
+
+             <piston-engine eng-rpm="5800" eng-power="100" displacement="73.91" compression="9">
+                            <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle"/>
+                            <control-input control="STARTER" axis="/controls/engines/engine[0]/starter"/>
+                            <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos"/>
+                            <control-input control="MIXTURE" axis="/controls/engines/engine[0]/mixture"/>
+             </piston-engine>
+  </propeller>
+
+    <gear x="-0.1" y="0.0" z="0.01" compression="0.15" spring="2" sfric="0.7" dfric="0.45" retract-time="4" initial-load="0" damp="0.6" stiction="1">
+        <control-input control="EXTEND" axis="/controls/gear/gear-down"/>
+        <control-input control="STEER" axis="/controls/flight/rudder"/>
+        <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
+    </gear>
+    <!-- 1 Left wheel -->
+    <gear x="-2.9" y="1.05" z="0.01" compression="0.15" spring="2" sfric="0.7" dfric="0.45" retract-time="4" initial-load="0" damp="0.6" stiction="1">
+        <control-input control="BRAKE" axis="/controls/gear/brake-parking"/>
+        <control-input control="BRAKE" axis="/controls/gear/brake-left"/>
+        <control-input control="EXTEND" axis="/controls/gear/gear-down"/>
+
+        <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="2"/>
+    </gear>
+    <!-- 2 Right wheel -->
+    <gear x="-2.9" y="-1.05" z="0.01" compression="0.15" spring="2" sfric="0.5" dfric="0.45" retract-time="4" initial-load="0" damp="0.6" stiction="1">
+        <control-input control="BRAKE" axis="/controls/gear/brake-parking"/>
+        <control-input control="BRAKE" axis="/controls/gear/brake-right"/>
+        <control-input control="EXTEND" axis="/controls/gear/gear-down"/>
+
+        <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="2"/>
+    </gear>
+
+    <tank x="-2.5" y="1" z="1.6" capacity="12.5"/>
+    <tank x="-2.5" y="-1" z="1.6" capacity="12.5"/>
+    <!-- pilot -->
+    <weight x="-1.7" y="-0.32" z="0.6" mass-prop="/sim/weight[0]/weight-lb"/>
+
+    <!-- copilot -->
+    <weight x="-1.7" y="0.32" z="0.6" mass-prop="/sim/weight[1]/weight-lb"/>
+
+    <!-- baggage pilot -->
+    <weight x="-2.4" y="-0.32" z="0.8" mass-prop="/sim/weight[2]/weight-lb"/>
+    <!-- baggage co-pilot -->
+    <weight x="-2.4" y="0.32" z="0.8" mass-prop="/sim/weight[3]/weight-lb"/>
+    <!-- Ballast -->
+    <weight x="-1.2" y="0.6" z="0.8" mass-prop="/sim/weight[4]/weight-lb"/>
+    <ballast x="-1.3" y=" 0.000" z="1.050" mass="179"/>
+</airplane>

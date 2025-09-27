@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+ <path>rpm.ac</path>
+
+  <animation>
+    <object-name>fond</object-name>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+
+    <object-name>vitre</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>fond</object-name>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+    <object-name>vitre</object-name>
+  </animation>
+
+  <!-- working for Compositor -->
+  <!-- <effect>
+    <inherits-from>../../../../Effects/Glass/glass</inherits-from>
+    <object-name>vitre</object-name>
+  </effect> -->
+
+  <animation>
+    <type>material</type>
+    <object-name>fond</object-name>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+    <condition>
+      <property>/controls/electric/battery-switch</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      <red>   0.50 </red>
+      <green> 0.40 </green>
+      <blue>  0.30 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>needle</object-name>
+    <property>engines/engine[0]/rpm</property>
+    <interpolation>
+      <entry><ind>    0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1000 </ind><dep>  35 </dep></entry>
+      <entry><ind> 2000 </ind><dep>  70 </dep></entry>
+      <entry><ind> 3000 </ind><dep> 105 </dep></entry>
+      <entry><ind> 4000 </ind><dep> 138 </dep></entry>
+      <entry><ind> 5000 </ind><dep> 171 </dep></entry>
+      <entry><ind> 6000 </ind><dep> 205 </dep></entry>
+      <entry><ind> 7000 </ind><dep> 239 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+</PropertyList>
