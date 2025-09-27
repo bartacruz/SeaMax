@@ -21,21 +21,18 @@
   </animation>
 
   <!-- working for Compositor -->
-  <!-- <effect>
-    <inherits-from>../../../../Effects/Glass/glass</inherits-from>
+  <effect>
+    <inherits-from>../../../Effects/Glass/glass</inherits-from>
     <object-name>vitre</object-name>
-  </effect> -->
+  </effect>
 
   <animation>
     <type>material</type>
     <object-name>fond</object-name>
     <object-name>face</object-name>
     <object-name>needle</object-name>
-    <condition>
-      <property>/controls/electric/battery-switch</property>
-    </condition>
     <emission>
-      <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      <factor-prop>systems/electrical/outputs/panel-light</factor-prop>
       <red>   0.50 </red>
       <green> 0.40 </green>
       <blue>  0.30 </blue>

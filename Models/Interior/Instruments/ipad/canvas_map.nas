@@ -1,0 +1,150 @@
+var window = canvas.new({
+  "name": "canvas_map",   # The name is optional but allow for easier identification
+  "size": [1848, 2524], # Size of the underlying texture (should be a power of 2, required) [Resolution]
+  "view": [3072, 4096],  # Virtual resolution (Defines the coordinate system of the canvas [Dimensions]
+                        # which will be stretched the size of the texture, required)
+  "mipmapping": 1       # Enable mipmapping (optional)
+});
+
+
+window.setColorBackground(1,1,1,1);
+var (width,height) = (1020,1920);
+var tile_size = 1024;
+var zoom = 14;
+
+# var window = canvas.Window.new([width, height],"dialog").set('title', "Tile map demo");
+var g = window.createGroup();
+
+var maps_base = getprop("/sim/fg-home") ~ '/cache/maps';
+
+
+
+#print('https://nwy-tiles-api.prod.newaydata.com/tiles/{z}/{x}/{y}.png?path='~airac~'/aero/latest');
+# var makeUrl = string.compileTemplate('https://nwy-tiles-api.prod.newaydata.com/tiles/{z}/{x}/{y}.png?path=latest/aero/latest');
+#https://maps.wikimedia.org/osm-intl/${z}/${x}/${y}.png
+#var makePath = string.compileTemplate(maps_base ~ '/{z}/{x}/{y}.png');
+var makeUrl = string.compileTemplate('https://tile.openstreetmap.org/{z}/{x}/{y}.png');
+var makePath = string.compileTemplate(maps_base ~ '/tablet-cache/{z}/{x}/{y}.png');
+
+var num_tiles = [4, 5];
+
+
+
+var center_tile_offset = [
+  (num_tiles[0] - 1)/2.0,
+  (num_tiles[1] - 1)/2.0
+];
+# g.setTranslation(
+# 	window.get("view[0]")/2,
+# 	window.get("view[1]")/2
+# );
+g.addEventListener("wheel", func(e) {
+  print("wheel ", e.deltaY);
+  set_zoom(e.deltaY);
+});
+
+##
+# initialize the map by setting up
+# a grid of raster images  
+
+var tiles = setsize([], num_tiles[0]);
+for(var x = 0; x < num_tiles[0]; x += 1)
+{
+  tiles[x] = setsize([], num_tiles[1]);
+  for(var y = 0; y < num_tiles[1]; y += 1)
+  tiles[x][y] = g.createChild("image", "map-tile");
+  
+}
+
+var last_tile = [-1,-1];
+
+var count = 0;
+##
+# this is the callback that will be regularly called by the timer
+# to update the map
+var updateTiles = func()
+{
+  
+  # get current position
+  var lat = getprop('/position/latitude-deg');
+  var lon = getprop('/position/longitude-deg');
+
+  var n = math.pow(2, zoom);
+  var offset = [
+  n * ((lon + 180) / 360) - center_tile_offset[0],
+  (1 - math.ln(math.tan(lat * math.pi/180) + 1 / math.cos(lat * math.pi/180)) / math.pi) / 2 * n - center_tile_offset[1]
+  ];
+  var tile_index = [int(offset[0]), int(offset[1])];
+
+  var ox = tile_index[0] - offset[0];
+  var oy = tile_index[1] - offset[1];
+
+  for(var x = 0; x < num_tiles[0]; x += 1)
+  for(var y = 0; y < num_tiles[1]; y += 1)
+  tiles[x][y].setTranslation(int((ox + x) * tile_size + 0.5), int((oy + y) * tile_size + 0.5));
+  
+  
+  if(    tile_index[0] != last_tile[0]
+    or tile_index[1] != last_tile[1])
+  {
+    for(var x = 0; x < num_tiles[0]; x += 1)
+    for(var y = 0; y < num_tiles[1]; y += 1)
+    {
+      var pos = {
+        z: zoom,
+        x: int(offset[0] + x),
+        y: int(offset[1] + y),
+      };
+
+      (func {
+        
+        var img_path = makePath(pos);
+        var tile = tiles[x][y];
+        
+        if( io.stat(img_path) == nil) {
+          # image not found, save in $FG_HOME
+          var img_url = makeUrl(pos);
+          print('requesting ' ~ img_url);
+          http.save(img_url, img_path)
+          .done(func {print('received image ' ~ img_path); tile.set("src", img_path);})
+          .fail(func (r){ print('Failed to get image ' ~ img_path ~ ' ' ~ r.status ~ ': ' ~ r.reason);});
+        } else # cached image found, reusing
+        {
+          #print('loading ' ~ img_path);
+          tile.set("src", img_path)
+        }
+        tile.setSize(tile_size,tile_size);
+        })();
+      }
+
+        #last_tile = tile_index;
+    }
+};
+var mapstart = func{
+  if(getprop('aircraft/ipad/screen') == 2) {thread.newthread(updateTiles);}
+  else{update_timer.stop();}
+  #updateTiles();
+};
+
+var set_zoom = func(direction) {
+  zoom = zoom + direction;
+  if (zoom <1) zoom = 1;
+  if (zoom >18) zoom = 18;
+
+}
+##
+# set up a timer that will invoke updateTiles at 2-second intervals
+var update_timer = maketimer(1, mapstart);
+# actually start the timer
+
+var volt_prop = "/systems/electrical/outputs/gps";
+var start_prop = "/aircraft/ipad/ison";
+setlistener(volt_prop, func (i) {
+	if( i.getValue() <= 9  and getprop(start_prop) != 0){
+    setprop(start_prop,0);
+  }else if ( i.getValue() > 9 and getprop(start_prop) == 0){
+    setprop(start_prop,1);
+  }
+});
+# Place it on all objects called PFD-Screen
+window.addPlacement({"node": "chartsscreen", "capture-events":1});

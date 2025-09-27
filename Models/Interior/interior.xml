@@ -4,36 +4,62 @@
 
   <path>seamax-interior.ac</path>
 
+  <!-- Flap lights -->
+  <model>
+    <path>Instruments/lights/flaps0.xml</path>
+    <offsets>
+      <x-m> 1.098 </x-m>
+      <y-m>-0.42 </y-m>
+      <z-m> 0.8 </z-m>
+    </offsets>
+  </model>
+  <model>
+  <path>Instruments/lights/flaps10.xml</path>
+    <offsets>
+      <x-m> 1.099 </x-m>
+      <y-m>-0.42 </y-m>
+      <z-m> 0.78 </z-m>
+    </offsets>
+  </model>
+  <model>
+  <path>Instruments/lights/flaps35.xml</path>
+    <offsets>
+      <x-m> 1.1 </x-m>
+      <y-m>-0.42 </y-m>
+      <z-m> 0.76 </z-m>
+    </offsets>
+  </model>
+
   <model>
     <path>Instruments/asi-kt/asi-kt.xml</path>
     <offsets>
-      <x-m> 1.12</x-m>
-      <y-m>-0.37 </y-m>
+      <x-m> 1.125</x-m>
+      <y-m>-0.34 </y-m>
       <z-m> 0.87 </z-m>
     </offsets>
   </model>
   <model>
     <path>Instruments/rpm/rpm.xml</path>
     <offsets>
-      <x-m> 1.11 </x-m>
-      <y-m>-0.37 </y-m>
+      <x-m> 1.115 </x-m>
+      <y-m>-0.34 </y-m>
       <z-m> 0.77 </z-m>
     </offsets>
   </model>
 
   <model>
-    <path>Instruments/turn/turn.xml</path>
+    <path>/Aircraft/Instruments-3d/hi/hi.xml</path>
     <offsets>
-      <x-m> 1.12 </x-m>
-      <y-m>-0.27 </y-m>
+      <x-m> 1.125 </x-m>
+      <y-m>-0.24 </y-m>
       <z-m> 0.87 </z-m>
     </offsets>
   </model>
   <model>
-    <path>/Aircraft/Instruments-3d/hi/hi.xml</path>
+    <path>Instruments/turn/turn.xml</path>
     <offsets>
-      <x-m> 1.11 </x-m>
-      <y-m>-0.27 </y-m>
+      <x-m> 1.115 </x-m>
+      <y-m>-0.24 </y-m>
       <z-m> 0.77 </z-m>
     </offsets>
   </model>
@@ -41,30 +67,39 @@
   <model>
     <path>Instruments/alt/alt.xml</path>
     <offsets>
-      <x-m> 1.12 </x-m>
-      <y-m>-0.17 </y-m>
+      <x-m> 1.125 </x-m>
+      <y-m>-0.14 </y-m>
       <z-m> 0.87 </z-m>
     </offsets>
   </model>
   <model>
     <path>Instruments/vsi/vsi.xml</path>
     <offsets>
-      <x-m> 1.11 </x-m>
-      <y-m>-0.17 </y-m>
+      <x-m> 1.115 </x-m>
+      <y-m>-0.14 </y-m>
       <z-m> 0.77 </z-m>
     </offsets>
   </model>
   
+  <model>
+    <path>Instruments/ipad/ipad.xml</path>
+    <offsets>
+      <x-m> 1.195 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0.8 </z-m>
+    </offsets>
+  </model>
 
+  <!-- Yoke-->
   <animation>
     <type>rotate</type>
     <object-name>yoke</object-name>
     <object-name>yoke cover</object-name>
     <property>controls/flight/elevator</property>
     <interpolation>
-      <entry><ind>-1</ind><dep>-23</dep></entry>
+      <entry><ind>-1</ind><dep>-33</dep></entry>
       <entry><ind> 0</ind><dep>  0</dep></entry>
-      <entry><ind> 1</ind><dep> 23</dep></entry>
+      <entry><ind> 1</ind><dep> 33</dep></entry>
     </interpolation>   
     <center>
       <x-m> 1.27</x-m> 
@@ -84,9 +119,9 @@
     <object-name>yoke cover</object-name>    
     <property>controls/flight/aileron</property>
     <interpolation>
-      <entry><ind>-1</ind><dep>-23</dep></entry>
+      <entry><ind>-1</ind><dep>-33</dep></entry>
       <entry><ind> 0</ind><dep>  0</dep></entry>
-      <entry><ind> 1</ind><dep> 23</dep></entry>
+      <entry><ind> 1</ind><dep> 33</dep></entry>
     </interpolation>   
     <center>
       <x-m> 1.27</x-m> 
@@ -99,5 +134,7 @@
       <z> 0</z>
     </axis>
   </animation>
+
+  <!-- Flap indicator -->
 
 </PropertyList>

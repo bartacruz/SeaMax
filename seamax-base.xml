@@ -27,7 +27,7 @@
                 <default-field-of-view-deg type="double">110h</default-field-of-view-deg>
             </config>
         </view>
-
+        <flaps include="Systems/flaps.xml" />
         <sound>
             <path>Aircraft/A24-Viking/Sounds/a24-sound.xml</path>
         </sound>
@@ -116,6 +116,8 @@
         <hackman>
             <file>Aircraft/SeaMax/Nasal/hackman.nas</file>
         </hackman>
-
+        <canvas_map>
+            <file>Aircraft/SeaMax/Models/Interior/Instruments/ipad/canvas_map.nas</file>
+        </canvas_map>
     </nasal>
 </PropertyList>

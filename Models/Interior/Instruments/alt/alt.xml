@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PropertyList>
 	<path>alt.ac</path>
-	<!-- <effect>
-		<inherits-from>../../../../Effects/Glass/glass</inherits-from>
+	<effect>
+		<inherits-from>../../../Effects/Glass/glass</inherits-from>
 		<object-name>alt.glass</object-name>
-	</effect> -->
+	</effect>
 	<animation>
 		<type>material</type>
 		<object-name>alt.face</object-name>
@@ -15,7 +15,7 @@
 			<red>   0.07 </red>
 			<green> 0.04 </green>
 			<blue>  0.04 </blue>
-			<factor-prop>systems/electrical/outputs/panel-light[2]</factor-prop>
+			<factor-prop>systems/electrical/outputs/panel-light</factor-prop>
 		</emission>
 	</animation>
 	<animation>
