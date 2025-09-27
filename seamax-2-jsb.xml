@@ -36,7 +36,7 @@
     CL-max:        1.4
     CD-0:          0.024
     K:             0.04
-
+    CG empty:      2.53m (99.6in)
 -->
 
  <metrics>
@@ -48,17 +48,17 @@
    <htailarm  unit="FT" >    9.19 </htailarm>
    <vtailarea unit="FT2">    7.27 </vtailarea>
    <vtailarm  unit="FT" >    8.86 </vtailarm>
-   <location name="AERORP" unit="IN">
-     <x> 127.96 </x>
-     <y>   0.00 </y>
-     <z>   0.00 </z>
+   <location name="AERORP" unit="M">
+     <x> 2.53 </x>
+     <y> 0.00 </y>
+     <z> 0.72   </z>
    </location>
-   <location name="EYEPOINT" unit="IN">
-     <x>  30.97 </x>
-     <y> -18.00 </y>
-     <z>  45.00 </z>
+   <location name="EYEPOINT" unit="M">
+     <x>  1.54 </x>
+     <y>  0.27 </y>
+     <z>  1.17 </z>
    </location>
-   <location name="VRP" unit="IN">
+   <location name="VRP" unit="M">
      <x>0</x>
      <y>0</y>
      <z>0</z>
@@ -66,33 +66,53 @@
  </metrics>
 
  <mass_balance>
+    <!-- <ixx unit="SLUG*FT2">       706 </ixx>
+	<iyy unit="SLUG*FT2">       245 </iyy>
+	<izz unit="SLUG*FT2">       871 </izz> -->
    <ixx unit="SLUG*FT2">       465 </ixx>
    <iyy unit="SLUG*FT2">       298 </iyy>
    <izz unit="SLUG*FT2">       721 </izz>
    <emptywt unit="LBS" >       752 </emptywt>
-   <location name="CG" unit="IN">
-     <x> 127.96 </x>
+   <!-- min: 84.7 in max 94 in-->
+   <location name="CG" unit="M">
+     <x> 2.53 </x>
      <y>   0.00 </y>
-     <z>  -5.96 </z>
+     <z>  0.57 </z>
    </location>
-   <pointmass name="Payload">
+   <pointmass name="Pilot">
+    <weight unit="KG">    80 </weight>
+    <location name="Pilot" unit="M">
+      <x> 1.52 </x>
+      <y> -0.35 </y>
+      <z> 0.7 </z>
+    </location>
+  </pointmass>
+  <pointmass name="Co-Pilot">
+    <weight unit="KG">    80 </weight>
+    <location name="Co-Pilot" unit="M">
+      <x> 1.52 </x>
+      <y> 0.35 </y>
+      <z> 0.7 </z>
+    </location>
+  </pointmass>
+   <!-- <pointmass name="Payload">
     <description> 375 LBS + full (196 LBS) fuel should bring model up to entered max weight</description>
     <weight unit="LBS">    187.6 </weight>
-    <location name="POINTMASS" unit="IN">
+    <location name="POINTMASS" unit="M">
       <x> 127.96 </x>
       <y>   0.00 </y>
-      <z>  -5.96 </z>
+      <z>  0.57 </z>
     </location>
-  </pointmass> 
+  </pointmass>  -->
  </mass_balance>
 
  <ground_reactions>
 
   <contact type="BOGEY" name="NOSE">
-   <location unit="IN">
-     <x>  30.97 </x>
+   <location unit="M">
+     <x>  0.19 </x>
      <y>   0.00 </y>
-     <z> -28.58 </z>
+     <z> 0.14 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -105,10 +125,10 @@
   </contact>
 
   <contact type="BOGEY" name="LEFT_MAIN">
-   <location unit="IN">
-     <x> 133.08 </x>
-     <y> -35.72 </y>
-     <z> -28.58 </z>
+   <location unit="M">
+     <x> 2.5 </x>
+     <y> -0.88 </y>
+     <z> 0.14 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -121,10 +141,10 @@
   </contact>
 
   <contact type="BOGEY" name="RIGHT_MAIN">
-   <location unit="IN">
-     <x> 133.08 </x>
-     <y>  35.72 </y>
-     <z> -28.58 </z>
+   <location unit="M">
+    <x> 2.5 </x>
+    <y> 0.88 </y>
+    <z> 0.14 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -137,10 +157,10 @@
   </contact>
 
   <contact type="STRUCTURE" name="LEFT_WING">
-    <location unit="IN">
-     <x> 127.96 </x>
-     <y> -16.54 </y>
-     <z>  -5.96 </z>
+    <location unit="M">
+     <x> 2.345 </x>
+     <y> -5.21 </y>
+     <z>  1.47 </z>
     </location>
     <static_friction>  1.00 </static_friction>
     <dynamic_friction> 1.00 </dynamic_friction>
@@ -149,10 +169,10 @@
   </contact>
 
   <contact type="STRUCTURE" name="RIGHT_WING">
-    <location unit="IN">
-     <x> 127.96 </x>
-     <y>  16.54 </y>
-     <z>  -5.96 </z>
+    <location unit="M">
+      <x> 2.345 </x>
+        <y>  5.21 </y>
+        <z>  1.47 </z>
     </location>
     <static_friction>  1.00 </static_friction>
     <dynamic_friction> 1.00 </dynamic_friction>
@@ -165,26 +185,21 @@
  <propulsion>
 
    <engine file="Rotax-912-is">
-    <location unit="IN">
-      <x> 127.96 </x>
-      <y>   0.00 </y>
-      <z> -12.00 </z>
+    <location unit="M">
+      <x> 2.95 </x>
+      <y>  0.00 </y>
+      <z>  1.72</z>
     </location>
-    <orient unit="DEG">
-      <pitch> 0.00 </pitch>
-      <roll>  0.00 </roll>
-      <yaw>   0.00 </yaw>
-    </orient>
     <feed>0</feed>
     <thruster file="Senseich-68">
      <sense> 1 </sense>
-     <location unit="IN">
-       <x> 127.96 </x>
+     <location unit="M">
+       <x> 3.3 </x>
        <y>   0.00 </y>
-       <z> -12.00 </z>
+       <z> 1.72 </z>
      </location>
      <orient unit="DEG">
-       <pitch> 0.00 </pitch>
+       <pitch> 3.00 </pitch>
        <roll>  0.00 </roll>
        <yaw>   0.00 </yaw>
      </orient>
@@ -192,23 +207,23 @@
   </engine>
 
   <tank type="FUEL" number="0">
-     <location unit="IN">
-       <x> 127.96 </x>
-       <y>   0.00 </y>
-       <z>  -5.96 </z>
+     <location unit="M">
+       <x> 2.3 </x>
+       <y> -1.0 </y>
+       <z>  1.41 </z>
      </location>
-     <capacity unit="LBS">  97.90 </capacity>
-     <contents unit="LBS">  48.95 </contents>
+     <capacity unit="LBS">  76.90 </capacity>
+     <contents unit="LBS">  48.84 </contents>
   </tank>
 
   <tank type="FUEL" number="1">
-     <location unit="IN">
-       <x> 127.96 </x>
-       <y>   0.00 </y>
-       <z>  -5.96 </z>
+     <location unit="M">
+        <x> 2.3 </x>
+        <y>  1.0 </y>
+        <z>  1.41 </z>
      </location>
-     <capacity unit="LBS">  97.90 </capacity>
-     <contents unit="LBS">  48.95 </contents>
+     <capacity unit="LBS">  76.90 </capacity>
+     <contents unit="LBS">  48.84 </contents>
   </tank>
 
  </propulsion>
@@ -351,11 +366,11 @@
           <time>      0 </time>
        </setting>
        <setting>
-          <position> 15 </position>
-          <time>      4 </time>
+          <position> 10 </position>
+          <time>      2 </time>
        </setting>
        <setting>
-          <position> 30 </position>
+          <position> 35 </position>
           <time>      3 </time>
        </setting>
      </traverse>
@@ -366,7 +381,7 @@
       <input>fcs/flap-pos-deg</input>
       <domain>
         <min>  0 </min>
-        <max> 30 </max>
+        <max> 35 </max>
       </domain>
       <range>
         <min> 0 </min>
@@ -387,7 +402,7 @@
        </setting>
        <setting>
           <position> 1 </position>
-          <time>     5 </time>
+          <time>     3 </time>
        </setting>
      </traverse>
      <output>gear/gear-pos-norm</output>
@@ -428,8 +443,8 @@
             <independentVar lookup="row">aero/alpha-rad</independentVar>
             <tableData>
               -0.20 -0.750
-               0.00  0.250
-               0.23  1.400
+               0.00  0.350
+               0.23  1.600
                0.60  0.710
             </tableData>
           </table>
@@ -531,7 +546,7 @@
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>gear/gear-pos-norm</property>
-           <value>0.03</value>
+           <value>0.001</value>
          </product>
     </function>
 
@@ -659,7 +674,21 @@
            <property>metrics/Sw-sqft</property>
            <property>metrics/cbarw-ft</property>
            <property>aero/alpha-rad</property>
-           <value>-0.5</value>
+           <!-- <value>-0.5</value> -->
+           <value>-0.7</value>
+           <!--from c172p-->
+           <table>
+             <independentVar lookup="row">aero/alpha-deg</independentVar>
+             <tableData>
+               20    1
+               25    0.6
+               35    0.4
+               45    0.5
+               55    0.4
+               65    0.2
+               90    0.1
+             </tableData>
+           </table>
        </product>
     </function>
 
@@ -673,7 +702,7 @@
           <table>
             <independentVar lookup="row">velocities/mach</independentVar>
             <tableData>
-              0.0     -1.100
+              0.0     -1.500
               2.0     -0.275
             </tableData>
           </table>
