@@ -33,11 +33,8 @@
     <object-name>face</object-name>
     <object-name>needle</object-name>
     <object-name>slipball</object-name>
-    <condition>
-      <property>/controls/electric/battery-switch</property>
-    </condition>
     <emission>
-      <factor-prop>/controls/lighting/instrument-lights</factor-prop>
+      <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
       <red>   0.50 </red>
       <green> 0.40 </green>
       <blue>  0.30 </blue>
