@@ -102,7 +102,7 @@
 
  <propulsion>
 
-   <engine file="Rotax-912-uls">
+   <engine file="Rotax-912-is">
     <location unit="IN">
       <x>   127.95 </x>
       <y>     0.00 </y>
@@ -115,7 +115,7 @@
     </orient>
     <feed> 0 </feed>
 
-    <thruster file="senseich-68">
+    <thruster file="Senseich-68">
      <sense> 1 </sense>
      <location unit="IN">
        <x>   127.95 </x>
