@@ -49,14 +49,14 @@
    <vtailarea unit="FT2">    7.27 </vtailarea>
    <vtailarm  unit="FT" >    8.86 </vtailarm>
    <location name="AERORP" unit="M">
-     <x> 2.53 </x>
+     <x> 2.27 </x>
      <y> 0.00 </y>
-     <z> 0.72   </z>
+     <z> 1.3   </z>
    </location>
    <location name="EYEPOINT" unit="M">
-     <x>  1.54 </x>
-     <y>  0.27 </y>
-     <z>  1.17 </z>
+      <x> 1.52 </x>
+      <y> -0.35 </y>
+      <z>  1.17 </z>
    </location>
    <location name="VRP" unit="M">
      <x>0</x>
@@ -77,12 +77,12 @@
    <location name="CG" unit="M">
      <x> 2.53 </x>
      <y>   0.00 </y>
-     <z>  0.57 </z>
+     <z>  1 </z>
    </location>
    <pointmass name="Pilot">
     <weight unit="KG">    80 </weight>
     <location name="Pilot" unit="M">
-      <x> 1.52 </x>
+      <x> 1.67 </x>
       <y> -0.35 </y>
       <z> 0.7 </z>
     </location>
@@ -90,7 +90,23 @@
   <pointmass name="Co-Pilot">
     <weight unit="KG">    80 </weight>
     <location name="Co-Pilot" unit="M">
-      <x> 1.52 </x>
+      <x> 1.67 </x>
+      <y> 0.35 </y>
+      <z> 0.7 </z>
+    </location>
+  </pointmass>
+  <pointmass name="Baggage Pilot">
+    <weight unit="KG">    0 </weight>
+    <location name="Baggage Pilot" unit="M">
+      <x> 2.2 </x>
+      <y>-0.35 </y>
+      <z> 0.7 </z>
+    </location>
+  </pointmass>
+  <pointmass name="Baggage Co-Pilot">
+    <weight unit="KG">    0 </weight>
+    <location name="Baggage Co-Pilot" unit="M">
+      <x> 2.2 </x>
       <y> 0.35 </y>
       <z> 0.7 </z>
     </location>
@@ -191,6 +207,7 @@
       <z>  1.72</z>
     </location>
     <feed>0</feed>
+    <feed>1</feed>
     <thruster file="Senseich-68">
      <sense> 1 </sense>
      <location unit="M">
@@ -199,7 +216,7 @@
        <z> 1.72 </z>
      </location>
      <orient unit="DEG">
-       <pitch> 3.00 </pitch>
+       <pitch> 0.00 </pitch>
        <roll>  0.00 </roll>
        <yaw>   0.00 </yaw>
      </orient>
@@ -426,6 +443,13 @@
      <output>fcs/speedbrake-pos-norm</output>
    </kinematic>
 
+  </channel>
+  <channel name="alpha-wing-rad-to-deg">
+    <pure_gain name="wing-incidence-deg">
+      <input>aero/alpha-wing-rad</input>
+      <gain>57.29578</gain>
+      <output>aero/alpha-wing-deg</output>
+    </pure_gain>
   </channel>
 
  </flight_control>
