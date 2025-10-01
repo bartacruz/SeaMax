@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<system name="seamax hydrodynamics">
+    <property value="0.0">hydro/environment/water-level-ft</property>
+    <property value="1.9736403">hydro/environment/rho-slug_ft3</property>
+    <property value="1.1302106e-05">hydro/environment/kinematic-viscosity-ft2_sec</property>    <!-- Sea water at 20 degC. -->
+
+    <property value="0.0">hydro/environment/current-from-north-fps</property>
+    <property value="0.0">hydro/environment/current-from-east-fps</property>
+
+    <property value="40.0">hydro/environment/waves-from-deg</property>
+    <property value="0.0">hydro/environment/wave-amplitude-ft</property>
+    <property value="150.0">hydro/environment/wave-length-ft</property>
+
+    <channel name="Enable/disable">
+        <fcs_function name="hydro/active-norm">
+            <description>
+                A property that is 0 when no part of the hull is in the water.
+                The maximum value is 1.
+            </description>
+            <function>
+                <product>
+                    <quotient>
+                        <sum>
+                            <property>/fdm/jsbsim/contact/unit[3]/WOW</property>
+                            <property>/fdm/jsbsim/contact/unit[4]/WOW</property>
+                            <property>/fdm/jsbsim/contact/unit[5]/WOW</property>
+                        </sum>
+                        <value>3</value>
+                    </quotient>
+                    <property><not>ground/solid</not></property>
+                </product>
+            </function>
+        </fcs_function>
+        <fcs_function name="hydro/center-ground-effect-speed-kt">
+            <function>
+                <product>
+                    <property>/fdm/jsbsim/contact/unit[3]/WOW</property>
+                    <property>/velocities/groundspeed-kt</property>
+                </product>
+            </function>
+        </fcs_function>
+        <fcs_function name="hydro/left-ground-effect-speed-kt">
+            <function>
+                <product>
+                    <property>/fdm/jsbsim/contact/unit[4]/WOW</property>
+                    <property>/velocities/groundspeed-kt</property>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="hydro/right-ground-effect-speed-kt">
+            <function>
+                <product>
+                    <property>/fdm/jsbsim/contact/unit[5]/WOW</property>
+                    <property>/velocities/groundspeed-kt</property>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="hydro/ground-effect-speed-kt">
+            <function>
+                <sum>
+                    <property>hydro/center-ground-effect-speed-kt</property>
+                    <property>hydro/left-ground-effect-speed-kt</property>
+                    <property>hydro/right-ground-effect-speed-kt</property>
+                </sum>
+            </function>
+        </fcs_function>
+
+        <switch name="power-regime">
+            <default value="0"/>
+            <test logic="AND" value="1">
+                /engines/active-engine/rpm LT 3000
+            </test>
+            <output>/fdm/jsbsim/hydro/power-regime</output>
+        </switch>
+    </channel>
+    <channel name="Environment">
+
+        <fcs_function name="hydro/environment/rho-lbs_ft3">
+            <function>
+                <product>
+                    <value>32.174049</value>
+                    <property>hydro/environment/rho-slug_ft3</property>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="hydro/environment/gravity-ft_sec2">
+            <function>
+                <quotient>
+                    <property>inertia/weight-lbs</property>
+                    <property>inertia/mass-slugs</property>
+                </quotient>
+            </function>
+        </fcs_function>
+
+    </channel>
+
+
+    <channel name="Implementation Force Z (up)">
+
+        <fcs_function name="hydro/buoyancy-lbs">
+            <documentation>
+                Lift due to buoyancy.
+                This data was computed in Gerris using the 3d model.
+            </documentation>
+            <function>
+                <product>
+                    <value>1.0</value>
+                    <property>hydro/environment/rho-slug_ft3</property>
+                    <property>hydro/environment/gravity-ft_sec2</property>
+                    <value>20</value>
+                </product>
+            </function>
+        </fcs_function>
+
+        <fcs_function name="hydro/fbz-lbs">
+            <function>
+                <product>
+                    <property>hydro/ground-effect-speed-kt</property>
+                    <value>20</value>
+                </product>
+            </function>
+        </fcs_function>
+        <summer name="hydro/Z/force-lbs">
+            <input> hydro/fbz-lbs </input>
+            <output> external_reactions/hydro-Z/magnitude </output>
+        </summer>
+    </channel>
+
+</system>

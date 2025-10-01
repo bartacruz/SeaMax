@@ -49,7 +49,7 @@
    <vtailarea unit="FT2">    7.27 </vtailarea>
    <vtailarm  unit="FT" >    8.86 </vtailarm>
    <location name="AERORP" unit="M">
-     <x> 2.27 </x>
+     <x> 2.2 </x>
      <y> 0.00 </y>
      <z> 1.3   </z>
    </location>
@@ -128,7 +128,7 @@
    <location unit="M">
      <x>  0.19 </x>
      <y>   0.00 </y>
-     <z> 0.14 </z>
+     <z> 0 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -144,7 +144,7 @@
    <location unit="M">
      <x> 2.5 </x>
      <y> -0.88 </y>
-     <z> 0.14 </z>
+     <z> 0 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -160,7 +160,7 @@
    <location unit="M">
     <x> 2.5 </x>
     <y> 0.88 </y>
-    <z> 0.14 </z>
+    <z> 0 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -171,8 +171,73 @@
    <brake_group>RIGHT</brake_group>
    <retractable>1</retractable>
   </contact>
+  
+  <contact type="STRUCTURE" name="CENTER_HULL">
+    <location unit="M">
+      <x> 1.0 </x>
+      <y> 0 </y>
+      <z> 0.3 </z>
+    </location>
+    <static_friction>0.002</static_friction>
+    <dynamic_friction>0.01</dynamic_friction>
+    <rolling_friction> 0.01</rolling_friction>
+    <spring_coeff unit="LBS/FT">1000.00 </spring_coeff>
+    <damping_coeff unit="LBS/FT/SEC">300.00 </damping_coeff>
+  </contact>
+  
+  <contact type="STRUCTURE" name="LEFT_HULL">
+    <location unit="M">
+      <x> 3 </x>
+      <y> -0.6 </y>
+      <z> 0.3 </z>
+    </location>
+    <static_friction>0.2</static_friction>
+    <dynamic_friction>0.1</dynamic_friction>
+    <rolling_friction> 0.01</rolling_friction>
+    <spring_coeff unit="LBS/FT">10000.00 </spring_coeff>
+    <damping_coeff unit="LBS/FT/SEC">2500.00 </damping_coeff>
+   </contact>
 
-  <contact type="STRUCTURE" name="LEFT_WING">
+   <contact type="STRUCTURE" name="RIGHT_HULL">
+    <location unit="M">
+     <x> 3 </x>
+     <y> 0.6 </y>
+     <z> 0.3 </z>
+    </location>
+    <static_friction>0.2</static_friction>
+    <dynamic_friction>0.1</dynamic_friction>
+    <rolling_friction> 0.01</rolling_friction>
+    <spring_coeff unit="LBS/FT">10000.00 </spring_coeff>
+    <damping_coeff unit="LBS/FT/SEC">2500.00 </damping_coeff>
+   </contact>
+  
+   <contact type="STRUCTURE" name="LEFT_FLOAT">
+    <location unit="M">
+     <x> 2.0 </x>
+     <y> -4.6 </y>
+     <z> 0.8 </z>
+    </location>
+    <static_friction>0.002</static_friction>
+    <dynamic_friction>0.1</dynamic_friction>
+    <rolling_friction> 0.1</rolling_friction>
+    <spring_coeff unit="LBS/FT">10000.00 </spring_coeff>
+    <damping_coeff unit="LBS/FT/SEC">2500.00 </damping_coeff>
+   </contact>
+
+   <contact type="STRUCTURE" name="RIGHT_FLOAT">
+    <location unit="M">
+      <x> 2.0 </x>
+      <y> 4.6 </y>
+      <z> 0.8 </z>
+    </location>
+    <static_friction>0.002</static_friction>
+    <dynamic_friction>0.01</dynamic_friction>
+    <rolling_friction> 0.01</rolling_friction>
+    <spring_coeff unit="LBS/FT">10000.00 </spring_coeff>
+    <damping_coeff unit="LBS/FT/SEC">2500.00 </damping_coeff>
+   </contact>
+
+   <contact type="STRUCTURE" name="LEFT_WING">
     <location unit="M">
      <x> 2.345 </x>
      <y> -5.21 </y>
@@ -198,6 +263,7 @@
 
  </ground_reactions>
 
+ 
  <propulsion>
 
    <engine file="Rotax-912-is">
@@ -809,8 +875,70 @@
   </axis>
 
  </aerodynamics>
-
+ <!-- <system file="hydrodynamics"/> -->
+ <system file="seamax-hydrodynamics2"/>
+ 
+ 
  <external_reactions>
+
+  <force name="hydro-X" frame="LOCAL">
+    <location unit="M">
+      <x> 2.1 </x>
+      <y> 0.00 </y>
+      <z> 0.3   </z>
+    </location>
+    <direction>
+      <x> 1.0 </x>
+      <y> 0.0 </y>
+      <z> 0.0 </z>
+    </direction>
+  </force>
+  <force name="hydro-Y" frame="LOCAL">
+    <location unit="M">
+      <x> 2.1 </x>
+      <y> 0.00 </y>
+      <z> 0.3   </z>
+    </location>
+    <direction>
+      <x> 0.0 </x>
+      <y> 1.0 </y>
+      <z> 0.0 </z>
+    </direction>
+  </force>
+  <force name="hydro-Z" frame="LOCAL">
+    <location unit="M">
+      <x> 2.1 </x>
+      <y> 0.00 </y>
+      <z> 0.3   </z>
+    </location>
+    <direction>
+      <x> 0.0 </x>
+      <y> 0.0 </y>
+      <z>-1.0 </z>
+    </direction>
+  </force>
+  <moment name="hydro-pitch" frame="BODY" unit="LBSFT">
+    <direction>
+      <x> 0.0 </x>
+      <y> 1.0 </y>
+      <z> 0.0 </z>
+    </direction>
+  </moment>
+  <moment name="hydro-roll" frame="BODY" unit="LBSFT">
+    <direction>
+      <x> 1.0 </x>
+      <y> 0.0 </y>
+      <z> 0.0 </z>
+    </direction>
+  </moment>
+  <moment name="hydro-yaw" frame="BODY" unit="LBSFT">
+    <direction>
+      <x> 0.0 </x>
+      <y> 0.0 </y>
+      <z> 1.0 </z>
+    </direction>
+  </moment>
+
  </external_reactions>
 
 </fdm_config>

@@ -98,6 +98,9 @@
             <t-pressure-diff type="float">0</t-pressure-diff>
             <t-pressure-norm type="float">0</t-pressure-norm>
         </engine>
+        <active-engine>
+            <rpm alias="/engines/engine/rpm"/>
+        </active-engine>
     </engines>
     <controls>
         <fuel>
@@ -109,10 +112,16 @@
                 <hackman type="bool">false</hackman>
             </engine>
         </engines>
+        <gear>
+            <water-rudder-down type="bool">0</water-rudder-down>
+        </gear>
     </controls>
 
 
     <nasal>
+        <seamax>
+            <file>Aircraft/SeaMax/Nasal/init.nas</file>
+        </seamax>
         <hackman>
             <file>Aircraft/SeaMax/Nasal/hackman.nas</file>
         </hackman>
