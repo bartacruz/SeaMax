@@ -18806,7 +18806,7 @@ name "seat buckle left"
 data 11
 sea max.052
 crease 40.0
-texture "Sea_Max_mask_001.jpg"
+texture "Sea_Max_zamsha_2.jpg"
 numvert 1712
 1.65433 0.77828 0.27823
 1.65433 0.77477 0.33002
@@ -45544,7 +45544,7 @@ name "seat left"
 data 11
 sea max.016
 crease 40.0
-texture "Sea_Max_mask_001.jpg"
+texture "Sea_Max_zamsha_2.jpg"
 numvert 2622
 1.36746 0.51508 0.46096
 1.40489 0.52816 0.46073
@@ -87430,7 +87430,7 @@ name "seatbelts left"
 data 11
 sea max.048
 crease 40.0
-texture "Sea_Max_mask_001.jpg"
+texture "Sea_Max_zamsha_2.jpg"
 numvert 1449
 1.72266 1.11489 0.33622
 1.60102 0.52281 0.21015
