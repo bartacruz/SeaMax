@@ -123,6 +123,39 @@
         </axis>
       </animation>
 
+      <!-- Flap Left -->
+      <animation>
+        <type>rotate</type>
+        <object-name>flap left</object-name>
+        <property>/surface-positions/flap-pos-norm</property>
+        <factor>-35</factor>
+        <axis>
+          <x1-m> 2.766</x1-m>
+          <y1-m>-0.735</y1-m>
+          <z1-m> 1.300</z1-m>
+          <x2-m> 2.766</x2-m>
+          <y2-m>-2.808</y2-m>
+          <z2-m> 1.367</z2-m>
+        </axis>
+      </animation>
+      
+      <!-- Flap Right-->
+      <animation>
+        <type>rotate</type>
+        <object-name>flap right</object-name>
+        <property>/surface-positions/flap-pos-norm</property>
+        <factor>35</factor>
+        <axis>
+          <x1-m> 2.766</x1-m>
+          <y1-m> 0.735</y1-m>
+          <z1-m> 1.300</z1-m>
+          <x2-m> 2.766</x2-m>
+          <y2-m> 2.808</y2-m>
+          <z2-m> 1.367</z2-m>
+        </axis>
+      </animation>
+      
+
       <!-- Elevator-->
       <animation>
         <type>rotate</type>
@@ -152,11 +185,6 @@
         <object-name>rudder</object-name>
         <property>controls/flight/rudder</property>
         <factor>-22</factor>
-        <!-- <interpolation>
-          <entry><ind>-1</ind><dep>-22.0</dep></entry>
-          <entry><ind> 0</ind><dep>  0</dep></entry>
-          <entry><ind> 1</ind><dep> 22.0</dep></entry>
-        </interpolation>    -->
         <axis>
           <x1-m>5.62</x1-m>
           <y1-m>0</y1-m>
@@ -167,11 +195,51 @@
         </axis>
       </animation>
 
+      <!-- Nose gear -->
+      <animation>
+        <type>translate</type>
+        <object-name>tire front</object-name>
+        <object-name>fg assy</object-name>
+        <object-name>fg wheel</object-name>
+        <property>gear/gear[0]/position-norm</property>
+        <interpolation>
+          <entry><ind>0.0</ind><dep>0.4</dep></entry>
+          <entry><ind>1.0</ind><dep> 0.0</dep></entry>
+        </interpolation>   
+        <axis>
+          <x1-m> 0.194</x1-m>
+          <y1-m> 0 </y1-m>
+          <z1-m> 0.1959</z1-m>
+          <x2-m> 0.375</x2-m>
+          <y2-m> 0</y2-m>
+          <z2-m> 0.72</z2-m>
+          
+        </axis>
+      </animation>
+      <animation>
+        <type>rotate</type>
+        <object-name>fg arm</object-name>
+        <object-name>fg door</object-name>
+        <property>gear/gear[0]/position-norm</property>
+        <interpolation>
+          <entry><ind>0.0</ind><dep>40</dep></entry>
+          <entry><ind>1.0</ind><dep> 0.0</dep></entry>
+        </interpolation>
+        <center>
+          <x-m> 0.56</x-m>
+          <y-m> 0   </y-m>
+          <z-m> 0.56</z-m>
+        </center>
+        <axis>
+          <x>0</x>
+          <y>1</y>
+          <z>0</z>
+        </axis>
+      </animation>
       <!-- Left gear -->
       <animation>
         <type>rotate</type>
         <object-name>lg assy</object-name>
-        <!-- <object-name>lg brake line</object-name> -->
         <object-name>lg door</object-name>
         <object-name>lg tire</object-name>
         <object-name>lg wheel</object-name>
@@ -188,15 +256,8 @@
           <y1-m> -0.55247 </y1-m>
           <z1-m> 0.333</z1-m>
         </axis>
-        <!-- <axis>
-          <x2-m> 2.31</x2-m>
-          <y2-m>-0.6917</y2-m>
-          <z2-m> 0.323</z2-m>
-          <x1-m> 2.677</x1-m>
-          <y1-m>-0.6424 </y1-m>
-          <z1-m> 0.3338</z1-m>
-        </axis> -->
       </animation>
+
       <animation>
         <type>translate</type>
         <object-name>lg strut</object-name>
@@ -249,6 +310,8 @@
           <z> 0.1</z>
         </axis>
       </animation>
+
+
 
       <!-- Canopy -->
       <animation>
