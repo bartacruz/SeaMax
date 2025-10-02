@@ -134,6 +134,28 @@
             <reference-dist>5.0</reference-dist>
             <max-dist>10.0</max-dist>
         </gear>
+        
+        <canopy>
+            <name>canopy</name>
+            <mode>in-transit</mode>
+            <path>pneumatic-door.wav</path>
+            <property>sim/model/door-positions/canopy/position-norm</property>
+            <pitch>
+                <internal>dt_play</internal>
+                <offset>1.0</offset>
+                <factor>-0.001</factor>
+            </pitch>
+            <position>
+                <x>1.5</x>
+                <y>0</y>
+                <z>1</z>
+            </position>
+            <volume>
+                <factor>0.7</factor>
+            </volume>
+            <reference-dist>5.0</reference-dist>
+            <max-dist>30.0</max-dist>
+        </canopy>
 
         <pavement-roll>
             <name>pavement-roll</name>

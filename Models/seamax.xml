@@ -335,5 +335,28 @@
         </axis>
       </animation>
 
+      <animation>
+        <type>pick</type>
+        <object-name>canopy</object-name>
+        <action>
+          <button>0</button>
+          <repeatable>false</repeatable>
+          <binding>
+            <!-- <condition>
+              <and>
+                <property>/gear/gear[0]/wow</property>
+                <property>/gear/gear[1]/wow</property>
+                <property>/gear/gear[2]/wow</property>
+                <less-than>
+                  <property>/gear/gear[0]/rollspeed-ms</property>
+                  <value>10</value>
+                </less-than>
+              </and>
+            </condition> -->
+            <command>nasal</command>
+            <script>seamax.canopy.toggle();</script>
+          </binding>
+        </action>
+      </animation>
 </PropertyList>
   

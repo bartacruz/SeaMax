@@ -1,3 +1,5 @@
+canopy  = aircraft.door.new("/sim/model/door-positions/canopy", 1, 0 );
+
 var check_ground = func() {
     var solid = getprop("/fdm/jsbsim/ground/solid");
     print("SOLID? ", solid);
