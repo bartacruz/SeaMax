@@ -29,7 +29,7 @@
         </view>
         <flaps include="Systems/flaps.xml" />
         <sound>
-            <path>Aircraft/A24-Viking/Sounds/a24-sound.xml</path>
+            <path>Sounds/seamax-sound.xml</path>
         </sound>
         <weight n="0">
             <name type="string">Pilot</name>
