@@ -39,10 +39,10 @@
     <type>select</type>
     <object-name>light</object-name>
     <condition>
-      <equals>
+      <greater-than-equals>
         <property>controls/flight/flaps</property>
         <value>0</value>
-      </equals>
+      </greater-than-equals>
     </condition>
   </animation>
 
