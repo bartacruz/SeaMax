@@ -310,7 +310,7 @@
  </propulsion>
 
  <system file="seamax-fuel"/>
- <system file="seamax-hydrodynamics2"/>
+ <system file="seamax-hydrodynamics"/>
 
  <flight_control name="FCS: seamax">
 
