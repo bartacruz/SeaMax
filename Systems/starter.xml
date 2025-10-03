@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+    <logic>
+        <name>Engine Starter</name>
+        <input>
+            <and>
+                <less-than>
+                    <property>/systems/electrical/outputs/starter-bus</property>
+                    <value>14.5</value>
+                </less-than>
+                <greater-than>
+                    <property>/systems/electrical/outputs/starter-bus</property>
+                    <value>12.0</value>
+                </greater-than>
+				<property>/controls/switches/starter</property>
+            </and>
+        </input>
+        <output>
+            <property>/controls/engines/engine[0]/starter</property>
+        </output>
+    </logic>
+
+</PropertyList>

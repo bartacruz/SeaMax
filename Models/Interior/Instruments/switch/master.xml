@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+    <path>switch-cover.ac</path>
+    <animation>
+        <object-name>base</object-name>
+        <object-name>cover</object-name>
+        <object-name>round</object-name>
+        <object-name>sides</object-name>
+        <object-name>switch</object-name>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <visible>true</visible>
+        <object-name>cover</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/switches/master-cover</property>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>cover</object-name>
+        <property>controls/switches/master-cover</property>
+        <factor> 90 </factor>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0.027</z-m>
+        </center>
+        <axis>
+            <x>  0 </x>
+            <y> -1 </y>
+            <z>  0 </z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <visible>true</visible>
+        <object-name>switch</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/electric/master-switch</property>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>switch</object-name>
+        <property>controls/electric/master-switch</property>
+        <factor> 40 </factor>
+        <center>
+            <x-m>-0.005</x-m>
+            <y-m>0</y-m>
+            <z-m>0.0064</z-m>
+        </center>
+        <axis>
+            <x>  0 </x>
+            <y>  1 </y>
+            <z>  0 </z>
+        </axis>
+    </animation>
+</PropertyList>

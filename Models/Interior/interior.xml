@@ -137,16 +137,15 @@
 
   <!-- Overhead panel -->
 
-  <!-- Landing lights-->
+  <!-- Landing light-->
   <animation>
     <type>material</type>
     <object-name>button landing</object-name>  
     <emission>
-      <!-- <factor-prop>systems/electrical/outputs/landing-light</factor-prop> -->
-      <factor-prop>/controls/lighting/landing-light</factor-prop>
-      <red>   0.008 </red>
-      <green> 0.5 </green>
-      <blue>  0.004 </blue>
+      <factor-prop>systems/electrical/outputs/landing-light</factor-prop>
+      <red>   0.002 </red>
+      <green> 0.036 </green>
+      <blue>  0.002 </blue>
     </emission>
   </animation>
   
@@ -186,10 +185,9 @@
     <type>material</type>
     <object-name>button strobe</object-name>
     <emission>
-      <factor-prop>controls/lighting/strobe-lights</factor-prop>
-      <!-- <factor-prop>systems/electrical/outputs/strobe-lights</factor-prop> -->
+      <factor-prop>systems/electrical/outputs/strobe-lights</factor-prop>
       <red>   0.002 </red>
-      <green> 0.5 </green>
+      <green> 0.036 </green>
       <blue>  0.002 </blue>
     </emission>
   </animation>
@@ -233,11 +231,10 @@
     <object-name>button nav</object-name>
     
     <emission>
-      <!-- <factor-prop>systems/electrical/outputs/nav-lights</factor-prop> -->
-      <factor-prop>controls/lighting/nav-lights</factor-prop>
-      <red>   0.008 </red>
-      <green> 0.5 </green>
-      <blue>  0.004 </blue>
+      <factor-prop>systems/electrical/outputs/nav-lights</factor-prop>
+      <red>   0.002 </red>
+      <green> 0.036 </green>
+      <blue>  0.002 </blue>
     </emission>
   </animation>
 
@@ -277,9 +274,9 @@
     <type>material</type>
     <object-name>button bilge</object-name>
     <emission>
-      <factor-prop>controls/switches/bilge-pump</factor-prop>
+      <factor-prop>systems/electrical/outputs/bilge-pump</factor-prop>
       <red>   0.002 </red>
-      <green> 0.5 </green>
+      <green> 0.036 </green>
       <blue>  0.002 </blue>
     </emission>
   </animation>
@@ -319,13 +316,10 @@
   <animation>
     <type>material</type>
     <object-name>button fuel pump</object-name>
-    <condition>
-      <property>/controls/electric/battery-switch</property>
-    </condition>
     <emission>
-      <factor-prop>controls/switches/fuel-pump</factor-prop>
+      <factor-prop>systems/electrical/outputs/fuel-pump</factor-prop>
       <red>   0.002 </red>
-      <green> 0.5 </green>
+      <green> 0.036 </green>
       <blue>  0.002 </blue>
     </emission>
   </animation>
@@ -339,7 +333,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>controls/switches/fuel-pump</property>
+        <property>controls/fuel/tank/boost-pump</property>
       </binding>
     </action>
   </animation>
@@ -347,7 +341,7 @@
   <animation>
     <type>rotate</type>
     <object-name>button fuel pump</object-name>
-    <property>controls/switches/fuel-pump</property>
+    <property>/controls/fuel/tank/boost-pump</property>
     <factor> 35 </factor>
     <center>
       <x-m>1.53</x-m>
@@ -367,11 +361,10 @@
     <object-name>button instr lights</object-name>
     
     <emission>
-      <!-- <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop> -->
-      <factor>/controls/lighting/instrument-lights</factor>
-      <red>   0.02 </red>
-      <green> 0.5 </green>
-      <blue>  0.02 </blue>
+      <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+      <red>   0.002 </red>
+      <green> 0.036 </green>
+      <blue>  0.002 </blue>
     </emission>
   </animation>
 
@@ -426,90 +419,4 @@
       <pitch-deg>90</pitch-deg>
     </offsets>
   </model>
-<!-- 
-  <model>
-    <path>Instruments/switch/landing-lights.xml</path>
-    <offsets>
-      <x-m>1.72</x-m>
-      <y-m>-0.03</y-m>
-      <z-m> 1.295 </z-m>
-      <pitch-deg>90</pitch-deg>
-      <heading-deg>-90</heading-deg>
-    </offsets>
-
-  </model>
-  <model>
-    <path>Instruments/switch/strobe.xml</path>
-    <offsets>
-      <x-m>1.70</x-m>
-      <y-m>-0.03</y-m>
-      <z-m> 1.295 </z-m>
-      <pitch-deg>90</pitch-deg>
-      <heading-deg>-90</heading-deg>
-    </offsets>
-
-  </model>
-  <model>
-    <path>Instruments/switch/nav-lights.xml</path>
-    <offsets>
-      <x-m>1.68</x-m>
-      <y-m>-0.03</y-m>
-      <z-m> 1.295 </z-m>
-      <pitch-deg>90</pitch-deg>
-      <heading-deg>-90</heading-deg>
-    </offsets>
-
-  </model>
-  
-  <model>
-    <path>Instruments/switch/bilge-pump.xml</path>
-    <offsets>
-      <x-m>1.66</x-m>
-      <y-m>-0.03</y-m>
-      <z-m> 1.295 </z-m>
-      <pitch-deg>90</pitch-deg>
-      <heading-deg>-90</heading-deg>
-    </offsets>
-  </model>
-
-  <model>
-    <path>Instruments/switch/fuel-pump.xml</path>
-    <offsets>
-      <x-m>1.64</x-m>
-      <y-m>-0.03</y-m>
-      <z-m> 1.295 </z-m>
-      <pitch-deg>90</pitch-deg>
-      <heading-deg>-90</heading-deg>
-    </offsets>
-  </model>
-  <model>
-    <path>Instruments/switch/noop.xml</path>
-    <offsets>
-      <x-m>1.62</x-m>
-      <y-m>-0.03</y-m>
-      <z-m> 1.295 </z-m>
-      <pitch-deg>90</pitch-deg>
-      <heading-deg>-90</heading-deg>
-    </offsets>
-  </model>
-  <model>
-    <path>Instruments/switch/noop.xml</path>
-    <offsets>
-      <x-m>1.60</x-m>
-      <y-m>-0.03</y-m>
-      <z-m> 1.295 </z-m>
-      <pitch-deg>90</pitch-deg>
-      <heading-deg>-90</heading-deg>
-    </offsets>
-  </model>
-  <model>
-    <path>Instruments/switch/instr-lights.xml</path>
-    <offsets>
-      <x-m>1.58</x-m>
-      <y-m>-0.03</y-m>
-      <z-m> 1.295 </z-m>
-      <pitch-deg>90</pitch-deg>
-      <heading-deg>-90</heading-deg>
-    </offsets>
-  </model> -->
 </PropertyList>
