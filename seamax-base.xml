@@ -115,6 +115,9 @@
         <gear>
             <water-rudder-down type="bool">0</water-rudder-down>
         </gear>
+        <switches>
+            <master-cover type="bool">true</master-cover>
+        </switches>
     </controls>
 
 

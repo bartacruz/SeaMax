@@ -135,6 +135,381 @@
     </axis>
   </animation>
 
-  <!-- Flap indicator -->
+  <!-- Overhead panel -->
 
+  <!-- Landing lights-->
+  <animation>
+    <type>material</type>
+    <object-name>button landing</object-name>  
+    <emission>
+      <!-- <factor-prop>systems/electrical/outputs/landing-light</factor-prop> -->
+      <factor-prop>/controls/lighting/landing-light</factor-prop>
+      <red>   0.008 </red>
+      <green> 0.5 </green>
+      <blue>  0.004 </blue>
+    </emission>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <visible>true</visible>
+    <object-name>button landing</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/lighting/landing-light</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>button landing</object-name>
+    <property>/controls/lighting/landing-light</property>
+    <factor> 35 </factor>
+    <center>
+      <x-m>1.53</x-m>
+      <y-m>0.005</y-m>
+      <z-m>1.3</z-m>
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+  
+  <!-- Strobe -->
+  <animation>
+    <type>material</type>
+    <object-name>button strobe</object-name>
+    <emission>
+      <factor-prop>controls/lighting/strobe-lights</factor-prop>
+      <!-- <factor-prop>systems/electrical/outputs/strobe-lights</factor-prop> -->
+      <red>   0.002 </red>
+      <green> 0.5 </green>
+      <blue>  0.002 </blue>
+    </emission>
+  </animation>
+  
+  <animation>
+    <object-name>button strobe</object-name>
+    <type>rotate</type>
+    <property>controls/lighting/strobe-lights</property>
+    <factor>  35 </factor>
+    <min-deg>  0 </min-deg>
+    <max-deg> 35 </max-deg>
+    <center>
+      <x-m>1.53</x-m>
+      <y-m>0.005</y-m>
+      <z-m>1.3</z-m>
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <object-name>button strobe</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/lighting/strobe-lights</property>
+      </binding>
+    </action>
+  </animation>
+
+  <!-- Nav lights-->
+  <animation>
+    <type>material</type>
+    <object-name>button nav</object-name>
+    
+    <emission>
+      <!-- <factor-prop>systems/electrical/outputs/nav-lights</factor-prop> -->
+      <factor-prop>controls/lighting/nav-lights</factor-prop>
+      <red>   0.008 </red>
+      <green> 0.5 </green>
+      <blue>  0.004 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <visible>true</visible>
+    <object-name>button nav</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/lighting/nav-lights</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>button nav</object-name>
+    <property>controls/lighting/nav-lights</property>
+    <factor> 35 </factor>
+    <center>
+      <x-m>1.53</x-m>
+      <y-m>0.005</y-m>
+      <z-m>1.3</z-m>
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <!-- Bilge pump-->
+  <animation>
+    <type>material</type>
+    <object-name>button bilge</object-name>
+    <emission>
+      <factor-prop>controls/switches/bilge-pump</factor-prop>
+      <red>   0.002 </red>
+      <green> 0.5 </green>
+      <blue>  0.002 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <visible>true</visible>
+    <object-name>button bilge</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/bilge-pump</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>button bilge</object-name>
+    <property>controls/switches/bilge-pump</property>
+    <factor> 35 </factor>
+    <center>
+      <x-m>1.53</x-m>
+      <y-m>0.005</y-m>
+      <z-m>1.3</z-m>
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <!-- Fuel pump -->
+  <animation>
+    <type>material</type>
+    <object-name>button fuel pump</object-name>
+    <condition>
+      <property>/controls/electric/battery-switch</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/switches/fuel-pump</factor-prop>
+      <red>   0.002 </red>
+      <green> 0.5 </green>
+      <blue>  0.002 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <visible>true</visible>
+    <object-name>button fuel pump</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/fuel-pump</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>button fuel pump</object-name>
+    <property>controls/switches/fuel-pump</property>
+    <factor> 35 </factor>
+    <center>
+      <x-m>1.53</x-m>
+      <y-m>0.005</y-m>
+      <z-m>1.3</z-m>
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <!-- Instrument ligths-->
+  <animation>
+    <type>material</type>
+    <object-name>button instr lights</object-name>
+    
+    <emission>
+      <!-- <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop> -->
+      <factor>/controls/lighting/instrument-lights</factor>
+      <red>   0.02 </red>
+      <green> 0.5 </green>
+      <blue>  0.02 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <visible>true</visible>
+    <object-name>button instr lights</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/lighting/instrument-lights</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>button instr lights</object-name>
+    <property>/controls/lighting/instrument-lights</property>
+    <factor> 35 </factor>
+    <center>
+      <x-m>1.53</x-m>
+      <y-m>0.005</y-m>
+      <z-m>1.3</z-m>
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+
+  <model>
+    <path>Instruments/magneto-switch/magneto-switch.xml</path>
+    <offsets>
+      <x-m>1.77</x-m>
+      <y-m> 0.032</y-m>
+      <z-m> 1.302 </z-m>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>180</heading-deg>
+    </offsets>
+  </model>
+  <model>
+    <path>Instruments/switch/master.xml</path>
+    <offsets>
+      <x-m>1.77</x-m>
+      <y-m>-0.032</y-m>
+      <z-m> 1.285 </z-m>
+      <pitch-deg>90</pitch-deg>
+    </offsets>
+  </model>
+<!-- 
+  <model>
+    <path>Instruments/switch/landing-lights.xml</path>
+    <offsets>
+      <x-m>1.72</x-m>
+      <y-m>-0.03</y-m>
+      <z-m> 1.295 </z-m>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>-90</heading-deg>
+    </offsets>
+
+  </model>
+  <model>
+    <path>Instruments/switch/strobe.xml</path>
+    <offsets>
+      <x-m>1.70</x-m>
+      <y-m>-0.03</y-m>
+      <z-m> 1.295 </z-m>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>-90</heading-deg>
+    </offsets>
+
+  </model>
+  <model>
+    <path>Instruments/switch/nav-lights.xml</path>
+    <offsets>
+      <x-m>1.68</x-m>
+      <y-m>-0.03</y-m>
+      <z-m> 1.295 </z-m>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>-90</heading-deg>
+    </offsets>
+
+  </model>
+  
+  <model>
+    <path>Instruments/switch/bilge-pump.xml</path>
+    <offsets>
+      <x-m>1.66</x-m>
+      <y-m>-0.03</y-m>
+      <z-m> 1.295 </z-m>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>-90</heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Instruments/switch/fuel-pump.xml</path>
+    <offsets>
+      <x-m>1.64</x-m>
+      <y-m>-0.03</y-m>
+      <z-m> 1.295 </z-m>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>-90</heading-deg>
+    </offsets>
+  </model>
+  <model>
+    <path>Instruments/switch/noop.xml</path>
+    <offsets>
+      <x-m>1.62</x-m>
+      <y-m>-0.03</y-m>
+      <z-m> 1.295 </z-m>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>-90</heading-deg>
+    </offsets>
+  </model>
+  <model>
+    <path>Instruments/switch/noop.xml</path>
+    <offsets>
+      <x-m>1.60</x-m>
+      <y-m>-0.03</y-m>
+      <z-m> 1.295 </z-m>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>-90</heading-deg>
+    </offsets>
+  </model>
+  <model>
+    <path>Instruments/switch/instr-lights.xml</path>
+    <offsets>
+      <x-m>1.58</x-m>
+      <y-m>-0.03</y-m>
+      <z-m> 1.295 </z-m>
+      <pitch-deg>90</pitch-deg>
+      <heading-deg>-90</heading-deg>
+    </offsets>
+  </model> -->
 </PropertyList>
