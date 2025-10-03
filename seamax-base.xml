@@ -112,14 +112,20 @@
             <master-switch type="bool">0</master-switch>
         </electric>
         <fuel>
-            <tank-selector type="int">1</tank-selector>
             <tank n="0">
+                <fuel_selector type="bool">1</fuel_selector>
+            </tank>
+            <tank n="1">
+                <fuel_selector type="bool">0</fuel_selector>
+            </tank>
+            <tank n="2">
                 <boost-pump type="bool">false</boost-pump>
+                <fuel_selector type="bool">1</fuel_selector>
             </tank>
         </fuel>
         <engines>
             <engine>
-                <mixture type="float">1</mixture>
+                <mixture type="float">1.0</mixture>
                 <hackman type="bool">false</hackman>
             </engine>
         </engines>

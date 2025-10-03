@@ -23,8 +23,8 @@ electricsystem.connect( main_bus, master_switch, master_breaker, starter_bus, ba
 # Alternator (12v 50a/h as per POH)
 # Connected to the main bus via a 50A fuse and a switch
 electricsystem.connect(
-    e.Alternator.new("alternator","/engines/engine[0]/rpm",14.0,50.0),
-    main_bus
+    e.Alternator.new("alternator","/engines/engine[0]/rpm",14.0,50.0,2000),
+    starter_bus
 );
 
 ### Engine related loads
@@ -38,7 +38,7 @@ electricsystem.connect(
 electricsystem.connect(
     main_bus,
     e.Breaker.new("fuel-pump",5.0),
-    e.Load.new("fuel-pump",4.0,"/controls/fuel/tank/boost-pump")
+    e.Load.new("fuel-pump",4.0,"/controls/fuel/tank[2]/boost-pump")
 );
 
 ### Exterior lights

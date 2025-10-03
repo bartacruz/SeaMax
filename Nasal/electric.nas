@@ -747,8 +747,8 @@ var System = {
             me.connect(source,light);
         }
     },
-    add_instrument: func(source, name, amps, breaker_amps=0) {
-        var instrument = Instrument.new(name,amps);
+    add_instrument: func(source, name, amps, breaker_amps=0,switch=nil) {
+        var instrument = Instrument.new(name,amps,switch);
         if (breaker_amps){
             me.connect(source,Breaker.new(name,breaker_amps),instrument);
         } else {

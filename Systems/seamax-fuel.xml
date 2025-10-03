@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<system name="Fuel">
+  <!-- 
+  tank[2] collector tank connected to the engine fuel pump and/or electrical fuel pump, 
+  tank[0] and tank[1] feeds the collector through valves.
+  Negative Gs (<-0.5g) cuts the supply to the collector tank.
+
+  The engine mechanical fuel pump pressure varies with rpm (to a max of 7psi).
+  The electric fuel pump gives a steady 5 psi pressure and it's needed to start the engine and when idling.
+  The resulting engine's fuel pressure is the max of both pumps.
+  Rotax 912 ULS works between 4 and 6 psi (0.27 to 0.42 bar), so, if the pressure is below that,
+  we cut the collector tank to interrupt fuel flow and kill the engine (if running).
+
+-->
+  
+<property value="0">propulsion/engine/engine[0]/fuel-pressure-psi</property>
+<property value="0">propulsion/tank[2]/pump-electrical-psi</property>
+<property value="0">propulsion/tank[2]/pump-mechanical-psi</property>
+
+  <channel name="Fuel">
+
+    <switch>
+      <name>Electrical fuel pump pressure (5psi)</name>
+      <default value="0"/>
+      <test logic="AND" value="5">
+        /systems/electrical/outputs/fuel-pump GE 7
+      </test>
+      <output>propulsion/tank[2]/pump-electrical-psi</output>
+    </switch>
+    
+    <fcs_function name="propulsion/tank[2]/pump-mechanical-psi">
+      <name>Mechanical fuel pump pressure</name>
+      <function>
+          <table>      <!-- Engine's mechanical fuel pump rpm to psi ratios (guessed)-->
+            <independentVar>propulsion/engine/engine-rpm</independentVar>
+            <tableData>
+                  0   0
+               1000   2
+               1800   3
+               3000   6
+               6000   7
+            </tableData>
+         </table>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="propulsion/engine/fuel-pressure-psi">
+      <name>Engine fuel pressure from pumps</name>
+      <function>
+        <max>
+          <property>propulsion/tank[2]/pump-mechanical-psi</property>
+          <property>propulsion/tank[2]/pump-electrical-psi</property>
+        </max>
+      </function>
+    </fcs_function>
+
+    <summer>
+      <input>propulsion/engine/fuel-pressure-psi</input>
+      <output>/engines/engine/fuel-pressure-psi</output>
+    </summer>
+    
+    <switch>
+      <name>Cut collector output if not enough fuel or pressure</name>
+      <default value="0" />
+      <test logic="AND" value="1">
+        propulsion/tank[2]/contents-lbs GE 0.02
+        propulsion/engine/fuel-pressure-psi GE 3
+      </test>
+      <output>propulsion/tank[2]/priority</output>
+    </switch>
+
+    <!-- Tanks to collector feed -->
+    <switch>
+      <name>Feed collector from left wing tank</name>
+      <default value="-0.5"/>
+      <test logic="OR" value="0">
+        /controls/fuel/tank[0]/fuel_selector EQ 0
+        propulsion/tank[0]/contents-lbs LE 0
+        propulsion/tank[2]/contents-lbs GE 0.09                   <!-- 1 lb below capacity -->
+        propulsion/engine/fuel-pressure-psi LE 1
+        accelerations/Nz LE -0.5
+      </test>
+      <output>propulsion/tank[0]/external-flow-rate-pps</output>
+    </switch>
+
+    <switch>
+      <name>Feed collector from right wing tank</name>
+      <default value="-0.5"/>
+      <test logic="OR" value="0">
+        /controls/fuel/tank[1]/fuel_selector EQ 0
+        propulsion/tank[1]/contents-lbs LE 0
+        propulsion/tank[2]/contents-lbs GE 0.09                   <!-- 1 lb below capacity -->
+        propulsion/engine/fuel-pressure-psi LE 1
+        accelerations/Nz LE -0.5 
+      </test>
+      <output>propulsion/tank[1]/external-flow-rate-pps</output>
+    </switch>
+
+    <summer>
+      <name>Tanks to collector transfer result</name>
+      <input>-propulsion/tank[0]/external-flow-rate-pps</input>
+      <input>-propulsion/tank[1]/external-flow-rate-pps</input>
+      <output>propulsion/tank[2]/external-flow-rate-pps</output>
+    </summer>
+
+  </channel>
+
+</system>

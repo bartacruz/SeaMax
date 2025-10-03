@@ -333,7 +333,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>controls/fuel/tank/boost-pump</property>
+        <property>controls/fuel/tank[2]/boost-pump</property>
       </binding>
     </action>
   </animation>
@@ -341,7 +341,7 @@
   <animation>
     <type>rotate</type>
     <object-name>button fuel pump</object-name>
-    <property>/controls/fuel/tank/boost-pump</property>
+    <property>/controls/fuel/tank[2]/boost-pump</property>
     <factor> 35 </factor>
     <center>
       <x-m>1.53</x-m>

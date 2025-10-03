@@ -49,9 +49,9 @@
    <vtailarea unit="FT2">    7.27 </vtailarea>
    <vtailarm  unit="FT" >    8.86 </vtailarm>
    <location name="AERORP" unit="M">
-     <x> 2.39 </x>
+     <x> 2.19 </x>
      <y> 0.00 </y>
-     <z> 1  </z>
+     <z> 1.5  </z>
    </location>
    <location name="EYEPOINT" unit="M">
       <x> 1.52 </x>
@@ -77,7 +77,7 @@
    <location name="CG" unit="M">
      <x> 2.53 </x>
      <y>   0.00 </y>
-     <z>  1 </z>
+     <z>  0.6 </z>
    </location>
    <pointmass name="Pilot">
     <weight unit="KG">    80 </weight>
@@ -111,17 +111,7 @@
       <z> 0.7 </z>
     </location>
   </pointmass>
-   <!-- <pointmass name="Payload">
-    <description> 375 LBS + full (196 LBS) fuel should bring model up to entered max weight</description>
-    <weight unit="LBS">    187.6 </weight>
-    <location name="POINTMASS" unit="M">
-      <x> 127.96 </x>
-      <y>   0.00 </y>
-      <z>  0.57 </z>
-    </location>
-  </pointmass>  -->
  </mass_balance>
-
  <ground_reactions>
 
   <contact type="BOGEY" name="NOSE">
@@ -272,8 +262,7 @@
       <y>  0.00 </y>
       <z>  1.72</z>
     </location>
-    <feed>0</feed>
-    <feed>1</feed>
+    <feed>2</feed>
     <thruster file="Senseich-68">
      <sense> 1 </sense>
      <location unit="M">
@@ -308,8 +297,20 @@
      <capacity unit="LBS">  76.90 </capacity>
      <contents unit="LBS">  48.84 </contents>
   </tank>
+  <tank type="FUEL" number="2">
+    <location unit="M">
+       <x> 2.8 </x>
+       <y>  0 </y>
+       <z>  1.4 </z>
+    </location>
+    <capacity unit="LBS">  0.1 </capacity>
+    <contents unit="LBS">  0 </contents>
+ </tank>
 
  </propulsion>
+
+ <system file="seamax-fuel"/>
+ <system file="seamax-hydrodynamics2"/>
 
  <flight_control name="FCS: seamax">
 
@@ -873,11 +874,7 @@
     </function>
 
   </axis>
-
  </aerodynamics>
- <!-- <system file="hydrodynamics"/> -->
- <system file="seamax-hydrodynamics2"/>
- 
  
  <external_reactions>
 
