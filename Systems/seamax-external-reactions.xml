@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<external_reactions>
+
+    <force name="hydro-X" frame="LOCAL">
+        <location unit="M">
+            <x> 2.1 </x>
+            <y> 0.00 </y>
+            <z> 0.3 </z>
+        </location>
+        <direction>
+            <x> 1.0 </x>
+            <y> 0.0 </y>
+            <z> 0.0 </z>
+        </direction>
+    </force>
+    <force name="hydro-Y" frame="LOCAL">
+        <location unit="M">
+            <x> 2.1 </x>
+            <y> 0.00 </y>
+            <z> 0.3 </z>
+        </location>
+        <direction>
+            <x> 0.0 </x>
+            <y> 1.0 </y>
+            <z> 0.0 </z>
+        </direction>
+    </force>
+    <force name="hydro-Z" frame="LOCAL">
+        <location unit="M">
+            <x> 2.1 </x>
+            <y> 0.00 </y>
+            <z> 0.3 </z>
+        </location>
+        <direction>
+            <x> 0.0 </x>
+            <y> 0.0 </y>
+            <z>-1.0 </z>
+        </direction>
+    </force>
+    <moment name="hydro-pitch" frame="BODY" unit="LBSFT">
+        <direction>
+            <x> 0.0 </x>
+            <y> 1.0 </y>
+            <z> 0.0 </z>
+        </direction>
+    </moment>
+    <moment name="hydro-roll" frame="BODY" unit="LBSFT">
+        <direction>
+            <x> 1.0 </x>
+            <y> 0.0 </y>
+            <z> 0.0 </z>
+        </direction>
+    </moment>
+    <moment name="hydro-yaw" frame="BODY" unit="LBSFT">
+        <direction>
+            <x> 0.0 </x>
+            <y> 0.0 </y>
+            <z> 1.0 </z>
+        </direction>
+    </moment>
+
+</external_reactions>
+  
