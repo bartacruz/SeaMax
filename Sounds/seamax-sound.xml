@@ -381,5 +381,104 @@
             <max-dist>200.0</max-dist>
         </gravel-roll>
 
+        <!-- Toggle Switches -->
+        <switch>
+			<name>Left fuel on</name>
+			<path>Sounds/switch3_on.wav</path>
+			<mode>once</mode>
+			<condition>
+				<property>/controls/fuel/tank/fuel_selector</property>
+			</condition>
+			<position>
+                <x> 2.0368</x>
+                <y>-0.40216</y>
+                <z> 1.2298</z>
+			</position>
+			<reference-dist>0.5</reference-dist>
+			<max-dist>10.0</max-dist>
+		</switch>
+		<switch>
+			<name>Left fuel Off</name>
+			<path>Sounds/switch3_off.wav</path>
+			<mode>once</mode>
+			<condition>
+				<not>
+					<property>/controls/fuel/tank/fuel_selector</property>
+				</not>
+			</condition>
+			<position>
+				<x> 2.0368</x>
+                <y>-0.40216</y>
+                <z> 1.2298</z>
+			</position>
+			<reference-dist>0.5</reference-dist>
+			<max-dist>10.0</max-dist>
+		</switch>
+
+        <switch>
+			<name>Right fuel on</name>
+			<path>Sounds/switch3_on.wav</path>
+			<mode>once</mode>
+			<condition>
+				<property>/controls/fuel/tank[1]/fuel_selector</property>
+			</condition>
+			<position>
+                <x> 2.0368</x>
+                <y> 0.40216</y>
+                <z> 1.2298</z>
+			</position>
+			<reference-dist>0.5</reference-dist>
+			<max-dist>10.0</max-dist>
+		</switch>
+		<switch>
+			<name>Right fuel Off</name>
+			<path>Sounds/switch3_off.wav</path>
+			<mode>once</mode>
+			<condition>
+				<not>
+					<property>/controls/fuel/tank[1]/fuel_selector</property>
+				</not>
+			</condition>
+			<position>
+				<x> 2.0368</x>
+                <y> 0.40216</y>
+                <z> 1.2298</z>
+			</position>
+			<reference-dist>0.5</reference-dist>
+			<max-dist>10.0</max-dist>
+		</switch>
+
+        <switch>
+			<name>Overhead panel switches</name>
+			<path>Sounds/switch2.wav</path>
+			<mode>once</mode>
+			<condition>
+                <property>sim/model/click-overhead</property>
+			</condition>
+			<position>
+                <x> 1.7</x>
+                <y> 0</y>
+                <z> 1.28</z>
+			</position>
+			<reference-dist>0.5</reference-dist>
+			<max-dist>10.0</max-dist>
+		</switch>
+		<switch>
+			<name>Overhead panel switches off</name>
+			<path>Sounds/switch2.wav</path>
+			<mode>once</mode>
+			<condition>
+				<not>
+                    <property>sim/model/click-overhead</property>
+				</not>
+			</condition>
+			<position>
+                <x> 1.7</x>
+                <y> 0</y>
+                <z> 1.28</z>
+			</position>
+			<reference-dist>0.5</reference-dist>
+			<max-dist>10.0</max-dist>
+		</switch>
     </fx>
 </PropertyList>

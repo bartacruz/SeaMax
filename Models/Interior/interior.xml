@@ -8,21 +8,21 @@
   <model>
     <path>Instruments/lights/flaps0.xml</path>
     <offsets>
-      <x-m> 1.098 </x-m>
+      <x-m> 1.1 </x-m>
       <y-m>-0.42 </y-m>
       <z-m> 0.8 </z-m>
     </offsets>
   </model>
   <model>
-  <path>Instruments/lights/flaps10.xml</path>
+    <path>Instruments/lights/flaps10.xml</path>
     <offsets>
-      <x-m> 1.099 </x-m>
+      <x-m> 1.1 </x-m>
       <y-m>-0.42 </y-m>
       <z-m> 0.78 </z-m>
     </offsets>
   </model>
   <model>
-  <path>Instruments/lights/flaps35.xml</path>
+    <path>Instruments/lights/flaps35.xml</path>
     <offsets>
       <x-m> 1.1 </x-m>
       <y-m>-0.42 </y-m>
@@ -33,7 +33,7 @@
   <model>
     <path>Instruments/asi-kt/asi-kt.xml</path>
     <offsets>
-      <x-m> 1.125</x-m>
+      <x-m> 1.11</x-m>
       <y-m>-0.34 </y-m>
       <z-m> 0.87 </z-m>
     </offsets>
@@ -41,7 +41,7 @@
   <model>
     <path>Instruments/rpm/rpm.xml</path>
     <offsets>
-      <x-m> 1.115 </x-m>
+      <x-m> 1.11 </x-m>
       <y-m>-0.34 </y-m>
       <z-m> 0.77 </z-m>
     </offsets>
@@ -50,7 +50,7 @@
   <model>
     <path>/Aircraft/Instruments-3d/hi/hi.xml</path>
     <offsets>
-      <x-m> 1.125 </x-m>
+      <x-m> 1.11 </x-m>
       <y-m>-0.24 </y-m>
       <z-m> 0.87 </z-m>
     </offsets>
@@ -58,7 +58,7 @@
   <model>
     <path>Instruments/turn/turn.xml</path>
     <offsets>
-      <x-m> 1.115 </x-m>
+      <x-m> 1.11 </x-m>
       <y-m>-0.24 </y-m>
       <z-m> 0.77 </z-m>
     </offsets>
@@ -67,7 +67,7 @@
   <model>
     <path>Instruments/alt/alt.xml</path>
     <offsets>
-      <x-m> 1.125 </x-m>
+      <x-m> 1.11 </x-m>
       <y-m>-0.14 </y-m>
       <z-m> 0.87 </z-m>
     </offsets>
@@ -75,12 +75,12 @@
   <model>
     <path>Instruments/vsi/vsi.xml</path>
     <offsets>
-      <x-m> 1.115 </x-m>
+      <x-m> 1.11 </x-m>
       <y-m>-0.14 </y-m>
       <z-m> 0.77 </z-m>
     </offsets>
   </model>
-  
+
   <model>
     <path>Instruments/ipad/ipad.xml</path>
     <offsets>
@@ -97,12 +97,21 @@
     <object-name>yoke cover</object-name>
     <property>controls/flight/elevator</property>
     <interpolation>
-      <entry><ind>-1</ind><dep>-33</dep></entry>
-      <entry><ind> 0</ind><dep>  0</dep></entry>
-      <entry><ind> 1</ind><dep> 33</dep></entry>
-    </interpolation>   
+      <entry>
+        <ind>-1</ind>
+        <dep>-33</dep>
+      </entry>
+      <entry>
+        <ind> 0</ind>
+        <dep>  0</dep>
+      </entry>
+      <entry>
+        <ind> 1</ind>
+        <dep> 33</dep>
+      </entry>
+    </interpolation>
     <center>
-      <x-m> 1.27</x-m> 
+      <x-m> 1.27</x-m>
       <y-m> 0</y-m>
       <z-m> 0.5</z-m>
     </center>
@@ -116,15 +125,24 @@
   <animation>
     <type>rotate</type>
     <object-name>yoke</object-name>
-    <object-name>yoke cover</object-name>    
+    <object-name>yoke cover</object-name>
     <property>controls/flight/aileron</property>
     <interpolation>
-      <entry><ind>-1</ind><dep>-33</dep></entry>
-      <entry><ind> 0</ind><dep>  0</dep></entry>
-      <entry><ind> 1</ind><dep> 33</dep></entry>
-    </interpolation>   
+      <entry>
+        <ind>-1</ind>
+        <dep>-33</dep>
+      </entry>
+      <entry>
+        <ind> 0</ind>
+        <dep>  0</dep>
+      </entry>
+      <entry>
+        <ind> 1</ind>
+        <dep> 33</dep>
+      </entry>
+    </interpolation>
     <center>
-      <x-m> 1.27</x-m> 
+      <x-m> 1.27</x-m>
       <y-m> 0</y-m>
       <z-m> 0.5</z-m>
     </center>
@@ -140,7 +158,7 @@
   <!-- Landing light-->
   <animation>
     <type>material</type>
-    <object-name>button landing</object-name>  
+    <object-name>button landing</object-name>
     <emission>
       <factor-prop>systems/electrical/outputs/landing-light</factor-prop>
       <red>   0.002 </red>
@@ -148,7 +166,7 @@
       <blue>  0.002 </blue>
     </emission>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <visible>true</visible>
@@ -159,6 +177,10 @@
       <binding>
         <command>property-toggle</command>
         <property>/controls/lighting/landing-light</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click-overhead</property>
       </binding>
     </action>
   </animation>
@@ -179,7 +201,7 @@
       <z>  0 </z>
     </axis>
   </animation>
-  
+
   <!-- Strobe -->
   <animation>
     <type>material</type>
@@ -191,7 +213,7 @@
       <blue>  0.002 </blue>
     </emission>
   </animation>
-  
+
   <animation>
     <object-name>button strobe</object-name>
     <type>rotate</type>
@@ -210,7 +232,7 @@
       <z>  0 </z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>button strobe</object-name>
@@ -222,6 +244,10 @@
         <command>property-toggle</command>
         <property>controls/lighting/strobe-lights</property>
       </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click-overhead</property>
+      </binding>
     </action>
   </animation>
 
@@ -229,7 +255,7 @@
   <animation>
     <type>material</type>
     <object-name>button nav</object-name>
-    
+
     <emission>
       <factor-prop>systems/electrical/outputs/nav-lights</factor-prop>
       <red>   0.002 </red>
@@ -248,6 +274,10 @@
       <binding>
         <command>property-toggle</command>
         <property>controls/lighting/nav-lights</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click-overhead</property>
       </binding>
     </action>
   </animation>
@@ -292,6 +322,10 @@
         <command>property-toggle</command>
         <property>controls/switches/bilge-pump</property>
       </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click-overhead</property>
+      </binding>
     </action>
   </animation>
 
@@ -335,6 +369,10 @@
         <command>property-toggle</command>
         <property>controls/fuel/tank[2]/boost-pump</property>
       </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click-overhead</property>
+      </binding>
     </action>
   </animation>
 
@@ -359,7 +397,7 @@
   <animation>
     <type>material</type>
     <object-name>button instr lights</object-name>
-    
+
     <emission>
       <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
       <red>   0.002 </red>
@@ -378,6 +416,10 @@
       <binding>
         <command>property-toggle</command>
         <property>/controls/lighting/instrument-lights</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click-overhead</property>
       </binding>
     </action>
   </animation>
@@ -399,6 +441,94 @@
     </axis>
   </animation>
 
+  <!-- Fuel switch left -->
+  <animation>
+    <type>pick</type>
+    <object-name>fuel switch left</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/fuel/tank[0]/fuel_selector</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>left-fuel-switch</tooltip-id>
+        <label>Fuel left: %s</label>
+        <property>/controls/fuel/tank[0]/fuel_selector</property>
+        <mapping>nasal</mapping>
+        <script>
+          var m = arg[0];
+          if (m == 1) return 'ON';
+          return 'OFF';
+        </script>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>fuel switch left</object-name>
+    <property>/controls/fuel/tank[0]/fuel_selector</property>
+    <factor>90</factor>
+    <axis>
+      <x1-m> 2.0368</x1-m>
+      <y1-m>-0.40216</y1-m>
+      <z1-m> 1.2298</z1-m>
+      <x2-m> 2.0347</x2-m>
+      <y2-m>-0.39236</y2-m>
+      <z2-m> 1.2217</z2-m>
+      
+
+    </axis>
+  </animation>
+
+  <!-- Fuel switch right -->
+  <animation>
+    <type>pick</type>
+    <object-name>fuel switch right</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/fuel/tank[1]/fuel_selector</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>right-fuel-switch</tooltip-id>
+        <label>Fuel right: %s</label>
+        <property>/controls/fuel/tank[1]/fuel_selector</property>
+        <mapping>nasal</mapping>
+        <script>
+          var m = arg[0];
+          if (m == 1) return 'ON';
+          return 'OFF';
+        </script>
+      </binding>
+    </hovered>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>fuel switch right</object-name>
+    <property>/controls/fuel/tank[1]/fuel_selector</property>
+    <factor>-90</factor>
+    <axis>
+      <x1-m> 2.0359</x1-m>
+      <y1-m> 0.40093</y1-m>
+      <z1-m> 1.2312</z1-m>
+      <x2-m> 2.0347</x2-m>
+      <y2-m> 0.39236</y2-m>
+      <z2-m> 1.2217</z2-m>
+
+    </axis>
+  </animation>
 
   <model>
     <path>Instruments/magneto-switch/magneto-switch.xml</path>
@@ -419,4 +549,5 @@
       <pitch-deg>90</pitch-deg>
     </offsets>
   </model>
+
 </PropertyList>
