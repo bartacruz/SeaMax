@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+    <keyboard>
+        <key n="100">
+            <name>d</name>
+            <desc>Door/Canopy</desc>
+            <binding>
+                <command>nasal</command>
+                <script>seamax.canopy.toggle();</script>
+            </binding>
+        </key>
+        <key n="81">
+            <name>Q</name>
+            <desc>Autostart</desc>
+            <binding>
+                <command>nasal</command>
+                <script>seamax.autostart();</script>
+            </binding>
+        </key>
+        <key n="115">
+            <name>s</name>
+            <desc>Fire Starter on Selected Engine(s)</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/switches/starter</property>
+                <value>1</value>
+
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>/controls/switches/starter</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </key>
+
+
+    </keyboard>
+</PropertyList>

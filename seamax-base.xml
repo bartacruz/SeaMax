@@ -21,10 +21,10 @@
             <internal archive="y">true</internal>
             <config>
                 <x-offset-m archive="y"> -0.27 </x-offset-m>                <!-- Right -->
-                <y-offset-m archive="y"> 1.17 </y-offset-m>                <!-- Up    -->
+                <y-offset-m archive="y"> 1.13 </y-offset-m>                <!-- Up    -->
                 <z-offset-m archive="y"> 1.54 </z-offset-m>                <!-- Back  -->
                 <pitch-offset-deg type="double">-10</pitch-offset-deg>
-                <default-field-of-view-deg type="double">110h</default-field-of-view-deg>
+                <default-field-of-view-deg type="double">100</default-field-of-view-deg>
             </config>
         </view>
         <flaps include="Systems/flaps.xml" />
@@ -67,6 +67,7 @@
             </electrical>
         </systems>
     </sim>
+    <input include="Systems/seamax-keyboard.xml"/>
     <payload>
         <weight>
             <name type="string">Pilot</name>
@@ -113,7 +114,7 @@
         </electric>
         <fuel>
             <tank n="0">
-                <fuel_selector type="bool">1</fuel_selector>
+                <fuel_selector type="bool">0</fuel_selector>
             </tank>
             <tank n="1">
                 <fuel_selector type="bool">0</fuel_selector>
@@ -133,10 +134,14 @@
             <water-rudder-down type="bool">0</water-rudder-down>
         </gear>
         <switches>
-            <master-cover type="bool">true</master-cover>
+            <bilge-pump type="bool">false</bilge-pump>
+            <master-cover type="bool">false</master-cover>
+            <starter type="bool">false</starter>
         </switches>
     </controls>
-
+    <seamax>
+        <debug type="bool">0</debug>
+    </seamax>
 
     <nasal>
         <updateloop>
