@@ -82,6 +82,7 @@
                         0.60 0.710
                     </tableData>
                 </table>
+                <value> 1.2 </value>
             </product>
         </function>
 
@@ -314,7 +315,7 @@
                 <property>metrics/cbarw-ft</property>
                 <property>aero/alpha-rad</property>
                 <!-- <value>-0.5</value> -->
-                <value>-0.8</value>
+                <value>-0.7</value>
                 <!--from
                 c172p-->
                 <table>

@@ -42,16 +42,16 @@
  <metrics>
    <wingarea  unit="FT2">  129.61 </wingarea>
    <wingspan  unit="FT" >   33.07 </wingspan>
-   <wing_incidence>          2.00 </wing_incidence>
+   <wing_incidence>          0.0349 </wing_incidence>
    <chord     unit="FT" >    3.92 </chord>
    <htailarea unit="FT2">   22.61 </htailarea>
    <htailarm  unit="FT" >    9.19 </htailarm>
    <vtailarea unit="FT2">    7.27 </vtailarea>
    <vtailarm  unit="FT" >    8.86 </vtailarm>
    <location name="AERORP" unit="M">
-     <x> 2.19 </x>
+     <x> 2.314 </x>
      <y> 0.00 </y>
-     <z> 1.5  </z>
+     <z> 1.3  </z>
    </location>
    <location name="EYEPOINT" unit="M">
       <x> 1.52 </x>
@@ -122,10 +122,10 @@
      <z> 0 </z>
    </location>
    <static_friction>  0.60 </static_friction>
-   <dynamic_friction> 0.30 </dynamic_friction>
-   <rolling_friction> 0.01 </rolling_friction>
-   <spring_coeff unit="LBS/FT">        396.90 </spring_coeff>
-   <damping_coeff unit="LBS/FT/SEC">   198.45 </damping_coeff>
+   <dynamic_friction> 0.40 </dynamic_friction>
+   <rolling_friction> 0.02 </rolling_friction>
+   <spring_coeff unit="LBS/FT">        1396.90 </spring_coeff>
+   <damping_coeff unit="LBS/FT/SEC">   1198.45 </damping_coeff>
    <max_steer unit="DEG"> 5.00 </max_steer>
    <brake_group>NONE</brake_group>
    <retractable>1</retractable>
@@ -138,10 +138,10 @@
      <z> 0 </z>
    </location>
    <static_friction>  0.60 </static_friction>
-   <dynamic_friction> 0.30 </dynamic_friction>
-   <rolling_friction> 0.01 </rolling_friction>
-   <spring_coeff unit="LBS/FT">       1323.00 </spring_coeff>
-   <damping_coeff unit="LBS/FT/SEC">   661.50 </damping_coeff>
+   <dynamic_friction> 0.40 </dynamic_friction>
+   <rolling_friction> 0.02 </rolling_friction>
+   <spring_coeff unit="LBS/FT">       4323.00 </spring_coeff>
+   <damping_coeff unit="LBS/FT/SEC">   1661.50 </damping_coeff>
    <max_steer unit="DEG">0</max_steer>
    <brake_group>LEFT</brake_group>
    <retractable>1</retractable>
@@ -154,10 +154,10 @@
     <z> 0 </z>
    </location>
    <static_friction>  0.60 </static_friction>
-   <dynamic_friction> 0.30 </dynamic_friction>
-   <rolling_friction> 0.01 </rolling_friction>
-   <spring_coeff unit="LBS/FT">       1323.00 </spring_coeff>
-   <damping_coeff unit="LBS/FT/SEC">   661.50 </damping_coeff>
+   <dynamic_friction> 0.40 </dynamic_friction>
+   <rolling_friction> 0.02 </rolling_friction>
+   <spring_coeff unit="LBS/FT">       4323.00 </spring_coeff>
+   <damping_coeff unit="LBS/FT/SEC">   1661.50 </damping_coeff>
    <max_steer unit="DEG">0</max_steer>
    <brake_group>RIGHT</brake_group>
    <retractable>1</retractable>
@@ -172,8 +172,8 @@
     <static_friction>0.50</static_friction>
     <dynamic_friction>0.1</dynamic_friction>
     <rolling_friction> 0.01</rolling_friction>
-    <spring_coeff unit="LBS/FT">1000.00 </spring_coeff>
-    <damping_coeff unit="LBS/FT/SEC">300.00 </damping_coeff>
+    <spring_coeff unit="LBS/FT">10000.00 </spring_coeff>
+    <damping_coeff unit="LBS/FT/SEC">2500.00 </damping_coeff>
   </contact>
   
   <contact type="STRUCTURE" name="LEFT_HULL">
@@ -312,30 +312,16 @@
 
  <system file="seamax-fuel"/>
  <system file="seamax-hydrodynamics"/>
+ <system file="seamax-hull"/>
  <flight_control file="Systems/seamax-flight-control.xml" />
- <aerodynamics file="Systems/seamax-aerodynamics.xml" />
+ 
+ <aerodynamics file="Systems/seamax-aerodynamics2.xml" />
  <external_reactions file="Systems/seamax-external-reactions.xml" />
- <output name="/home/julio/.fgfs/JSBOut.csv" type="CSV" rate="10">
-  <!-- <simulation> ON </simulation> -->
-  <!-- <atmosphere> ON </atmosphere> -->
-  <!-- <massprops> ON </massprops> -->
-  <!-- <aerosurfaces> ON </aerosurfaces> -->
-  <!-- <rates> ON </rates> -->
-  <!-- <velocities> ON </velocities>
-  <forces> ON </forces> -->
-  <!-- <position> ON </position> -->
-  <!-- <coefficients> ON </coefficients> -->
-  <!-- <ground_reactions> ON </ground_reactions> -->
-  <!-- <fcs> ON </fcs> -->
-  <!-- <propulsion> ON </propulsion> -->
-  <property>velocities/match</property> 
-  <property>fcs/elevator-pos-rad</property>
+ <!-- <output name="/home/julio/.fgfs/JSBOut.csv" type="CSV" rate="10">
+  <property>velocities/mach</property> 
+  <property>aero/qbar-psf</property>
   <property>aero/alpha-rad</property>
-  <property>aero/alpha-deg</property>
-  <property>aero/moment/Pitch_elevator</property>
-  <property>aero/moment/Pitch_alpha</property>
-  <!-- <property>aero/force/Lift_alpha</property> -->
-  
-  <!-- <property>aero/force/Lift_elevator</property> -->
-</output>
+  <property>aero/force/Lift_alpha</property>
+  <property>aero/force/Lift_hull</property>
+  </output> -->
 </fdm_config>

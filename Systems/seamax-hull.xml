@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system name="seamax hull">
+    <property value="13">metrics/hull-sqft</property>
+    <property value="0.9">metrics/hull-cl</property>
+    <property value="-0.2">coeffs/hull-cp</property>
+    <channel name="Force Z (up)">
+
+        <fcs_function name="aero/force/Lift_hull">
+            <documentation>
+                Lift due to hull surface.
+            </documentation>
+            <function>
+                <product>
+                    <property>aero/qbar-psf</property>
+                    <property>metrics/hull-sqft</property>
+                    <property>aero/function/kCLge</property>
+                    <table>
+                        <independentVar lookup="row">aero/alpha-rad</independentVar>
+                        <tableData>
+                            -1.57 0.0000
+                            -1.22 -0.5869
+                            -1.05 -0.7906
+                            -0.88 -0.9130
+                            -0.66 -0.4695
+                            -0.27 -1.1737
+                            0.00 0.3152
+                            0.22 1.4889
+                            0.60 0.7847
+                            0.88 1.0870
+                            1.05 0.9414
+                            1.22 0.6987
+                            1.57 0.0000
+                        </tableData>
+                        <!-- <tableData>
+                            -0.20 -0.750
+                            0.00 0.350
+                            0.23 1.600
+                            0.60 0.710
+                        </tableData> -->
+                    </table>
+                    <property>metrics/hull-cl</property>
+                </product>
+            </function>
+        </fcs_function>
+        <fcs_function name="aero/force/Lift_hull_propwash">
+            <description>Delta lift due to propeller induced velocity</description>
+            <function>
+                <product>
+                    <property>propulsion/engine[0]/thrust-coefficient</property>
+                    <property>aero/qbar-psf</property>
+                    <property>metrics/hull-sqft</property>
+                    <table>
+                        <independentVar lookup="row">aero/alpha-rad</independentVar>
+                        <independentVar lookup="column">fcs/flap-pos-deg</independentVar>
+                        <tableData>
+                            0.0 60.0
+                            -0.22 0.000 0.000
+                            0.00 0.052 0.138
+                            0.24 0.245 0.652
+                            0.47 0.000 0.000
+                        </tableData>
+                    </table>
+                    <property>coeffs/prop-c</property>
+                </product>
+            </function>
+        </fcs_function>
+
+        <summer name="aero/hull-z-force-lbs">
+            <input>aero/force/Lift_hull </input>
+            <input>aero/force/Lift_hull_propwash </input>
+            <output>external_reactions/hull-Z/magnitude</output>
+        </summer>
+    </channel>
+    <channel name="Moment Z (up)">
+        <fcs_function name="aero/moment/Pitch_hull">
+            <documentation>Pitch moment due to hull surface</documentation>
+            <function>
+                <product>
+                    <property>aero/qbar-psf</property>
+                    <property>metrics/hull-sqft</property>
+                    <property>metrics/cbarw-ft</property>
+                    <property>aero/alpha-rad</property>
+                    <property>coeffs/hull-cp</property>
+                    <!--from
+                c172p-->
+                    <!-- <table>
+                        <independentVar lookup="row">aero/alpha-deg</independentVar>
+                        <tableData>
+                            20 1
+                            25 0.6
+                            35 0.4
+                            45 0.5
+                            55 0.4
+                            65 0.2
+                            90 0.1
+                        </tableData>
+                    </table> -->
+                </product>
+            </function>
+        </fcs_function>
+        <summer name="aero/moment/hull-z-lbs">
+            <input>aero/moment/Pitch_hull</input>
+            <output>external_reactions/hull-pitch/magnitude</output>
+        </summer>
+    </channel>
+
+</system>

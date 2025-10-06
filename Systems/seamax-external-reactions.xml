@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <external_reactions>
 
+    <force name="hull-Z" frame="LOCAL">
+        <location unit="M">
+            <x> 0.6 </x>
+            <y> 0.00 </y>
+            <z> 0.3 </z>
+        </location>
+        <direction>
+            <x> 0.0 </x>
+            <y> 0.0 </y>
+            <z>-1.0 </z>
+        </direction>
+    </force>
+    <moment name="hull-pitch" frame="BODY" unit="LBSFT">
+        <direction>
+            <x> 0.0 </x>
+            <y> 1.0 </y>
+            <z> 0.0 </z>
+        </direction>
+    </moment>
+
+    
     <force name="hydro-X" frame="LOCAL">
         <location unit="M">
             <x> 2.1 </x>
