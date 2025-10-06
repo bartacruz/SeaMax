@@ -2,48 +2,39 @@
 
 <PropertyList>
 
-  <path>greenlight.ac</path>
+  <path>led.ac</path>
 
   <animation>
-    <object-name>Base</object-name>
-    <object-name>lens</object-name>
-    <object-name>light</object-name>
+    <object-name>base</object-name>
+    <object-name>led</object-name>
+    <object-name>cover</object-name>
   </animation>
 
   <animation>
     <type>noshadow</type>
-    <object-name>Base</object-name>
+    <object-name>base</object-name>
   </animation>
 
-  <animation>
-    <type>material</type>
-    <object-name>lens</object-name>
-    <emission>
-      <red>   0.1 </red>
-      <green> 0.1 </green>
-      <blue>  0.1 </blue>
-    </emission>
-  </animation>
-
-  <animation>
-    <type>material</type>
-    <object-name>light</object-name>
-    <emission>
-      <red>   2 </red>
-      <green> 2 </green>
-      <blue>  2 </blue>
-    </emission>
-  </animation>
-
-  <animation>
+  <!-- <animation>
     <type>select</type>
-    <object-name>light</object-name>
+    <object-name>led</object-name>
     <condition>
-      <greater-than-equals>
+      <property>/systems/electrical/outputs/main-bus</property>
+      <equals>
         <property>controls/flight/flaps</property>
         <value>0</value>
-      </greater-than-equals>
+      </equals>
     </condition>
+  </animation> -->
+
+  <animation>
+    <type>material</type>
+    <object-name>led</object-name>
+    <emission>
+      <red>  0.0 </red>
+      <green> 0.1 </green>
+      <blue> 0 </blue>
+    </emission>
   </animation>
 
 </PropertyList>

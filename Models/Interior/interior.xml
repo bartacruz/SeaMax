@@ -6,6 +6,30 @@
 
   <!-- Flap lights -->
   <model>
+    <path>Instruments/lights/landing-nose.xml</path>
+    <offsets>
+      <x-m> 1.1 </x-m>
+      <y-m>-0.42 </y-m>
+      <z-m> 0.86 </z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>Instruments/lights/landing-left.xml</path>
+    <offsets>
+      <x-m> 1.1 </x-m>
+      <y-m>-0.43 </y-m>
+      <z-m> 0.84 </z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>Instruments/lights/landing-right.xml</path>
+    <offsets>
+      <x-m> 1.1 </x-m>
+      <y-m>-0.41 </y-m>
+      <z-m> 0.84 </z-m>
+    </offsets>
+  </model>
+  <model>
     <path>Instruments/lights/flaps0.xml</path>
     <offsets>
       <x-m> 1.1 </x-m>
@@ -84,7 +108,7 @@
   <model>
     <path>Instruments/ipad/ipad.xml</path>
     <offsets>
-      <x-m> 1.195 </x-m>
+      <x-m> 1.18 </x-m>
       <y-m> 0 </y-m>
       <z-m> 0.8 </z-m>
     </offsets>

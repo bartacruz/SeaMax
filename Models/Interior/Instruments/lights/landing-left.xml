@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>led.ac</path>
+
+  <animation>
+    <object-name>base</object-name>
+    <object-name>led</object-name>
+    <object-name>cover</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>base</object-name>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>led</object-name>
+    <condition>
+      <property>/systems/electrical/outputs/main-bus</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>led</object-name>
+    <condition>
+      <equals>
+        <property>/gear/gear[1]/position-norm</property>
+        <value>0</value>
+      </equals>
+    </condition>
+    <emission>
+      <red> 0.2 </red>
+      <green> 0.2 </green>
+      <blue> 5 </blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>led</object-name>
+    <condition>
+      <equals>
+        <property>/gear/gear[1]/position-norm</property>
+        <value>1</value>
+      </equals>
+    </condition>
+    <emission>
+      <red> 0.2 </red>
+      <green> 1 </green>
+      <blue> 0.2 </blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>led</object-name>
+    <condition>
+      <not>
+        <or>
+          <equals>
+            <property>/gear/gear[1]/position-norm</property>
+            <value>1</value>
+          </equals>
+          <equals>
+            <property>/gear/gear[1]/position-norm</property>
+            <value>0</value>
+          </equals>
+        </or>
+      </not>
+    </condition>
+
+    <emission>
+      <red> 0.3 </red>
+      <green> 0.3 </green>
+      <blue> 0.0 </blue>
+    </emission>
+  </animation>
+
+
+</PropertyList>
