@@ -9,31 +9,31 @@
     <path>Instruments/lights/landing-nose.xml</path>
     <offsets>
       <x-m> 1.1 </x-m>
-      <y-m>-0.42 </y-m>
-      <z-m> 0.86 </z-m>
+      <y-m>-0.22 </y-m>
+      <z-m> 0.963 </z-m>
     </offsets>
   </model>
   <model>
     <path>Instruments/lights/landing-left.xml</path>
     <offsets>
       <x-m> 1.1 </x-m>
-      <y-m>-0.43 </y-m>
-      <z-m> 0.84 </z-m>
+      <y-m>-0.23 </y-m>
+      <z-m> 0.95 </z-m>
     </offsets>
   </model>
   <model>
     <path>Instruments/lights/landing-right.xml</path>
     <offsets>
       <x-m> 1.1 </x-m>
-      <y-m>-0.41 </y-m>
-      <z-m> 0.84 </z-m>
+      <y-m>-0.21 </y-m>
+      <z-m> 0.95 </z-m>
     </offsets>
   </model>
   <model>
     <path>Instruments/lights/flaps0.xml</path>
     <offsets>
       <x-m> 1.1 </x-m>
-      <y-m>-0.42 </y-m>
+      <y-m>-0.415 </y-m>
       <z-m> 0.8 </z-m>
     </offsets>
   </model>
@@ -41,16 +41,16 @@
     <path>Instruments/lights/flaps10.xml</path>
     <offsets>
       <x-m> 1.1 </x-m>
-      <y-m>-0.42 </y-m>
-      <z-m> 0.78 </z-m>
+      <y-m>-0.415 </y-m>
+      <z-m> 0.785 </z-m>
     </offsets>
   </model>
   <model>
     <path>Instruments/lights/flaps35.xml</path>
     <offsets>
       <x-m> 1.1 </x-m>
-      <y-m>-0.42 </y-m>
-      <z-m> 0.76 </z-m>
+      <y-m>-0.415 </y-m>
+      <z-m> 0.77 </z-m>
     </offsets>
   </model>
 
