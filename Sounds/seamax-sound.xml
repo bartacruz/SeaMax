@@ -9,8 +9,8 @@
             <property>engines/engine[0]/cranking</property>
             <position>
                 <x> 2.8 </x>
-                <y>  0.000 </y>
-                <z>  1.7</z>
+                <y> 0.000 </y>
+                <z> 1.7</z>
             </position>
             <volume>
                 <offset>0.5</offset>
@@ -30,9 +30,9 @@
                 </not>
             </condition>
             <position>
-                <x>  2.8 </x>
-                <y>  0.000 </y>
-                <z>  1.7 </z>
+                <x> 2.8 </x>
+                <y> 0.000 </y>
+                <z> 1.7 </z>
             </position>
             <volume>
                 <offset>0.5</offset>
@@ -67,8 +67,8 @@
             </condition>
             <position>
                 <x> -2.162 </x>
-                <y>  0.000 </y>
-                <z>  0.689 </z>
+                <y> 0.000 </y>
+                <z> 0.689 </z>
             </position>
             <volume>
                 <offset>0.5</offset>
@@ -88,9 +88,16 @@
             </position>
             <condition>
                 <property>engines/engine[0]/running</property>
-                <not>
-                    <property>/sim/current-view/internal</property>
-                </not>
+                <or>
+                    <not>
+                        <property>/sim/current-view/internal</property>
+
+                    </not>
+                    <greater-than>
+                        <property>sim/model/door-positions/canopy/position-norm</property>
+                        <value>0</value>
+                    </greater-than>
+                </or>
             </condition>
             <volume>
                 <property>engines/engine[0]/mp-osi</property>
@@ -116,6 +123,10 @@
                 <and>
                     <property>engines/engine[0]/running</property>
                     <property>/sim/current-view/internal</property>
+                    <equals>
+                        <property>sim/model/door-positions/canopy/position-norm</property>
+                        <value>0</value>
+                    </equals>
                 </and>
             </condition>
             <position>
@@ -138,6 +149,47 @@
                 <offset>0.1</offset>
             </pitch>
         </engine>
+
+        <wind>
+            <name>wind</name>
+            <mode>looped</mode>
+            <path>Rotax912-Wind.wav</path>
+            <condition>
+                <and>
+                    <property>velocities/airspeed-kt</property>
+                    <or>
+                        <greater-than>
+                            <property>sim/model/door-positions/canopy/position-norm</property>
+                            <value>0</value>
+                        </greater-than>
+                        <not>
+                            <property>sim/current-view/internal</property>
+                        </not>
+                    </or>
+                </and>
+            </condition>
+            <volume>
+                <property>position/altitude-ft</property>
+                <factor>-0.000015</factor>
+                <offset>1.0</offset>
+                <min>0.1</min>
+                <max>1.0</max>
+            </volume>
+            <volume>
+                <property>velocities/airspeed-kt</property>
+                <factor>0.0025</factor>
+                <min>0.03</min>
+                <max>0.25</max>
+            </volume>
+            <pitch>
+                <property>velocities/airspeed-kt</property>
+                <factor>0.01</factor>
+                <offset>1.25</offset>
+            </pitch>
+            <reference-dist>100</reference-dist>
+            <max-dist>1000</max-dist>
+        </wind>
+
         <flap>
             <name>flaps</name>
             <mode>in-transit</mode>
@@ -170,6 +222,27 @@
             <reference-dist>5.0</reference-dist>
             <max-dist>10.0</max-dist>
         </gear>
+        <gear-lever>
+            <name>gear-lever</name>
+            <mode>in-transit</mode>
+            <path>DoorOpen.wav</path>
+            <property>controls/gear/gear-lever-norm</property>
+            <pitch>
+                <internal>dt_play</internal>
+                <offset>1.0</offset>
+                <factor>-0.001</factor>
+            </pitch>
+            <position>
+                <x>1.</x>
+                <y>0</y>
+                <z>0.5</z>
+            </position>
+            <volume>
+                <factor>0.9</factor>
+            </volume>
+            <reference-dist>5.0</reference-dist>
+            <max-dist>10.0</max-dist>
+        </gear-lever>
 
         <canopy>
             <name>canopy</name>
@@ -383,102 +456,102 @@
 
         <!-- Toggle Switches -->
         <switch>
-			<name>Left fuel on</name>
-			<path>Sounds/switch3_on.wav</path>
-			<mode>once</mode>
-			<condition>
-				<property>/controls/fuel/tank/fuel_selector</property>
-			</condition>
-			<position>
+            <name>Left fuel on</name>
+            <path>Sounds/switch3_on.wav</path>
+            <mode>once</mode>
+            <condition>
+                <property>/controls/fuel/tank/fuel_selector</property>
+            </condition>
+            <position>
                 <x> 2.0368</x>
                 <y>-0.40216</y>
                 <z> 1.2298</z>
-			</position>
-			<reference-dist>0.5</reference-dist>
-			<max-dist>10.0</max-dist>
-		</switch>
-		<switch>
-			<name>Left fuel Off</name>
-			<path>Sounds/switch3_off.wav</path>
-			<mode>once</mode>
-			<condition>
-				<not>
-					<property>/controls/fuel/tank/fuel_selector</property>
-				</not>
-			</condition>
-			<position>
-				<x> 2.0368</x>
+            </position>
+            <reference-dist>0.5</reference-dist>
+            <max-dist>10.0</max-dist>
+        </switch>
+        <switch>
+            <name>Left fuel Off</name>
+            <path>Sounds/switch3_off.wav</path>
+            <mode>once</mode>
+            <condition>
+                <not>
+                    <property>/controls/fuel/tank/fuel_selector</property>
+                </not>
+            </condition>
+            <position>
+                <x> 2.0368</x>
                 <y>-0.40216</y>
                 <z> 1.2298</z>
-			</position>
-			<reference-dist>0.5</reference-dist>
-			<max-dist>10.0</max-dist>
-		</switch>
+            </position>
+            <reference-dist>0.5</reference-dist>
+            <max-dist>10.0</max-dist>
+        </switch>
 
         <switch>
-			<name>Right fuel on</name>
-			<path>Sounds/switch3_on.wav</path>
-			<mode>once</mode>
-			<condition>
-				<property>/controls/fuel/tank[1]/fuel_selector</property>
-			</condition>
-			<position>
+            <name>Right fuel on</name>
+            <path>Sounds/switch3_on.wav</path>
+            <mode>once</mode>
+            <condition>
+                <property>/controls/fuel/tank[1]/fuel_selector</property>
+            </condition>
+            <position>
                 <x> 2.0368</x>
                 <y> 0.40216</y>
                 <z> 1.2298</z>
-			</position>
-			<reference-dist>0.5</reference-dist>
-			<max-dist>10.0</max-dist>
-		</switch>
-		<switch>
-			<name>Right fuel Off</name>
-			<path>Sounds/switch3_off.wav</path>
-			<mode>once</mode>
-			<condition>
-				<not>
-					<property>/controls/fuel/tank[1]/fuel_selector</property>
-				</not>
-			</condition>
-			<position>
-				<x> 2.0368</x>
+            </position>
+            <reference-dist>0.5</reference-dist>
+            <max-dist>10.0</max-dist>
+        </switch>
+        <switch>
+            <name>Right fuel Off</name>
+            <path>Sounds/switch3_off.wav</path>
+            <mode>once</mode>
+            <condition>
+                <not>
+                    <property>/controls/fuel/tank[1]/fuel_selector</property>
+                </not>
+            </condition>
+            <position>
+                <x> 2.0368</x>
                 <y> 0.40216</y>
                 <z> 1.2298</z>
-			</position>
-			<reference-dist>0.5</reference-dist>
-			<max-dist>10.0</max-dist>
-		</switch>
+            </position>
+            <reference-dist>0.5</reference-dist>
+            <max-dist>10.0</max-dist>
+        </switch>
 
         <switch>
-			<name>Overhead panel switches</name>
-			<path>Sounds/switch2.wav</path>
-			<mode>once</mode>
-			<condition>
+            <name>Overhead panel switches</name>
+            <path>Sounds/switch2.wav</path>
+            <mode>once</mode>
+            <condition>
                 <property>sim/model/click-overhead</property>
-			</condition>
-			<position>
+            </condition>
+            <position>
                 <x> 1.7</x>
                 <y> 0</y>
                 <z> 1.28</z>
-			</position>
-			<reference-dist>0.5</reference-dist>
-			<max-dist>10.0</max-dist>
-		</switch>
-		<switch>
-			<name>Overhead panel switches off</name>
-			<path>Sounds/switch2.wav</path>
-			<mode>once</mode>
-			<condition>
-				<not>
+            </position>
+            <reference-dist>0.5</reference-dist>
+            <max-dist>10.0</max-dist>
+        </switch>
+        <switch>
+            <name>Overhead panel switches off</name>
+            <path>Sounds/switch2.wav</path>
+            <mode>once</mode>
+            <condition>
+                <not>
                     <property>sim/model/click-overhead</property>
-				</not>
-			</condition>
-			<position>
+                </not>
+            </condition>
+            <position>
                 <x> 1.7</x>
                 <y> 0</y>
                 <z> 1.28</z>
-			</position>
-			<reference-dist>0.5</reference-dist>
-			<max-dist>10.0</max-dist>
-		</switch>
+            </position>
+            <reference-dist>0.5</reference-dist>
+            <max-dist>10.0</max-dist>
+        </switch>
     </fx>
 </PropertyList>
