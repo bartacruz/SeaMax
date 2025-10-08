@@ -3,6 +3,14 @@
 <PropertyList>
 
     <keyboard>
+        <key n="74">
+            <name>J</name>
+            <desc>Toggle jacks stands</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/gear/jacks-on</property>
+            </binding>
+           </key>
         <key n="100">
             <name>d</name>
             <desc>Door/Canopy</desc>

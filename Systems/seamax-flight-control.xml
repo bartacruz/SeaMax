@@ -163,6 +163,53 @@
 
   </channel>
 
+  <channel name="Jacks">
+    
+    <!-- Traverse the normalized jacks position based on switch -->
+    <kinematic name="jacks on">
+      <input>/controls/gear/jacks-on</input>
+      <traverse>
+        <setting>
+          <position>0</position>
+          <time>0 </time>
+        </setting>
+        <setting>
+          <position>1</position>
+          <time>5</time>
+        </setting>
+      </traverse>
+      <output>contact/jacks-pos-norm</output>
+      <output>/controls/gear/jacks-pos-norm</output>
+    </kinematic>
+
+    <!-- Calculate the height of the jacks (Z position) -->
+    <fcs_function name="fcs/jacks-pos-z">
+      <function>
+        <table>
+          <independentVar lookup="row">contact/jacks-pos-norm</independentVar>
+          <tableData>
+            0   24
+            0.2 10
+            0.3  5
+            0.4  3
+            1   -3
+          </tableData>
+        </table>
+      </function>
+    </fcs_function>
+
+    <!-- Apply the position to the jacks only if enabled-->
+    <switch name="Jacks position z">
+      <default value="contact/unit[3]/z-position" />
+      <output>contact/unit[3]/z-position</output>
+      <output>contact/unit[4]/z-position</output>
+      <output>contact/unit[5]/z-position</output>
+      <test logic="OR" value="fcs/jacks-pos-z">
+        /controls/gear/jacks-operable eq 1
+      </test>
+    </switch>
+  </channel>
+  
   <channel name="Landing Gear">
 
     <!-- Disable gear movement if electrical voltage is too low ("borrowed" from c172p)-->

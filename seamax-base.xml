@@ -222,7 +222,10 @@
         </engines>
         <gear>
             <gear-lever-norm type="float">1.0</gear-lever-norm>
-            <water-rudder-down type="bool">0</water-rudder-down>
+            <water-rudder type="bool">0</water-rudder>
+            <water-rudder-down type="double">0</water-rudder-down>
+            <jacks-operable type="bool">1</jacks-operable>
+            <jacks-on type="bool">0</jacks-on>
         </gear>
         <switches>
             <bilge-pump type="bool">false</bilge-pump>

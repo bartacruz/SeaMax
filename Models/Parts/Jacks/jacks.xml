@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+    <path>jacks.ac</path>
+    <!-- <animation>
+        <type>select</type>
+        <object-name>sides</object-name>
+        <object-name>jack</object-name>
+        <condition>
+            <property>/controls/gear/jacks-enabled</property>
+            <greater-than>
+                <property>/controls/gear/jacks-pos-norm</property>
+                <value>0</value>
+            </greater-than>
+        </condition>
+    </animation> -->
+    <animation>
+        <type>translate</type>
+        <object-name>jack.f</object-name>
+        <object-name>jack.l</object-name>
+        <object-name>jack.r</object-name>
+        <property>/controls/gear/jacks-pos-norm</property>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>1.0</ind>
+                <dep>0.06</dep>
+            </entry>
+        </interpolation>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+</PropertyList>

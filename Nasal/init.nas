@@ -44,7 +44,7 @@ var enableOSD = func {
     # left.add("/fdm/jsbsim/hydro/float/height-agl-ft");
     # left.add("/fdm/jsbsim/inertia/cg-x-in");
     # left.add("/fdm/jsbsim/inertia/cg-z-in");
-    # left.add("/fdm/jsbsim/hydro/fdrag-lbs");
+    # left.add("/fdm/js7bsim/hydro/fdrag-lbs");
     # left.add("/fdm/jsbsim/hydro/displacement-drag-lbs");
     # left.add("/fdm/jsbsim/hydro/planing-drag-lbs");
     # left.add("/fdm/jsbsim/hydro/fbz-lbs");
@@ -88,10 +88,40 @@ var enableOSD = func {
     # right.add("/fdm/jsbsim/left-pontoon/leaked-water-lbs");
     # right.add("/fdm/jsbsim/right-pontoon/leaked-water-lbs");
 }
+var jacks = {
+    index:   -1,
+    add: func {
+        print("jacks.add");
+        var manager = props.globals.getNode("/models", 1);
+        var i = 0;
+        for (; 1; i += 1)
+            if (manager.getChild("model", i, 0) == nil)
+                break;
+        
+		var model = geo.aircraft_position().set_alt(
+            props.globals.getNode("/position/ground-elev-m").getValue());
 
+		geo.put_model("Aircraft/SeaMax/Models/Parts/Jacks/jacks.xml", model,
+            props.globals.getNode("/orientation/heading-deg").getValue());
+            me.index = i;
+        },
+    remove: func {
+        print("jacks.remove");
+        props.globals.getNode("/models", 1).removeChild("model", me.index);
+        me.index=-1;
+    },
+};
     
 setlistener("/sim/signals/fdm-initialized", func {
     settimer(check_ground,1);
     print("Checking ground...");
+    setlistener("/controls/gear/jacks-pos-norm", func(n) {
+		if (n.getValue() >0 and jacks.index<0) {
+				jacks.add();
+		} 	
+        if (n.getValue() == 0 and jacks.index >= 0) {
+            jacks.remove();
+		}
+	},0,0);
     #enableOSD();
 }, 0, 0);
