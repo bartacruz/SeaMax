@@ -16,63 +16,20 @@
                 </crew>
             </door-positions>
         </model>
+        
         <view n="0">
             <name type="string">Cockpit View</name>
             <internal archive="y">true</internal>
             <config>
                 <x-offset-m archive="y"> -0.27 </x-offset-m>                <!-- Right -->
-                <y-offset-m archive="y"> 1.13 </y-offset-m>                <!-- Up    -->
-                <z-offset-m archive="y"> 1.54 </z-offset-m>                <!-- Back  -->
+                <y-offset-m archive="y"> 1.18 </y-offset-m>                <!-- Up    -->
+                <z-offset-m archive="y"> 1.8 </z-offset-m>                <!-- Back  -->
                 <pitch-offset-deg type="double">-10</pitch-offset-deg>
-                <default-field-of-view-deg type="double">100</default-field-of-view-deg>
+                <default-field-of-view-deg type="double">85</default-field-of-view-deg>
             </config>
         </view>
+        
         <view n="100">
-            <name type="string">Copilot View</name>
-            <internal archive="y">true</internal>
-            <config>
-                <from-model type="bool">true</from-model>
-                <from-model-idx type="int">0</from-model-idx>
-                <dynamic-view type="bool">true</dynamic-view>
-                <x-offset-m archive="y"> 0.27 </x-offset-m>                <!-- Right -->
-                <y-offset-m archive="y"> 1.13 </y-offset-m>                <!-- Up    -->
-                <z-offset-m archive="y"> 1.54 </z-offset-m>                <!-- Back  -->
-                <pitch-offset-deg type="double">-10</pitch-offset-deg>
-                <default-field-of-view-deg type="double">100</default-field-of-view-deg>
-            </config>
-        </view>
-        <view n="101">
-            <name type="string">Overhead Panel</name>
-            <internal archive="y">true</internal>
-            <config>
-                <from-model type="bool">true</from-model>
-                <from-model-idx type="int">0</from-model-idx>
-                <dynamic-view type="bool">false</dynamic-view>
-                <x-offset-m > 0 </x-offset-m> <!-- Right -->
-                <y-offset-m > 0.75 </y-offset-m> <!-- Up    -->
-                <z-offset-m > 1.65 </z-offset-m> <!-- Back  -->
-                <pitch-offset-deg type="double">90</pitch-offset-deg>    
-                <field-of-view type="double">60</field-of-view>
-                <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
-                <default-pitch-deg type="double">85</default-pitch-deg>
-                <default-heading-deg type="double">0</default-heading-deg>
-            </config>
-        </view>
-        <view n="102">
-            <name type="string">IPad View</name>
-            <internal archive="y">true</internal>
-            <config>
-                <from-model type="bool">true</from-model>
-                <from-model-idx type="int">0</from-model-idx>
-                <dynamic-view type="bool">true</dynamic-view>
-                <x-offset-m archive="y"> 0 </x-offset-m>                <!-- Right -->
-                <y-offset-m archive="y"> 0.918 </y-offset-m>                <!-- Up    -->
-                <z-offset-m archive="y"> 1.54 </z-offset-m>                <!-- Back  -->
-                <pitch-offset-deg type="double">0</pitch-offset-deg>
-                <default-field-of-view-deg type="double">64.6</default-field-of-view-deg>
-            </config>
-        </view>
-        <view n="103">
             <name>Inspection</name>
             <enabled type="bool">true</enabled>
             <type>lookat</type>
@@ -106,6 +63,52 @@
                 <z-offset-m type="double">2</z-offset-m> -->
             </config>
         </view>
+        <view n="101">
+            <name type="string">Copilot View</name>
+            <internal archive="y">true</internal>
+            <config>
+                <from-model type="bool">true</from-model>
+                <from-model-idx type="int">1</from-model-idx>
+                <dynamic-view type="bool">true</dynamic-view>
+                <x-offset-m archive="y"> 0.27 </x-offset-m>                <!-- Right -->
+                <y-offset-m archive="y"> 1.13 </y-offset-m>                <!-- Up    -->
+                <z-offset-m archive="y"> 1.54 </z-offset-m>                <!-- Back  -->
+                <pitch-offset-deg type="double">-10</pitch-offset-deg>
+                <default-field-of-view-deg type="double">100</default-field-of-view-deg>
+            </config>
+        </view>
+        <view n="102">
+            <name type="string">Overhead Panel</name>
+            <internal archive="y">true</internal>
+            <config>
+                <from-model type="bool">true</from-model>
+                <from-model-idx type="int">0</from-model-idx>
+                <dynamic-view type="bool">false</dynamic-view>
+                <x-offset-m > 0 </x-offset-m> <!-- Right -->
+                <y-offset-m > 0.71 </y-offset-m> <!-- Up    -->
+                <z-offset-m > 1.61 </z-offset-m> <!-- Back  -->
+                <pitch-offset-deg type="double">90</pitch-offset-deg>    
+                <field-of-view type="double">67</field-of-view>
+                <default-field-of-view-deg type="double"></default-field-of-view-deg>
+                <default-pitch-deg type="double">85</default-pitch-deg>
+                <default-heading-deg type="double">0</default-heading-deg>
+            </config>
+        </view>
+        <view n="103">
+            <name type="string">IPad View</name>
+            <internal archive="y">true</internal>
+            <config>
+                <from-model type="bool">true</from-model>
+                <from-model-idx type="int">0</from-model-idx>
+                <dynamic-view type="bool">true</dynamic-view>
+                <x-offset-m archive="y"> 0 </x-offset-m>                <!-- Right -->
+                <y-offset-m archive="y"> 0.888 </y-offset-m>                <!-- Up    -->
+                <z-offset-m archive="y"> 1.5 </z-offset-m>                <!-- Back  -->
+                <pitch-offset-deg type="double">0</pitch-offset-deg>
+                <default-field-of-view-deg type="double">64.6</default-field-of-view-deg>
+            </config>
+        </view>
+        
         <previews>
             <preview>
                 <type>cockpit</type>
@@ -188,6 +191,7 @@
         <engine>
             <t-pressure-diff type="float">0</t-pressure-diff>
             <t-pressure-norm type="float">0</t-pressure-norm>
+            <fuel-pressure-psi-lag type="float">0</fuel-pressure-psi-lag>
         </engine>
         <active-engine>
             <rpm alias="/engines/engine/rpm" />
@@ -217,6 +221,7 @@
             </engine>
         </engines>
         <gear>
+            <gear-lever-norm type="float">1.0</gear-lever-norm>
             <water-rudder-down type="bool">0</water-rudder-down>
         </gear>
         <switches>
@@ -236,6 +241,9 @@
         <electric>
             <file>Aircraft/SeaMax/Nasal/electric.nas</file>
         </electric>
+        <atr833_ii>
+			<file>Models/Interior/Instruments/ATR833-II/atr833-ii.nas</file>
+		</atr833_ii>
         <seamax>
             <file>Aircraft/SeaMax/Nasal/init.nas</file>
             <file>Aircraft/SeaMax/Nasal/seamax-electric.nas</file>

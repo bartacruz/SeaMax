@@ -23,6 +23,7 @@ var check_ground = func() {
     print("SOLID? ", solid);
     if (solid == 0) {
         setprop("/controls/gear/gear-down",0);
+        setprop("/controls/gear/gear-position-norm",0);
     }
     
 };

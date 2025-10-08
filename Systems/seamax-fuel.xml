@@ -21,29 +21,42 @@
   <channel name="Fuel">
 
     <switch>
-      <name>Electrical fuel pump pressure (5psi)</name>
+      <name>Electrical INSTANTANEOUS fuel pump pressure (5psi)</name>
       <default value="0"/>
       <test logic="AND" value="5">
         /systems/electrical/outputs/fuel-pump GE 7
       </test>
-      <output>propulsion/tank[2]/pump-electrical-psi</output>
+      <output>propulsion/tank[2]/pump-electrical-i-psi</output>
     </switch>
+
+    <lag_filter name="propulsion/tank[2]/pump-electrical-psi">
+      <name>Electrical fuel pump pressure with lag (5psi)</name>
+      <input>propulsion/tank[2]/pump-electrical-i-psi</input>
+      <c1>2</c1>
+    </lag_filter>
     
     <fcs_function name="propulsion/tank[2]/pump-mechanical-psi">
       <name>Mechanical fuel pump pressure</name>
       <function>
-          <table>      <!-- Engine's mechanical fuel pump rpm to psi ratios (guessed)-->
+        <product>
+          <property>propulsion/engine/engine-rpm</property>
+          <value>0.001</value>
+        </product>
+          <!-- Engine's mechanical fuel pump rpm to psi ratios (guessed)-->
+          <!-- <table>      
             <independentVar>propulsion/engine/engine-rpm</independentVar>
             <tableData>
                   0   0
-               1000   2
-               1800   3
-               3000   6
-               6000   7
+               1000   1
+               1800   1.5
+               3000   3
+               4000   4
+               6000   6
             </tableData>
-         </table>
+         </table> -->
       </function>
     </fcs_function>
+    
 
     <fcs_function name="propulsion/engine/fuel-pressure-psi">
       <name>Engine fuel pressure from pumps</name>
@@ -59,6 +72,7 @@
       <input>propulsion/engine/fuel-pressure-psi</input>
       <output>/engines/engine/fuel-pressure-psi</output>
     </summer>
+    
     
     <switch>
       <name>Cut collector output if not enough fuel or pressure</name>
