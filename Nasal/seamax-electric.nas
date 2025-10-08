@@ -41,6 +41,14 @@ electricsystem.connect(
     e.Load.new("fuel-pump",4.0,"/controls/fuel/tank[2]/boost-pump")
 );
 
+### Aircraft systems
+electricsystem.connect(
+    main_bus,
+    e.Breaker.new("landing-gear",10.0),
+    e.Load.new("landing-gear",6.0,"/controls/gear/gear-in-transit")
+);
+
+
 ### Exterior lights
 
 # landing light LED 36w @12v => 3A with 5A breaker

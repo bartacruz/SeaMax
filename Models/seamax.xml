@@ -263,7 +263,7 @@
         <object-name>lg strut</object-name>
         <property>gear/gear[1]/position-norm</property>
         <interpolation>
-          <entry><ind>0.0</ind><dep>1</dep></entry>
+          <entry><ind>0.0</ind><dep>0.4</dep></entry>
           <entry><ind>1.0</ind><dep> 0.0</dep></entry>
         </interpolation>
         <axis>
@@ -296,12 +296,13 @@
           <z1-m> 0.333</z1-m>
         </axis>
       </animation>
+
       <animation>
         <type>translate</type>
         <object-name>rg strut</object-name>
         <property>gear/gear[2]/position-norm</property>
         <interpolation>
-          <entry><ind>0.0</ind><dep>1</dep></entry>
+          <entry><ind>0.0</ind><dep>0.4</dep></entry>
           <entry><ind>1.0</ind><dep> 0.0</dep></entry>
         </interpolation>
         <axis>
@@ -318,6 +319,7 @@
         <type>rotate</type>
         <object-name>canopy</object-name>
         <object-name>canopy glass</object-name>
+        <object-name>canopy base</object-name>
         <property>sim/model/door-positions/canopy/position-norm</property>
         <interpolation>
           <entry><ind>0.0</ind><dep>0</dep></entry>
