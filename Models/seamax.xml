@@ -183,6 +183,7 @@
       <animation>
         <type>rotate</type>
         <object-name>rudder</object-name>
+        <object-name>water rudder</object-name>
         <property>controls/flight/rudder</property>
         <factor>-22</factor>
         <axis>
@@ -359,6 +360,23 @@
             <script>seamax.canopy.toggle();</script>
           </binding>
         </action>
+      </animation>
+      
+      <animation>
+        <type>rotate</type>
+        <object-name>water rudder</object-name>
+        <property>controls/gear/water-rudder-down</property>
+        <factor>90</factor>
+        <center>
+          <x-m>5.4748</x-m>
+          <y-m>0</y-m>
+          <z-m>0.76322</z-m>
+        </center>
+        <axis>
+          <x>0</x>
+          <y>1</y>
+          <z>0</z>
+        </axis>
       </animation>
 </PropertyList>
   

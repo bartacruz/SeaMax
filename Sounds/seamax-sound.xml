@@ -244,6 +244,56 @@
             <max-dist>10.0</max-dist>
         </gear-lever>
 
+        <water-rudder>
+            <name>water-rudder</name>
+            <mode>once</mode>
+            <path>DoorOpen.wav</path>
+            <condition>
+                <not>
+                    <property>controls/gear/water-rudder</property>
+                </not>
+            </condition>
+            <pitch>
+                <internal>dt_play</internal>
+                <offset>1.0</offset>
+                <factor>-0.001</factor>
+            </pitch>
+            <position>
+                <x>1.93</x>
+                <y>0.44</y>
+                <z>0.5</z>
+            </position>
+            <volume>
+                <factor>0.9</factor>
+            </volume>
+            <reference-dist>5.0</reference-dist>
+            <max-dist>10.0</max-dist>
+        </water-rudder>
+
+        <water-rudder>
+            <name>water-rudder-off</name>
+            <mode>once</mode>
+            <path>DoorClosed.wav</path>
+            <condition>
+                <property>controls/gear/water-rudder</property>
+            </condition>
+            <pitch>
+                <internal>dt_play</internal>
+                <offset>1.0</offset>
+                <factor>-0.001</factor>
+            </pitch>
+            <position>
+                <x>1.93</x>
+                <y>0.44</y>
+                <z>0.5</z>
+            </position>
+            <volume>
+                <factor>0.9</factor>
+            </volume>
+            <reference-dist>5.0</reference-dist>
+            <max-dist>10.0</max-dist>
+        </water-rudder>
+
         <canopy>
             <name>canopy</name>
             <mode>in-transit</mode>

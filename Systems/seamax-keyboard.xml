@@ -10,7 +10,7 @@
                 <command>property-toggle</command>
                 <property>/controls/gear/jacks-on</property>
             </binding>
-           </key>
+        </key>
         <key n="100">
             <name>d</name>
             <desc>Door/Canopy</desc>
@@ -25,6 +25,14 @@
             <binding>
                 <command>nasal</command>
                 <script>seamax.autostart();</script>
+            </binding>
+        </key>
+        <key n="114">
+            <name>r</name>
+            <desc>Water Rudders Up</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/gear/water-rudder</property>
             </binding>
         </key>
         <key n="115">
@@ -44,6 +52,7 @@
                 </binding>
             </mod-up>
         </key>
+        
 
 
     </keyboard>
