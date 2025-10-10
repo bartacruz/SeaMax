@@ -205,6 +205,11 @@
             <name>gear</name>
             <mode>in-transit</mode>
             <path>electric_engine.wav</path>
+            <condition>
+                <not>
+                    <property>/controls/gear/detecting</property>
+                </not>
+            </condition>
             <property>gear/gear[0]/position-norm</property>
             <pitch>
                 <internal>dt_play</internal>
@@ -226,6 +231,11 @@
             <name>gear-lever</name>
             <mode>in-transit</mode>
             <path>DoorOpen.wav</path>
+            <condition>
+                <not>
+                    <property>/controls/gear/detecting</property>
+                </not>
+            </condition>
             <property>controls/gear/gear-lever-norm</property>
             <pitch>
                 <internal>dt_play</internal>

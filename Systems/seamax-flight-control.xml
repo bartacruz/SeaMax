@@ -219,7 +219,8 @@
       <!-- Route back the (normalized) output of the <kinematic>
            to its input in order to disable it.
       -->
-      <test logic="OR" value="gear/gear-pos-norm">
+      <test logic="AND" value="gear/gear-pos-norm">
+        /controls/gear/detecting eq 0
         /systems/electrical/outputs/main-bus lt 7
       </test>
     </switch>

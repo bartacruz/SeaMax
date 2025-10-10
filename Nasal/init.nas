@@ -22,17 +22,34 @@ var check_ground = func() {
     var solid = getprop("/fdm/jsbsim/ground/solid");
     print("SOLID? ", solid);
     if (solid == 0) {
+        setprop("/controls/gear/detecting",1);
         setprop("/controls/gear/gear-down",0);
         setprop("/controls/gear/gear-position-norm",0);
+        settimer(func(){
+            setprop("/controls/gear/detecting",0);
+        },5);
     }
     
 };
  ###############################################################################
 # On-screen displays
 var enableOSD = func {
-    # var left  = screen.display.new(20, 10);
+    var left  = screen.display.new(20, 10);
     var right = screen.display.new(-300, 10);
 
+    left.add("/fdm/jsbsim/gear/unit[0]/WOW");
+    left.add("/fdm/jsbsim/gear/unit[1]/WOW");
+    left.add("/fdm/jsbsim/gear/unit[2]/WOW");
+    left.add("/fdm/jsbsim/contact/unit[3]/WOW");
+    left.add("/fdm/jsbsim/contact/unit[4]/WOW");
+    left.add("/fdm/jsbsim/contact/unit[5]/WOW");
+    left.add("/fdm/jsbsim/contact/unit[6]/WOW");
+    left.add("/fdm/jsbsim/contact/unit[7]/WOW");
+    left.add("/fdm/jsbsim/contact/unit[8]/WOW");
+    left.add("/fdm/jsbsim/contact/unit[9]/WOW");
+    left.add("/fdm/jsbsim/contact/unit[10]/WOW");
+    left.add("/fdm/jsbsim/contact/unit[11]/WOW");
+    left.add("/fdm/jsbsim/contact/unit[12]/WOW");
     # left.add("/fdm/jsbsim/sim-time-sec");
     # left.add("/orientation/heading-magnetic-deg");
     # left.add("/fdm/jsbsim/hydro/true-course-deg");
@@ -123,5 +140,5 @@ setlistener("/sim/signals/fdm-initialized", func {
             jacks.remove();
 		}
 	},0,0);
-    #enableOSD();
+    enableOSD();
 }, 0, 0);
