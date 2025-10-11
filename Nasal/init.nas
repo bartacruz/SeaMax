@@ -11,11 +11,10 @@ var autostart = func{
     setprop("controls/engines/engine[0]/mixture",1);
     setprop("controls/flight/throttle",0.15);
     setprop("/controls/gear/brake-parking",1);
-    setprop("controls/lighting/strobe-lights", 0);
-    setprop("controls/lighting/nav-lights", 1);
+    setprop("controls/switches/strobe-lights", 0);
+    setprop("controls/switches/nav-lights", 1);
     setprop("sim/messages/copilot", "Now press the s key to start engine");
 }
-
 
 
 var check_ground = func() {
@@ -140,5 +139,6 @@ setlistener("/sim/signals/fdm-initialized", func {
             jacks.remove();
 		}
 	},0,0);
-    enableOSD();
+
+    # enableOSD();
 }, 0, 0);

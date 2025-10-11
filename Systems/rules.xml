@@ -7,4 +7,7 @@
     <property-rule n="100">
         <path>Aircraft/SeaMax/Systems/starter.xml</path>
     </property-rule>
+    <property-rule n="101">
+        <path>Aircraft/SeaMax/Systems/lights.xml</path>
+    </property-rule>
 </PropertyList>

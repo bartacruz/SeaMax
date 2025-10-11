@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <model>
+    <name>LampeBlancheDirection</name>
+    <path>WhiteLight.xml</path>
+    <offsets>
+      <x-m>  5.95 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> 0.9 </z-m>
+    </offsets>
+  </model>
+
+  <!-- tip wings -->
+  <model>
+    <name>RedLight</name>
+    <path>RedLight.xml</path>
+    <offsets>
+      <x-m> 1.8</x-m>
+      <y-m> -5.1</y-m>
+      <z-m> 1.493</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <name>StrobeLighLeft</name>
+    <path>StrobeLight.xml</path>
+    <offsets>
+      <x-m> 2.042</x-m>
+      <y-m> -5.205</y-m>
+      <z-m> 1.5</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <name>GreenLight</name>
+    <path>GreenLight.xml</path>
+    <offsets>
+      <x-m> 1.8</x-m>
+      <y-m> 5.1</y-m>
+      <z-m> 1.493</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <name>StrobeLighRight</name>
+    <path>StrobeLight.xml</path>
+    <offsets>
+      <x-m> 2.042</x-m>
+      <y-m> 5.205</y-m>
+      <z-m> 1.5</z-m>
+    </offsets>
+  </model>
+
+  
+
+  <!-- <animation>
+    <type>select</type>
+    <object-name>RedLight</object-name>
+    <object-name>StrobeLighLeft</object-name>
+    <object-name>GreenLight</object-name>
+    <object-name>StrobeLighRight</object-name>
+  </animation> -->
+
+
+  <!-- wing light cone -->
+  <model>
+    <name>LightConeLeft</name>
+    <path>light-cone.xml</path>
+    <offsets>
+      <x-m> 1.69 </x-m>
+      <y-m> -2.856 </y-m>
+      <z-m> 1.3878 </z-m>
+      <pitch-deg>-3.5</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>LightConeRight</name>
+    <path>light-cone.xml</path>
+    <offsets>
+      <x-m> 1.69 </x-m>
+      <y-m> 2.856 </y-m>
+      <z-m> 1.3878 </z-m>
+      <pitch-deg>-3.5</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- test -->
+  <!-- <model>
+    <path>HDR/lightpanel.xml</path>
+    <offsets>
+      <x-m> -1.460 </x-m>
+      <y-m> -0.280 </y-m>
+      <z-m>  0.060 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>HDR/lightpanel.xml</path>
+    <offsets>
+      <x-m> -1.460 </x-m>
+      <y-m>  0.280 </y-m>
+      <z-m>  0.060 </z-m>
+    </offsets>
+  </model> -->
+  <!-- -->
+
+</PropertyList>

@@ -52,13 +52,15 @@ electricsystem.connect(
 ### Exterior lights
 
 # landing light LED 36w @12v => 3A with 5A breaker
-electricsystem.add_light(main_bus,"landing-light",3.0,5.0);
+electricsystem.add_light(main_bus,"landing-lights",3.0,5.0);
 
 var lights_breaker = e.Breaker.new("lights",10.0);
 electricsystem.connect(main_bus,lights_breaker);
 
 # 7w average led strobe light
 electricsystem.add_light(lights_breaker,"strobe-lights",1.0);
+aircraft.light.new("/controls/lighting/strobe", [0.05, 0.05, 0.05, 1]);
+
 # 2x 15w led nav lights
 electricsystem.add_light(lights_breaker,"nav-lights",2.0);
 

@@ -256,7 +256,7 @@ var Load = {
 
 ##
 # Load specific implementation to represent a Light witha switch.
-# By default, it'll use the switch at "/controls/lighting/[name]"
+# By default, it'll use the switch at "/controls/switches/[name]"
 var Light = {
     parents: [Load],
     class_name:"Light",
@@ -267,7 +267,7 @@ var Light = {
         return obj;
     },
     init: func(name,amps,switch=nil) {
-        switch = switch or "/controls/lighting/" ~ name;
+        switch = switch or "/controls/switches/" ~ name;
         me.super(Load,"init",name,amps,switch);
     },
 };

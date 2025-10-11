@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+    <logic>
+        <name>Landing lights</name>
+        <input>
+            <greater-than>
+                <property>/systems/electrical/outputs/landing-lights</property>
+                <value>7</value>
+            </greater-than>
+        </input>
+        <output>
+            <property>/controls/lighting/landing-lights</property>
+        </output>
+    </logic>
+    <logic>
+        <name>Nav lights</name>
+        <input>
+            <greater-than>
+                <property>/systems/electrical/outputs/nav-lights</property>
+                <value>7</value>
+            </greater-than>
+        </input>
+        <output>
+            <property>/controls/lighting/nav-lights</property>
+        </output>
+    </logic>
+    <logic>
+        <name>Strobe lights</name>
+        <input>
+            <greater-than>
+                <property>/systems/electrical/outputs/strobe-lights</property>
+                <value>7</value>
+            </greater-than>
+        </input>
+        <output>
+            <property>/controls/lighting/strobe/enabled</property>
+        </output>
+    </logic>
+    
+</PropertyList>

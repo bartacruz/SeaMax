@@ -265,7 +265,7 @@
     <type>material</type>
     <object-name>button landing</object-name>
     <emission>
-      <factor-prop>systems/electrical/outputs/landing-light</factor-prop>
+      <factor-prop>systems/electrical/outputs/landing-lights</factor-prop>
       <red> 0.002 </red>
       <green> 0.036 </green>
       <blue> 0.002 </blue>
@@ -281,7 +281,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/landing-light</property>
+        <property>/controls/switches/landing-lights</property>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -293,7 +293,7 @@
   <animation>
     <type>rotate</type>
     <object-name>button landing</object-name>
-    <property>/controls/lighting/landing-light</property>
+    <property>/controls/switches/landing-lights</property>
     <factor> 35 </factor>
     <center>
       <x-m>1.53</x-m>
@@ -322,7 +322,7 @@
   <animation>
     <object-name>button strobe</object-name>
     <type>rotate</type>
-    <property>controls/lighting/strobe-lights</property>
+    <property>controls/switches/strobe-lights</property>
     <factor> 35 </factor>
     <min-deg> 0 </min-deg>
     <max-deg> 35 </max-deg>
@@ -347,7 +347,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>controls/lighting/strobe-lights</property>
+        <property>controls/switches/strobe-lights</property>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -378,7 +378,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>controls/lighting/nav-lights</property>
+        <property>controls/switches/nav-lights</property>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -390,7 +390,7 @@
   <animation>
     <type>rotate</type>
     <object-name>button nav</object-name>
-    <property>controls/lighting/nav-lights</property>
+    <property>controls/switches/nav-lights</property>
     <factor> 35 </factor>
     <center>
       <x-m>1.53</x-m>
@@ -520,7 +520,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/instrument-lights</property>
+        <property>/controls/switches/instrument-lights</property>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -532,7 +532,7 @@
   <animation>
     <type>rotate</type>
     <object-name>button instr lights</object-name>
-    <property>/controls/lighting/instrument-lights</property>
+    <property>/controls/switches/instrument-lights</property>
     <factor> 35 </factor>
     <center>
       <x-m>1.53</x-m>
