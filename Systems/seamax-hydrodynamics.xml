@@ -2,7 +2,8 @@
 <system name="seamax hydrodynamics">
     <property value="0.0">hydro/environment/water-level-ft</property>
     <property value="1.9736403">hydro/environment/rho-slug_ft3</property>
-    <property value="1.1302106e-05">hydro/environment/kinematic-viscosity-ft2_sec</property>    <!-- Sea water at 20 degC. -->
+    <property value="1.1302106e-05">hydro/environment/kinematic-viscosity-ft2_sec</property>    <!-- Sea
+    water at 20 degC. -->
 
     <property value="0.0">hydro/environment/current-from-north-fps</property>
     <property value="0.0">hydro/environment/current-from-east-fps</property>
@@ -19,18 +20,19 @@
             </description>
             <function>
                 <product>
-                    <quotient>
-                        <sum>
-                            <property>/fdm/jsbsim/contact/unit[3]/WOW</property>
-                            <property>/fdm/jsbsim/contact/unit[4]/WOW</property>
-                            <property>/fdm/jsbsim/contact/unit[5]/WOW</property>
-                        </sum>
-                        <value>3</value>
-                    </quotient>
-                    <property><not>ground/solid</not></property>
+                    <or>
+                        <property>/fdm/jsbsim/contact/unit[3]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[4]/WOW</property>
+                        <property>/fdm/jsbsim/contact/unit[5]/WOW</property>
+
+                    </or>
+                    <not>
+                        <property>ground/solid</property>
+                    </not>
                 </product>
             </function>
         </fcs_function>
+
         <fcs_function name="hydro/center-ground-effect-speed-kt">
             <function>
                 <product>
@@ -68,7 +70,7 @@
         </fcs_function>
 
         <switch name="power-regime">
-            <default value="0"/>
+            <default value="0" />
             <test logic="AND" value="1">
                 /engines/active-engine/rpm LT 3000
             </test>
@@ -125,7 +127,7 @@
         </fcs_function>
         <summer name="hydro/Z/force-lbs">
             <input> hydro/fbz-lbs </input>
-            <output> external_reactions/hydro-Z/magnitude </output>
+            <output>external_reactions/hydro-Z/magnitude</output>
         </summer>
     </channel>
 

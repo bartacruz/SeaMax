@@ -199,15 +199,16 @@
     </fcs_function>
 
     <!-- Apply the position to the jacks only if enabled-->
-    <switch name="Jacks position z">
-      <default value="contact/unit[3]/z-position" />
-      <output>contact/unit[3]/z-position</output>
-      <output>contact/unit[4]/z-position</output>
-      <output>contact/unit[5]/z-position</output>
+    
+    <!-- <switch name="Jacks position z">
+      <default value="contact/unit[10]/z-position" />
+      <output>contact/unit[10]/z-position</output>
+      <output>contact/unit[11]/z-position</output>
+      <output>contact/unit[12]/z-position</output>
       <test logic="OR" value="fcs/jacks-pos-z">
         /controls/gear/jacks-operable eq 1
       </test>
-    </switch>
+    </switch> -->
   </channel>
   
   <channel name="Landing Gear">

@@ -129,8 +129,8 @@ var jacks = {
 };
     
 setlistener("/sim/signals/fdm-initialized", func {
-    settimer(check_ground,1);
     print("Checking ground...");
+    check_ground();    
     setlistener("/controls/gear/jacks-pos-norm", func(n) {
 		if (n.getValue() >0 and jacks.index<0) {
 				jacks.add();
