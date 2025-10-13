@@ -2,7 +2,7 @@
 <system name="seamax hull">
     <property value="13">metrics/hull-sqft</property>
     <property value="0.9">metrics/hull-cl</property>
-    <property value="-0.2">coeffs/hull-cp</property>
+    <property value="-0.3">coeffs/hull-cp</property>
     <channel name="Force Z (up)">
 
         <fcs_function name="aero/force/Lift_hull">

@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <aerodynamics>
+    <property value="1">coeffs/prop-c</property>
+   <property value="-17">coeffs/pitch-dampening</property>
     <function name="aero/alpha-wing-deg">
 		<todegrees>
 			<property>aero/alpha-wing-rad</property>

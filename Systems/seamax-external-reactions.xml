@@ -21,7 +21,7 @@
         </direction>
     </moment>
 
-    
+
     <force name="hydro-X" frame="LOCAL">
         <location unit="M">
             <x> 2.1 </x>
@@ -29,16 +29,16 @@
             <z> 0.3 </z>
         </location>
         <direction>
-            <x> 1.0 </x>
+            <x> -1.0 </x>
             <y> 0.0 </y>
             <z> 0.0 </z>
         </direction>
     </force>
     <force name="hydro-Y" frame="LOCAL">
         <location unit="M">
-            <x> 2.1 </x>
+            <x> 2.2 </x>
             <y> 0.00 </y>
-            <z> 0.3 </z>
+            <z> 0.2 </z>
         </location>
         <direction>
             <x> 0.0 </x>
@@ -48,7 +48,7 @@
     </force>
     <force name="hydro-Z" frame="LOCAL">
         <location unit="M">
-            <x> 2.1 </x>
+            <x> 1.7 </x>
             <y> 0.00 </y>
             <z> 0.3 </z>
         </location>
@@ -56,6 +56,18 @@
             <x> 0.0 </x>
             <y> 0.0 </y>
             <z>-1.0 </z>
+        </direction>
+    </force>
+    <force name="hydro-hull-drag" frame="BODY">
+        <location unit="M">
+            <x> 0 </x>
+            <y> 0 </y>
+            <z> 0 </z>
+        </location>
+        <direction>
+            <x> -1.0 </x>
+            <y> 0.0 </y>
+            <z> -0.5 </z>
         </direction>
     </force>
     <moment name="hydro-pitch" frame="BODY" unit="LBSFT">

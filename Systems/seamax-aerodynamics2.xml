@@ -2,6 +2,7 @@
 <aerodynamics>
    <property value="1">coeffs/prop-c</property>
    <property value="-17">coeffs/pitch-dampening</property>
+   <property value="-500">coeffs/water-rudder-factor</property>
    <function name="aero/function/kCDge">
       <description>Change_in_drag_due_to_ground_effect</description>
       <table>
@@ -571,6 +572,22 @@
                <value> -0.0211 </value>
            </product>
         </function>
+
+        <function name="aero/moment/Yaw_water_rudder">
+         <description>Yaw moment due to water rudder</description>
+         <product>
+              <property>/controls/gear/water-rudder-down</property>
+             <table>
+              <independentVar lookup="row">ground/solid</independentVar>
+              <tableData>
+                0     1
+                1     0
+              </tableData>
+            </table>
+             <property>fcs/rudder-pos-rad</property>
+             <property>coeffs/water-rudder-factor</property>
+         </product>
+      </function>
     
         <function name="aero/moment/Yaw_aileron">
            <description>Adverse yaw</description>

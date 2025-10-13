@@ -27,7 +27,12 @@ var check_ground = func() {
         settimer(func(){
             setprop("/controls/gear/detecting",0);
         },5);
+    } else {
+        setprop("/fdm/jsbsim/contact/unit[3]/position-z",1.0);
+        setprop("/fdm/jsbsim/contact/unit[4]/position-z",1.0);
+        setprop("/fdm/jsbsim/contact/unit[5]/position-z",1.0);
     }
+
     
 };
  ###############################################################################
