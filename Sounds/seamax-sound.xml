@@ -3,6 +3,36 @@
 <PropertyList>
 
     <fx>
+        <water-still>
+            <name>splash</name>
+            <mode>looped</mode>
+            <path>water-still.wav</path>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>/sim/multiplay/generic/float[10]</property>
+                        <value>0</value>
+                    </greater-than>
+                    <less-than>
+                        <property>/velocities/groundspeed-kt</property>
+                        <value>20</value>
+                    </less-than>
+                </and>
+            </condition>
+            <position>
+                <x>1.5</x>
+                <y>0.0</y>
+                <z>0.2</z>
+            </position>
+            <volume>
+                <property>/aircraft/sound-boost</property>
+                <offset>0.1</offset>
+                <factor>0.5</factor>
+            </volume>
+            <reference-dist>2.5</reference-dist>
+            <max-dist>200.0</max-dist>
+        </water-still>
+
         <crank>
             <name>engstart</name>
             <path>Rotax912-Engstart.wav</path>
@@ -13,7 +43,9 @@
                 <z> 1.7</z>
             </position>
             <volume>
-                <offset>0.5</offset>
+                <property>/aircraft/sound-boost</property>
+                <factor>1</factor>
+                <offset>0.35</offset>
             </volume>
             <reference-dist>100</reference-dist>
             <max-dist>1000</max-dist>
@@ -35,7 +67,9 @@
                 <z> 1.7 </z>
             </position>
             <volume>
-                <offset>0.5</offset>
+                <property>/aircraft/sound-boost</property>
+                <factor>0.6</factor>
+                <offset>0.4</offset>
             </volume>
             <reference-dist>100</reference-dist>
             <max-dist>1000</max-dist>
@@ -71,7 +105,9 @@
                 <z> 0.689 </z>
             </position>
             <volume>
-                <offset>0.5</offset>
+                <property>/aircraft/sound-boost</property>
+                <factor>0.6</factor>
+                <offset>0.4</offset>
             </volume>
             <reference-dist>100</reference-dist>
             <max-dist>1000</max-dist>
@@ -88,23 +124,17 @@
             </position>
             <condition>
                 <property>engines/engine[0]/running</property>
-                <or>
-                    <not>
-                        <property>/sim/current-view/internal</property>
-
-                    </not>
-                    <greater-than>
-                        <property>sim/model/door-positions/canopy/position-norm</property>
-                        <value>0</value>
-                    </greater-than>
-                </or>
             </condition>
             <volume>
+                <property>/aircraft/sound-boost</property>
+                <factor>0.6</factor>
+            </volume>
+            <volume>
                 <property>engines/engine[0]/mp-osi</property>
-                <factor>0.018</factor>
-                <min>0.35</min>
+                <factor>0.009</factor>
+                <min>0.17</min>
                 <max>2</max>
-                <offset>0.35</offset>
+                <offset>0.17</offset>
             </volume>
             <pitch>
                 <property>engines/engine[0]/rpm</property>
@@ -115,41 +145,6 @@
             </pitch>
         </engine>
 
-        <engine>
-            <name>engine-internal-1</name>
-            <mode>looped</mode>
-            <path>Rotax912-Engine-Internal.wav</path>
-            <condition>
-                <and>
-                    <property>engines/engine[0]/running</property>
-                    <property>/sim/current-view/internal</property>
-                    <equals>
-                        <property>sim/model/door-positions/canopy/position-norm</property>
-                        <value>0</value>
-                    </equals>
-                </and>
-            </condition>
-            <position>
-                <x>2.8</x>
-                <y>0</y>
-                <z>1.7</z>
-            </position>
-            <volume>
-                <property>engines/engine[0]/mp-osi</property>
-                <factor>0.012</factor>
-                <min>0.4</min>
-                <max>1.5</max>
-                <offset>0.4</offset>
-            </volume>
-            <pitch>
-                <property>engines/engine[0]/rpm</property>
-                <factor>0.0003</factor>
-                <min>0.3</min>
-                <max>4.5</max>
-                <offset>0.1</offset>
-            </pitch>
-        </engine>
-
         <wind>
             <name>wind</name>
             <mode>looped</mode>
@@ -157,15 +152,6 @@
             <condition>
                 <and>
                     <property>velocities/airspeed-kt</property>
-                    <or>
-                        <greater-than>
-                            <property>sim/model/door-positions/canopy/position-norm</property>
-                            <value>0</value>
-                        </greater-than>
-                        <not>
-                            <property>sim/current-view/internal</property>
-                        </not>
-                    </or>
                 </and>
             </condition>
             <volume>
@@ -177,9 +163,13 @@
             </volume>
             <volume>
                 <property>velocities/airspeed-kt</property>
-                <factor>0.0025</factor>
+                <factor>0.0010</factor>
                 <min>0.03</min>
                 <max>0.25</max>
+            </volume>
+            <volume>
+                <property>/aircraft/sound-boost</property>
+                <factor>0.35</factor>
             </volume>
             <pitch>
                 <property>velocities/airspeed-kt</property>
@@ -205,7 +195,7 @@
             <name>gear</name>
             <mode>in-transit</mode>
             <path>electric_engine.wav</path>
-            
+
             <property>gear/gear[0]/position-norm</property>
             <pitch>
                 <internal>dt_play</internal>
@@ -218,7 +208,9 @@
                 <z>0.5</z>
             </position>
             <volume>
+                <property>/aircraft/sound-boost</property>
                 <factor>0.2</factor>
+                <offset>0.2</offset>
             </volume>
             <reference-dist>5.0</reference-dist>
             <max-dist>10.0</max-dist>
@@ -360,6 +352,11 @@
                 <type>log</type>
                 <factor>0.25</factor>
             </volume>
+            <volume>
+                <property>/aircraft/sound-boost</property>
+                <factor>0.4</factor>
+            </volume>
+            
             <!-- <volume>
                 <property>/sim/model/c172p/sound/volume-boost-doors</property>
             </volume> -->
@@ -373,10 +370,10 @@
             <path>water-fast.wav</path>
             <condition>
                 <and>
-                    <property>/fdm/jsbsim/contact/unit[3]/WOW</property>
-                    <not>
-                        <property>/fdm/jsbsim/contact/unit[3]/solid</property>
-                    </not>
+                    <greater-than>
+                        <property>/sim/multiplay/generic/float[10]</property>
+                        <value>0</value>
+                    </greater-than>
                     <greater-than>
                         <property>/velocities/groundspeed-kt</property>
                         <value>20</value>
@@ -393,76 +390,15 @@
                 <type>log</type>
                 <factor>0.25</factor>
             </volume>
-            <!-- <volume>
-                <property>/sim/model/c172p/sound/volume-boost-doors</property>
-            </volume> -->
-            <reference-dist>2.5</reference-dist>
-            <max-dist>200.0</max-dist>
-        </splash>
-        <splash>
-            <name>splash left</name>
-            <mode>looped</mode>
-            <path>water-fast.wav</path>
-            <condition>
-                <and>
-                    <property>/fdm/jsbsim/contact/unit[4]/WOW</property>
-                    <not>
-                        <property>/fdm/jsbsim/contact/unit[4]/solid</property>
-                    </not>
-                    <greater-than>
-                        <property>/velocities/groundspeed-kt</property>
-                        <value>20</value>
-                    </greater-than>
-                </and>
-            </condition>
-            <position>
-                <x>1.5</x>
-                <y>-0.7</y>
-                <z>0.2</z>
-            </position>
             <volume>
-                <property>velocities/groundspeed-kt</property>
-                <type>log</type>
-                <factor>0.25</factor>
+                <property>/aircraft/sound-boost</property>
+                <factor>0.3</factor>
             </volume>
-            <!-- <volume>
-                <property>/sim/model/c172p/sound/volume-boost-doors</property>
-            </volume> -->
+            
             <reference-dist>2.5</reference-dist>
             <max-dist>200.0</max-dist>
         </splash>
-        <splash>
-            <name>splash right</name>
-            <mode>looped</mode>
-            <path>water-fast.wav</path>
-            <condition>
-                <and>
-                    <property>/fdm/jsbsim/contact/unit[5]/WOW</property>
-                    <not>
-                        <property>/fdm/jsbsim/contact/unit[5]/solid</property>
-                    </not>
-                    <greater-than>
-                        <property>/velocities/groundspeed-kt</property>
-                        <value>20</value>
-                    </greater-than>
-                </and>
-            </condition>
-            <position>
-                <x>1.5</x>
-                <y>0.7</y>
-                <z>0.2</z>
-            </position>
-            <volume>
-                <property>velocities/groundspeed-kt</property>
-                <type>log</type>
-                <factor>0.25</factor>
-            </volume>
-            <!-- <volume>
-                <property>/sim/model/c172p/sound/volume-boost-doors</property>
-            </volume> -->
-            <reference-dist>2.5</reference-dist>
-            <max-dist>200.0</max-dist>
-        </splash>
+
         <gravel-roll>
             <name>gravel-roll</name>
             <mode>looped</mode>
@@ -503,9 +439,11 @@
                 <type>log</type>
                 <factor>0.25</factor>
             </volume>
-            <!-- <volume>
-                <property>/sim/model/c172p/sound/volume-boost-doors</property>
-            </volume> -->
+            <volume>
+                <property>/aircraft/sound-boost</property>
+                <factor>0.4</factor>
+            </volume>
+            
             <reference-dist>2.5</reference-dist>
             <max-dist>200.0</max-dist>
         </gravel-roll>
