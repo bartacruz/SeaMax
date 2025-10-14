@@ -2,6 +2,7 @@
 
 <PropertyList>
     <sim>
+        <help include="help.xml"/>
         <model>
             <path archive="y">Aircraft/SeaMax/Models/seamax.xml</path>
             <livery>
