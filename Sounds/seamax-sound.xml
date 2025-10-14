@@ -4,7 +4,7 @@
 
     <fx>
         <water-still>
-            <name>splash</name>
+            <name>waterstill</name>
             <mode>looped</mode>
             <path>water-still.wav</path>
             <condition>
@@ -32,6 +32,40 @@
             <reference-dist>2.5</reference-dist>
             <max-dist>200.0</max-dist>
         </water-still>
+        <splash>
+            <name>splash</name>
+            <mode>looped</mode>
+            <path>water-fast.wav</path>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>/sim/multiplay/generic/float[10]</property>
+                        <value>0</value>
+                    </greater-than>
+                    <greater-than>
+                        <property>/velocities/groundspeed-kt</property>
+                        <value>20</value>
+                    </greater-than>
+                </and>
+            </condition>
+            <position>
+                <x>1.5</x>
+                <y>0.0</y>
+                <z>0.2</z>
+            </position>
+            <volume>
+                <property>velocities/groundspeed-kt</property>
+                <type>log</type>
+                <factor>0.5</factor>
+            </volume>
+            <volume>
+                <property>/aircraft/sound-boost</property>
+                <factor>0.6</factor>
+            </volume>
+            
+            <reference-dist>5</reference-dist>
+            <max-dist>200.0</max-dist>
+        </splash>
 
         <crank>
             <name>engstart</name>
@@ -127,14 +161,14 @@
             </condition>
             <volume>
                 <property>/aircraft/sound-boost</property>
-                <factor>0.6</factor>
+                <factor>0.7</factor>
             </volume>
             <volume>
                 <property>engines/engine[0]/mp-osi</property>
-                <factor>0.009</factor>
-                <min>0.17</min>
+                <factor>0.007</factor>
+                <min>0.1</min>
                 <max>2</max>
-                <offset>0.17</offset>
+                <offset>0.1</offset>
             </volume>
             <pitch>
                 <property>engines/engine[0]/rpm</property>
@@ -356,48 +390,9 @@
                 <property>/aircraft/sound-boost</property>
                 <factor>0.4</factor>
             </volume>
-            
-            <!-- <volume>
-                <property>/sim/model/c172p/sound/volume-boost-doors</property>
-            </volume> -->
             <reference-dist>2.5</reference-dist>
             <max-dist>200.0</max-dist>
         </pavement-roll>
-
-        <splash>
-            <name>splash</name>
-            <mode>looped</mode>
-            <path>water-fast.wav</path>
-            <condition>
-                <and>
-                    <greater-than>
-                        <property>/sim/multiplay/generic/float[10]</property>
-                        <value>0</value>
-                    </greater-than>
-                    <greater-than>
-                        <property>/velocities/groundspeed-kt</property>
-                        <value>20</value>
-                    </greater-than>
-                </and>
-            </condition>
-            <position>
-                <x>1.5</x>
-                <y>0.0</y>
-                <z>0.2</z>
-            </position>
-            <volume>
-                <property>velocities/groundspeed-kt</property>
-                <type>log</type>
-                <factor>0.25</factor>
-            </volume>
-            <volume>
-                <property>/aircraft/sound-boost</property>
-                <factor>0.3</factor>
-            </volume>
-            
-            <reference-dist>2.5</reference-dist>
-            <max-dist>200.0</max-dist>
-        </splash>
 
         <gravel-roll>
             <name>gravel-roll</name>
@@ -547,5 +542,26 @@
             <reference-dist>0.5</reference-dist>
             <max-dist>10.0</max-dist>
         </switch>
+        <jacks>
+            <name>Jacks transit</name>
+            <mode>in-transit</mode>
+            <path>flaplever.wav</path>
+            <property>/controls/gear/jacks-pos-norm</property>
+            <!-- <pitch>
+                <internal>dt_play</internal>
+                <offset>1.0</offset>
+                <factor>-0.001</factor>
+            </pitch> -->
+            <position>
+                <x>1.5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+            <volume>
+                <factor>0.5</factor>
+            </volume>
+            <reference-dist>5.0</reference-dist>
+            <max-dist>30.0</max-dist>
+        </jacks>
     </fx>
 </PropertyList>

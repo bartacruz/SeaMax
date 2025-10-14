@@ -107,8 +107,8 @@
     <aerosurface_scale name="Rudder Control">
       <input>fcs/rudder-command-sum</input>
       <range>
-        <min> -0.25 </min>
-        <max> 0.25 </max>
+        <min> -0.35 </min>
+        <max> 0.35 </max>
       </range>
       <output>fcs/rudder-pos-rad</output>
     </aerosurface_scale>
@@ -116,8 +116,8 @@
     <aerosurface_scale name="rudder normalization">
       <input>fcs/rudder-pos-rad</input>
       <domain>
-        <min> -0.25 </min>
-        <max> 0.25 </max>
+        <min> -0.35 </min>
+        <max> 0.35 </max>
       </domain>
       <range>
         <min> -1 </min>
@@ -175,7 +175,7 @@
         </setting>
         <setting>
           <position>1</position>
-          <time>5</time>
+          <time>3</time>
         </setting>
       </traverse>
       <output>contact/jacks-pos-norm</output>
@@ -188,11 +188,11 @@
         <table>
           <independentVar lookup="row">contact/jacks-pos-norm</independentVar>
           <tableData>
-            0   24
+            0   31
             0.2 10
             0.3  5
             0.4  3
-            1   -3
+            1   -4
           </tableData>
         </table>
       </function>
@@ -200,15 +200,16 @@
 
     <!-- Apply the position to the jacks only if enabled-->
     
-    <!-- <switch name="Jacks position z">
+    <switch name="Jacks position z">
       <default value="contact/unit[10]/z-position" />
       <output>contact/unit[10]/z-position</output>
       <output>contact/unit[11]/z-position</output>
       <output>contact/unit[12]/z-position</output>
+      <output>contact/unit[13]/z-position</output>
       <test logic="OR" value="fcs/jacks-pos-z">
         /controls/gear/jacks-operable eq 1
       </test>
-    </switch> -->
+    </switch>
   </channel>
   
   <channel name="Landing Gear">

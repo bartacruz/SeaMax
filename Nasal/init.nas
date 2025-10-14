@@ -17,7 +17,7 @@ var autostart = func{
 }
 
 
-var check_ground = func() {
+var init_gears = func() {
     var solid = getprop("/fdm/jsbsim/ground/solid");
     print("SOLID? ", solid);
     if (solid == 0) {
@@ -27,14 +27,22 @@ var check_ground = func() {
         settimer(func(){
             setprop("/controls/gear/detecting",0);
         },5);
-    } else {
-        setprop("/fdm/jsbsim/contact/unit[3]/position-z",1.0);
-        setprop("/fdm/jsbsim/contact/unit[4]/position-z",1.0);
-        setprop("/fdm/jsbsim/contact/unit[5]/position-z",1.0);
-    }
-
-    
+    } 
 };
+
+var check_gears = func(n) {
+    var gear_down = n.getBoolValue();
+    if (gear_down == 1) {
+        # pitch up the water surfaces
+        setprop("/fdm/jsbsim/contact/unit[3]/z-position",1.0);
+        setprop("/fdm/jsbsim/contact/unit[4]/z-position",1.0);
+    } else {
+        # pitch down the water surfaces
+        # TODO: keep the original position inside a variable.
+        setprop("/fdm/jsbsim/contact/unit[3]/z-position",0);
+        setprop("/fdm/jsbsim/contact/unit[4]/z-position",0);
+    }
+}
  ###############################################################################
 # On-screen displays
 var enableOSD = func {
@@ -109,41 +117,12 @@ var enableOSD = func {
     # right.add("/fdm/jsbsim/left-pontoon/leaked-water-lbs");
     # right.add("/fdm/jsbsim/right-pontoon/leaked-water-lbs");
 }
-var jacks = {
-    index:   -1,
-    add: func {
-        print("jacks.add");
-        var manager = props.globals.getNode("/models", 1);
-        var i = 0;
-        for (; 1; i += 1)
-            if (manager.getChild("model", i, 0) == nil)
-                break;
-        
-		var model = geo.aircraft_position().set_alt(
-            props.globals.getNode("/position/ground-elev-m").getValue());
 
-		geo.put_model("Aircraft/SeaMax/Models/Parts/Jacks/jacks.xml", model,
-            props.globals.getNode("/orientation/heading-deg").getValue());
-            me.index = i;
-        },
-    remove: func {
-        print("jacks.remove");
-        props.globals.getNode("/models", 1).removeChild("model", me.index);
-        me.index=-1;
-    },
-};
     
 setlistener("/sim/signals/fdm-initialized", func {
     print("Checking ground...");
-    check_ground();    
-    setlistener("/controls/gear/jacks-pos-norm", func(n) {
-		if (n.getValue() >0 and jacks.index<0) {
-				jacks.add();
-		} 	
-        if (n.getValue() == 0 and jacks.index >= 0) {
-            jacks.remove();
-		}
-	},0,0);
-
+    setlistener("/controls/gear/gear_down", check_gears);
+    init_gears();
+    
     # enableOSD();
 }, 0, 0);

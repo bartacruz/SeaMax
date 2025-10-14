@@ -277,49 +277,66 @@
     </contact>
 
     <!-- jacks -->
-    <!-- <contact type="STRUCTURE" name="NOSE_JACK">
-  <location unit="M">
-    <x> 0.5 </x>
-    <y> 0 </y>
-    <z> 0.6 </z>
-  </location>
-  <static_friction>0.80</static_friction>
-  <dynamic_friction>0.7</dynamic_friction>
-  <rolling_friction> 0.1</rolling_friction>
-  <spring_coeff unit="LBS/FT">50000.00 </spring_coeff>
-  <damping_coeff unit="LBS/FT/SEC">2500.00 </damping_coeff>
-  
-</contact>
-<contact type="STRUCTURE" name="LEFT_JACK">
-  <location unit="M">
-    <x> 2.8 </x>
-    <y> -0.68 </y>
-    <z> 0.6 </z>
-  </location>
-  <static_friction>0.80</static_friction>
-  <dynamic_friction>0.7</dynamic_friction>
-  <rolling_friction> 0.1</rolling_friction>
-  <spring_coeff unit="LBS/FT">50000.00 </spring_coeff>
-  <damping_coeff unit="LBS/FT/SEC">2500.00 </damping_coeff>
-  
-</contact>
-<contact type="STRUCTURE" name="RIGHT_JACK">
-  <location unit="M">
-    <x> 2.8 </x>
-    <y>  0.68 </y>
-    <z> 0.6 </z>
-  </location>
-  <static_friction>0.80</static_friction>
-  <dynamic_friction>0.7</dynamic_friction>
-  <rolling_friction> 0.1</rolling_friction>
-  <spring_coeff unit="LBS/FT">50000.00 </spring_coeff>
-  <damping_coeff unit="LBS/FT/SEC">2500.00 </damping_coeff>  
-</contact> -->
+    <contact type="STRUCTURE"
+             name="NOSE_RJACK">
+      <location unit="M">
+        <x> 0.5 </x>
+        <y> 0.6</y>
+        <z> 0.8 </z>
+      </location>
+      <static_friction>0.80</static_friction>
+      <dynamic_friction>0.7</dynamic_friction>
+      <rolling_friction> 0.1</rolling_friction>
+      <spring_coeff unit="LBS/FT">5000.00 </spring_coeff>
+      <damping_coeff unit="LBS/FT/SEC">250.00 </damping_coeff>
+    </contact>
+
+    <contact type="STRUCTURE"
+             name="NOSE_LJACK">
+      <location unit="M">
+        <x> 0.5 </x>
+        <y>-0.6</y>
+        <z> 0.8 </z>
+      </location>
+      <static_friction>0.80</static_friction>
+      <dynamic_friction>0.7</dynamic_friction>
+      <rolling_friction> 0.1</rolling_friction>
+      <spring_coeff unit="LBS/FT">5000.00 </spring_coeff>
+      <damping_coeff unit="LBS/FT/SEC">250.00 </damping_coeff>
+    </contact>
+
+    <contact type="STRUCTURE"
+             name="LEFT_JACK">
+      <location unit="M">
+        <x> 3 </x>
+        <y> -0.68 </y>
+        <z> 0.8 </z>
+      </location>
+      <static_friction>0.80</static_friction>
+      <dynamic_friction>0.7</dynamic_friction>
+      <rolling_friction> 0.1</rolling_friction>
+      <spring_coeff unit="LBS/FT">5000.00 </spring_coeff>
+      <damping_coeff unit="LBS/FT/SEC">250.00 </damping_coeff>
+
+    </contact>
+    <contact type="STRUCTURE"
+             name="RIGHT_JACK">
+      <location unit="M">
+        <x> 3 </x>
+        <y> 0.68 </y>
+        <z> 0.8 </z>
+      </location>
+      <static_friction>0.80</static_friction>
+      <dynamic_friction>0.7</dynamic_friction>
+      <rolling_friction> 0.1</rolling_friction>
+      <spring_coeff unit="LBS/FT">5000.00 </spring_coeff>
+      <damping_coeff unit="LBS/FT/SEC">250.00 </damping_coeff>
+    </contact>
 
   </ground_reactions>
 
   <external_reactions file="Systems/seamax-external-reactions.xml" />
-  
+
   <propulsion>
 
     <engine file="Rotax-912-is">
@@ -377,7 +394,7 @@
     </tank>
 
   </propulsion>
-  
+
   <system file="seamax-fuel" />
   <system file="seamax-hydrodynamics" />
   <system file="seamax-hull" />
