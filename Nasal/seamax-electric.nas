@@ -69,6 +69,7 @@ electricsystem.add_light(lights_breaker,"instrument-lights",0.2);
 # Flood Light
 electricsystem.add_light(lights_breaker,"flood-light-left",0.3);
 electricsystem.add_light(lights_breaker,"flood-light-right",0.3);
+electricsystem.add_light(lights_breaker,"breaker-test",12.0);
 
 ### Avionics
 electricsystem.add_instrument(main_bus,"transponder",3.0,5.0);

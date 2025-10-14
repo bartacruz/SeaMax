@@ -4,156 +4,8 @@
 
   <path>seamax-interior.ac</path>
 
-  <!-- Landing gear lights -->
   <model>
-    <path>Instruments/lights/landing-nose.xml</path>
-    <offsets>
-      <x-m> 1.1 </x-m>
-      <y-m>-0.22 </y-m>
-      <z-m> 0.963 </z-m>
-    </offsets>
-  </model>
-  <model>
-    <path>Instruments/lights/landing-left.xml</path>
-    <offsets>
-      <x-m> 1.1 </x-m>
-      <y-m>-0.23 </y-m>
-      <z-m> 0.95 </z-m>
-    </offsets>
-  </model>
-  <model>
-    <path>Instruments/lights/landing-right.xml</path>
-    <offsets>
-      <x-m> 1.1 </x-m>
-      <y-m>-0.21 </y-m>
-      <z-m> 0.95 </z-m>
-    </offsets>
-  </model>
-
-  <!-- Water rudder indicator -->
-  <model>
-    <path>Instruments/lights/water-rudder.xml</path>
-    <offsets>
-      <x-m> 1.1 </x-m>
-      <y-m>-0.42 </y-m>
-      <z-m> 0.85 </z-m>
-    </offsets>
-  </model>
-  
-  <!-- Flaps indicator -->
-  <model>
-    <path>Instruments/lights/flaps0.xml</path>
-    <offsets>
-      <x-m> 1.1 </x-m>
-      <y-m>-0.415 </y-m>
-      <z-m> 0.8 </z-m>
-    </offsets>
-  </model>
-  <model>
-    <path>Instruments/lights/flaps10.xml</path>
-    <offsets>
-      <x-m> 1.1 </x-m>
-      <y-m>-0.415 </y-m>
-      <z-m> 0.785 </z-m>
-    </offsets>
-  </model>
-  <model>
-    <path>Instruments/lights/flaps35.xml</path>
-    <offsets>
-      <x-m> 1.1 </x-m>
-      <y-m>-0.415 </y-m>
-      <z-m> 0.77 </z-m>
-    </offsets>
-  </model>
-
-  <!-- Air speed indicator -->
-  <model>
-    <path>Instruments/asi-kt/asi-kt.xml</path>
-    <offsets>
-      <x-m> 1.11</x-m>
-      <y-m>-0.34 </y-m>
-      <z-m> 0.88 </z-m>
-    </offsets>
-  </model>
-  <!-- RPM -->
-  <model>
-    <path>Instruments/rotax912-rpm/rotax912-rpm.xml</path>
-    <offsets>
-      <x-m> 1.11 </x-m>
-      <y-m>-0.34 </y-m>
-      <z-m> 0.78 </z-m>
-    </offsets>
-  </model>
-  <!-- Heading indicator -->
-  <model>
-    <path>/Aircraft/Instruments-3d/hi/hi.xml</path>
-    <offsets>
-      <x-m> 1.11 </x-m>
-      <y-m>-0.24 </y-m>
-      <z-m> 0.88 </z-m>
-    </offsets>
-  </model>
-  <!-- Turn coordinator -->
-  <model>
-    <path>Instruments/turn/turn.xml</path>
-    <offsets>
-      <x-m> 1.11 </x-m>
-      <y-m>-0.24 </y-m>
-      <z-m> 0.78 </z-m>
-    </offsets>
-  </model>
-  <!-- Comm ATR833-II -->
-  <model>
-    <path>Instruments/ATR833-II/atr833-ii.xml</path>
-    <offsets>
-      <x-m> 1.11 </x-m>
-      <y-m>-0.145 </y-m>
-      <z-m> 0.96 </z-m>
-    </offsets>
-  </model>
-<!-- Altimeter -->
-  <model>
-    <path>Instruments/alt/alt.xml</path>
-    <offsets>
-      <x-m> 1.11 </x-m>
-      <y-m>-0.14 </y-m>
-      <z-m> 0.88 </z-m>
-    </offsets>
-  </model>
-  <!-- Vertical speed indicator -->
-  <model>
-    <path>Instruments/vsi/vsi.xml</path>
-    <offsets>
-      <x-m> 1.11 </x-m>
-      <y-m>-0.14 </y-m>
-      <z-m> 0.78 </z-m>
-    </offsets>
-  </model>
-  <!-- IPad -->
-  <model>
-    <path>Instruments/ipad/ipad.xml</path>
-    <offsets>
-      <x-m> 1.12 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0.77 </z-m>
-    </offsets>
-  </model>
-
-  <model>
-    <path>Instruments/rotax912-fuel-press/rotax912-fuel-press.xml</path>
-    <offsets>
-      <x-m> 1.11 </x-m>
-      <y-m> 0.15 </y-m>
-      <z-m> 0.78 </z-m>
-    </offsets>
-  </model>
-  <model>
-    <path>Instruments/rotax912-oil-press/rotax912-oil-press.xml</path>
-    <offsets>
-      <x-m> 1.11 </x-m>
-      <y-m> 0.225 </y-m>
-      <z-m> 0.78 </z-m>
-    </offsets>
+    <path>panel.xml</path>
   </model>
 
   <!-- Yoke-->
@@ -218,6 +70,94 @@
       <z> 0</z>
     </axis>
   </animation>
+  <!-- Flaps indicator -->
+
+  <animation>
+    <type>select</type>
+    <object-name>flaps.right.10.led</object-name>
+    <object-name>flaps.left.10.led</object-name>
+    <condition>
+      <property>/systems/electrical/outputs/main-bus</property>
+      <greater-than-equals>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>0.3</value>
+      </greater-than-equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>flaps.right.35.led</object-name>
+    <object-name>flaps.left.35.led</object-name>
+    <condition>
+      <property>/systems/electrical/outputs/main-bus</property>
+      <greater-than-equals>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>1</value>
+      </greater-than-equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>flaps.right.10.led</object-name>
+    <object-name>flaps.left.10.led</object-name>
+    <object-name>flaps.right.35.led</object-name>
+    <object-name>flaps.left.35.led</object-name>
+    <emission>
+      <red> 1 </red>
+      <green> 1 </green>
+      <blue> 0.2 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>flaps.left.switch</object-name>
+    <object-name>flaps.right.switch</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>controls.flapsDown(-1);</script>
+      </binding>
+    </action>
+
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>controls.flapsDown(1);</script>
+      </binding>
+    </action>
+
+		<action>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>controls.flapsDown(-1);</script>
+			</binding>
+		</action>
+
+		<action>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>controls.flapsDown(1);</script>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>flaps_switch</tooltip-id>
+				<label>left click or scroll-down to lower flaps, right-click or scroll-up to rise them</label>
+			</binding>
+		</hovered>
+  </animation>
 
   <!-- Overhead panel -->
 
@@ -230,13 +170,13 @@
     <factor>50</factor>
     <axis>
       <x>0</x>
-      <y>-1</y>
+      <y>1</y>
       <z>0</z>
     </axis>
     <center>
       <x-m>1.46</x-m>
       <y-m>0.0</y-m>
-      <z-m>1.33</z-m>
+      <z-m>1.323</z-m>
     </center>
   </animation>
 
@@ -689,15 +629,40 @@
     <object-name>water rudder handle</object-name>
     <property>controls/gear/water-rudder-down</property>
     <factor>62</factor>
-      <center>
-        <x-m>1.854</x-m>
-        <y-m>0.44</y-m>
-        <z-m>0.326</z-m>
-      </center>
-      <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-      </axis>
+    <center>
+      <x-m>1.854</x-m>
+      <y-m>0.44</y-m>
+      <z-m>0.326</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- Circuit breakers-->
+
+  <animation>
+    <type>pick</type>
+    <object-name>cb.001</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/circuit-breakers/lights</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.001</object-name>
+    <property>controls/circuit-breakers/lights</property>
+    <offset-m>0.006</offset-m>
+    <axis>
+      <z>-1</z>
+    </axis>
+    <factor>-0.006</factor>
   </animation>
 </PropertyList>

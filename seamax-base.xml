@@ -275,6 +275,11 @@
             <bilge-pump type="bool">false</bilge-pump>
             <master-cover type="bool">false</master-cover>
             <starter type="bool">false</starter>
+            <landing-lights type="bool">false</landing-lights>
+            <nav-lights type="bool">false</nav-lights>
+            <strobe-lights type="bool">false</strobe-lights>
+            <instrument-lights type="bool">false</instrument-lights>
+            <breaker-test type="bool">false</breaker-test>
         </switches>
     </controls>
     <seamax>

@@ -459,7 +459,7 @@ var Breaker = {
             #printf("Breaker %s current=%s amps=%s", me.name,me.current,me.amps);
             if (me.current > me.amps *1.1) {
                 print(sprintf("### Circuit-breaker %s popped! %f > %f", me.name, me.current, me.amps ));
-                me.set_state(1);
+                me.set_state(0);
             }
         }
         return me.current;
