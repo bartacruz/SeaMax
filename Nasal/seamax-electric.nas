@@ -48,23 +48,34 @@ electricsystem.connect(
     e.Load.new("landing-gear",6.0,"/controls/gear/gear-in-transit")
 );
 
+electricsystem.connect(
+    main_bus,
+    e.Breaker.new("flaps",10.0),
+    e.Load.new("flaps",6.0,"/controls/flight/flaps-in-transit")
+);
+
 
 ### Exterior lights
-
-# landing light LED 36w @12v => 3A with 5A breaker
-electricsystem.add_light(main_bus,"landing-lights",3.0,5.0);
 
 var lights_breaker = e.Breaker.new("lights",10.0);
 electricsystem.connect(main_bus,lights_breaker);
 
+var cb5 = e.Breaker.new("cb5",10.0);
+electricsystem.connect(main_bus,cb5);
+
 # 7w average led strobe light
-electricsystem.add_light(lights_breaker,"strobe-lights",1.0);
+electricsystem.add_light(cb5,"strobe-lights",1.0);
 aircraft.light.new("/controls/lighting/strobe", [0.05, 0.05, 0.05, 1]);
 
 # 2x 15w led nav lights
-electricsystem.add_light(lights_breaker,"nav-lights",2.0);
+electricsystem.add_light(cb5,"nav-lights",2.0);
 
-# Interior lights
+# landing light LED 36w @12v => 3A with 5A breaker
+electricsystem.add_light(main_bus,"landing-lights",3.0,5.0);
+
+
+### Interior lights
+
 electricsystem.add_light(lights_breaker,"instrument-lights",0.2);
 # Flood Light
 electricsystem.add_light(lights_breaker,"flood-light-left",0.3);
@@ -72,21 +83,24 @@ electricsystem.add_light(lights_breaker,"flood-light-right",0.3);
 electricsystem.add_light(lights_breaker,"breaker-test",12.0);
 
 ### Avionics
+var cb3 = e.Breaker.new("cb3",5.0);
+electricsystem.connect(main_bus,cb3);
+
+electricsystem.add_instrument(cb3,"turn-coordinator",3.0,5.0,"/controls/electric/master-switch");
+electricsystem.add_instrument(cb3,"gps",3.0,5.0,"/controls/electric/master-switch");
 electricsystem.add_instrument(main_bus,"transponder",3.0,5.0);
-electricsystem.add_instrument(main_bus,"gps",3.0,5.0,"/controls/electric/master-switch");
-electricsystem.add_instrument(main_bus,"turn-coordinator",3.0,5.0,"/controls/electric/master-switch");
-electricsystem.add_instrument(main_bus,"comm",0.2,1.0,"/controls/electric/master-switch");
+electricsystem.add_instrument(main_bus,"comm",0.2,10,"/controls/electric/master-switch");
 
 electricsystem.connect(
     main_bus,
     e.Breaker.new("bilge-pump",3.0),
     e.Load.new("bilge-pump",2.0,"/controls/electric/bilge-pump")
 );
-electricsystem.connect(
-    main_bus,
-    e.Breaker.new("landing-gear",10.0),
-    e.Load.new("landing-gear",7.0,"/controls/electric/landing-gear")
-);
+# electricsystem.connect(
+#     main_bus,
+#     e.Breaker.new("landing-gear",10.0),
+#     e.Load.new("landing-gear",7.0,"/controls/electric/landing-gear")
+# );
 
 setlistener("sim/signals/fdm-initialized",func{
     electricsystem.enable();

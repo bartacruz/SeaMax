@@ -148,7 +148,7 @@
       <output>fcs/flap-pos-deg</output>
     </kinematic>
 
-    <aerosurface_scale name="flap normalization">
+    <aerosurface_scale name="flaps normalization">
       <input>fcs/flap-pos-deg</input>
       <domain>
         <min> 0 </min>
@@ -160,6 +160,16 @@
       </range>
       <output>fcs/flap-pos-norm</output>
     </aerosurface_scale>
+
+    <switch name="Flap in transit">
+      <default value="0" />
+      <output>/controls/flight/flaps-in-transit</output>
+      <test logic="AND" value="1">
+        fcs/flap-cmd-norm ne 0
+        fcs/flap-cmd-norm ne 10
+        fcs/flap-cmd-norm ne 35
+      </test>
+    </switch>
 
   </channel>
 
