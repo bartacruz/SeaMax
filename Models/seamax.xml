@@ -2,15 +2,29 @@
 <PropertyList>
 
   <path>SeaMax.ac</path>
+  
   <model>
     <usage>interior</usage>
     <path>Interior/interior.xml</path>
   </model>
+  
   <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
+    <inherits-from>Effects/Glass/glass</inherits-from>
+    <!-- <inherits-from>Effects/model-transparent</inherits-from> -->
     <object-name>canopy glass</object-name>
-    <object-name> glass</object-name>
+    <object-name>window left</object-name>
+    <object-name>window right</object-name>
+    <object-name>glass</object-name>
   </effect>
+  
+  <animation>
+    <type>noshadow</type>
+    <object-name>canopy glass</object-name>
+    <object-name>window left</object-name>
+    <object-name>window right</object-name>
+    <object-name>glass</object-name>
+  </animation>
+
   <animation>
     <name>Propeller</name>
     <object-name>prop</object-name>

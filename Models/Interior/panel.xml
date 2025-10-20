@@ -47,7 +47,7 @@
       </model>
       <!-- RPM -->
       <model>
-        <path>Instruments/rotax912-rpm/rotax912-rpm.xml</path>
+        <path>Instruments/tach/tach.xml</path>
         <offsets>
           <x-m> 1.11 </x-m>
           <y-m>-0.34 </y-m>
@@ -56,7 +56,9 @@
       </model>
       <!-- Heading indicator -->
       <model>
-        <path>/Aircraft/Instruments-3d/hi/hi.xml</path>
+        <!-- <path>/Aircraft/Instruments-3d/hi/hi.xml</path> -->
+        <!-- <path>Instruments/G5/G5.xml</path> -->
+        <path>Instruments/seamax-hi/hi.xml</path> 
         <offsets>
           <x-m> 1.11 </x-m>
           <y-m>-0.24 </y-m>
@@ -92,7 +94,7 @@
       </model>
       <!-- Vertical speed indicator -->
       <model>
-        <path>Instruments/vsi/vsi.xml</path>
+        <path>Instruments/seamax-vsi/vsi.xml</path>
         <offsets>
           <x-m> 1.11 </x-m>
           <y-m>-0.14 </y-m>

@@ -128,10 +128,10 @@
                 <from-model-idx type="int">0</from-model-idx>
                 <dynamic-view type="bool">false</dynamic-view>
                 <x-offset-m> 0 </x-offset-m> <!-- Right -->
-                <y-offset-m> 0.71 </y-offset-m> <!-- Up    -->
-                <z-offset-m> 1.61 </z-offset-m> <!-- Back  -->
+                <y-offset-m> 0.65 </y-offset-m> <!-- Up    -->
+                <z-offset-m> 1.69 </z-offset-m> <!-- Back  -->
                 <pitch-offset-deg type="double">90</pitch-offset-deg>
-                <field-of-view type="double">67</field-of-view>
+                <field-of-view type="double">61.3</field-of-view>
                 <default-field-of-view-deg type="double"></default-field-of-view-deg>
                 <default-pitch-deg type="double">85</default-pitch-deg>
                 <default-heading-deg type="double">0</default-heading-deg>
@@ -155,7 +155,17 @@
         <previews>
             <preview>
                 <type>cockpit</type>
-                <path>Previews/seamax1.jpg</path>
+                <path>Previews/seamax-interior.png</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Previews/seamax1.png</path>
+                <splash type="bool">true</splash>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <path>Previews/seamax2.png</path>
                 <splash type="bool">true</splash>
             </preview>
         </previews>
