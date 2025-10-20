@@ -68,12 +68,6 @@
       </function>
     </fcs_function>
 
-    <summer>
-      <input>propulsion/engine/fuel-pressure-psi</input>
-      <output>/engines/engine/fuel-pressure-psi</output>
-    </summer>
-    
-    
     <switch>
       <name>Cut collector output if not enough fuel or pressure</name>
       <default value="0" />
@@ -84,6 +78,14 @@
       <output>propulsion/tank[2]/priority</output>
     </switch>
 
+    <switch>
+      <default value="0" />
+      <test logic="AND" value="propulsion/engine/fuel-pressure-psi">
+        propulsion/tank[2]/contents-lbs GE 0.02
+      </test>
+      <output>/engines/engine/fuel-pressure-psi</output>
+    </switch>
+    
     <!-- Tanks to collector feed -->
     <switch>
       <name>Feed collector from left wing tank</name>
