@@ -38,8 +38,15 @@
         <tag>compositor</tag>
         <tag>HDR</tag>
       </tags>
+      
   
     </sim>
+  
+    <nasal>
+          <engine>
+            <file>Nasal/yasim-engine.nas</file>
+          </engine>
+    </nasal>
   
   </PropertyList>
   

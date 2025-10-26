@@ -9,6 +9,11 @@
 		<type>material</type>
 		<object-name>tach.case</object-name>
 		<object-name>tach.needle</object-name>
+		<object-name>Drum.0</object-name>
+        <object-name>Drum.1</object-name>
+        <object-name>Drum.2</object-name>
+        <object-name>Drum.3</object-name>
+        <object-name>Drum.4</object-name>
 		<condition>
 			<not><property>sim/rendering/rembrandt/enabled</property></not>
 		</condition>
@@ -39,4 +44,69 @@
 			<z>  0 </z>
 		</axis>
 	</animation>
+
+	<animation>
+        <type>textranslate</type>
+        <object-name>Drum.0</object-name>
+        <property>instrumentation/hobbs-meter/digits0</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>  0 </x>
+            <y> -1 </y>
+            <z>  0 </z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Drum.1</object-name>
+        <property>instrumentation/hobbs-meter/digits1</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>  0 </x>
+            <y> -1 </y>
+            <z>  0 </z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Drum.2</object-name>
+        <property>instrumentation/hobbs-meter/digits2</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>  0 </x>
+            <y> -1 </y>
+            <z>  0 </z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Drum.3</object-name>
+        <property>instrumentation/hobbs-meter/digits3</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>  0 </x>
+            <y> -1 </y>
+            <z>  0 </z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Drum.4</object-name>
+        <property>instrumentation/hobbs-meter/digits4</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>  0 </x>
+            <y> -1 </y>
+            <z>  0 </z>
+        </axis>
+    </animation>
 </PropertyList>

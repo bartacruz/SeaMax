@@ -44,7 +44,7 @@
   <metrics>
     <wingarea unit="FT2"> 129.61 </wingarea>
     <wingspan unit="FT"> 33.07 </wingspan>
-    <wing_incidence> 0.0349 </wing_incidence>
+    <wing_incidence unit="DEG">2</wing_incidence>
     <chord unit="FT"> 3.92 </chord>
     <htailarea unit="FT2"> 22.61 </htailarea>
     <htailarm unit="FT"> 9.19 </htailarm>
@@ -52,9 +52,10 @@
     <vtailarm unit="FT"> 8.86 </vtailarm>
     <location name="AERORP"
               unit="M">
-      <x> 2.314 </x>
+      <!-- <x> 2.314 </x> -->
+      <x> 2.114 </x>
       <y> 0.00 </y>
-      <z> 1.3 </z>
+      <z> 1.5 </z>
     </location>
     <location name="EYEPOINT"
               unit="M">
@@ -71,7 +72,7 @@
   </metrics>
 
   <mass_balance>
-    <ixx unit="SLUG*FT2"> 465 </ixx>
+    <ixx unit="SLUG*FT2"> 765 </ixx>
     <iyy unit="SLUG*FT2"> 298 </iyy>
     <izz unit="SLUG*FT2"> 821 </izz>
 
@@ -135,8 +136,8 @@
         <y> 0.00 </y>
         <z> 0 </z>
       </location>
-      <static_friction> 0.60 </static_friction>
-      <dynamic_friction> 0.40 </dynamic_friction>
+      <static_friction> 0.70 </static_friction>
+      <dynamic_friction> 0.50 </dynamic_friction>
       <rolling_friction> 0.02 </rolling_friction>
       <spring_coeff unit="LBS/FT"> 1396.90 </spring_coeff>
       <damping_coeff unit="LBS/FT/SEC"> 1198.45 </damping_coeff>
@@ -152,8 +153,8 @@
         <y> -0.88 </y>
         <z> 0 </z>
       </location>
-      <static_friction> 0.60 </static_friction>
-      <dynamic_friction> 0.40 </dynamic_friction>
+      <static_friction> 0.70 </static_friction>
+      <dynamic_friction> 0.50 </dynamic_friction>
       <rolling_friction> 0.02 </rolling_friction>
       <spring_coeff unit="LBS/FT"> 4323.00 </spring_coeff>
       <damping_coeff unit="LBS/FT/SEC"> 1661.50 </damping_coeff>
@@ -169,8 +170,8 @@
         <y> 0.88 </y>
         <z> 0 </z>
       </location>
-      <static_friction> 0.60 </static_friction>
-      <dynamic_friction> 0.40 </dynamic_friction>
+      <static_friction> 0.70 </static_friction>
+      <dynamic_friction> 0.50 </dynamic_friction>
       <rolling_friction> 0.02 </rolling_friction>
       <spring_coeff unit="LBS/FT"> 4323.00 </spring_coeff>
       <damping_coeff unit="LBS/FT/SEC"> 1661.50 </damping_coeff>
@@ -396,8 +397,8 @@
   </propulsion>
 
   <system file="seamax-fuel" />
-  <system file="seamax-hydrodynamics" />
-  <system file="seamax-hull" />
+  <!-- <system file="seamax-hydrodynamics" />
+  <system file="seamax-hull" /> -->
 
   <flight_control file="Systems/seamax-flight-control.xml" />
   <aerodynamics file="Systems/seamax-aerodynamics2.xml" />

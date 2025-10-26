@@ -129,52 +129,100 @@
   </channel>
 
   <channel name="Flaps">
+    <summer name="flap-command-sum">
+      <input>fcs/flap-cmd-norm</input>
+      <clipto>
+        <min>-1</min>
+        <max>1</max>
+      </clipto>
+   </summer>
+    
     <kinematic name="Flaps Control">
       <input>fcs/flap-cmd-norm</input>
       <traverse>
         <setting>
-          <position> 0 </position>
-          <time> 0 </time>
-        </setting>
-        <setting>
-          <position> 10 </position>
+          <position> 0</position>
           <time> 2 </time>
         </setting>
         <setting>
-          <position> 35 </position>
+          <position> 0.125 </position>
+          <time> 2 </time>
+        </setting>
+        <setting>
+          <position> 0.375 </position>
+          <time> 2 </time>
+        </setting>
+        <setting>
+          <position> 0.575 </position>
+          <time> 2 </time>
+        </setting>
+        <setting>
+          <position> 0.825 </position>
+          <time> 2 </time>
+        </setting>
+        <setting>
+          <position> 1 </position>
           <time> 3 </time>
         </setting>
       </traverse>
-      <output>fcs/flap-pos-deg</output>
+      <output>fcs/flap-pos-norm</output>
     </kinematic>
 
-    <aerosurface_scale name="flaps normalization">
-      <input>fcs/flap-pos-deg</input>
+    <fcs_function name="fcs/flap-pos-deg">
+      <function>
+        <sum>
+          <product>
+            <p>fcs/flap-pos-norm</p>
+            <v>40</v>
+          </product>
+          <v>-5</v>
+        </sum>
+      </function>
+      <output>/surface-positions/flap-pos-deg</output>
+    </fcs_function>
+
+
+
+    <!-- <aerosurface_scale name="flaps normalization">
+      <input>fcs/flap-pos-norm</input>
       <domain>
         <min> 0 </min>
-        <max> 35 </max>
+        <max> 1 </max>
       </domain>
       <range>
-        <min> 0 </min>
-        <max> 1 </max>
+        <min> -5 </min>
+        <max> 35 </max>
       </range>
-      <output>fcs/flap-pos-norm</output>
+      <output>fcs/flap-pos-deg</output>
+      <output>/surface-positions/flap-pos-deg</output>
     </aerosurface_scale>
+
+    <aerosurface_scale name="flaps deg">
+      <input>fcs/flap-command-norm</input>
+      <range>
+        <min> -20 </min>
+        <max> 20 </max>
+      </range>
+    </aerosurface_scale> -->
 
     <switch name="Flap in transit">
       <default value="0" />
       <output>/controls/flight/flaps-in-transit</output>
-      <test logic="AND" value="1">
-        fcs/flap-cmd-norm ne 0
-        fcs/flap-cmd-norm ne 10
-        fcs/flap-cmd-norm ne 35
+      <test logic="AND"
+            value="1">
+        fcs/flap-pos-norm ne 0
+        fcs/flap-pos-norm ne 0.125
+        fcs/flap-pos-norm ne 0.375
+        fcs/flap-pos-norm ne 0.575
+        fcs/flap-pos-norm ne 0.825
+        fcs/flap-pos-norm ne 1
       </test>
     </switch>
 
   </channel>
 
   <channel name="Jacks">
-    
+
     <!-- Traverse the normalized jacks position based on switch -->
     <kinematic name="jacks on">
       <input>/controls/gear/jacks-on</input>
@@ -198,30 +246,31 @@
         <table>
           <independentVar lookup="row">contact/jacks-pos-norm</independentVar>
           <tableData>
-            0   31
+            0 31
             0.2 10
-            0.3  5
-            0.4  3
-            1   -4
+            0.3 5
+            0.4 3
+            1 -4
           </tableData>
         </table>
       </function>
     </fcs_function>
 
     <!-- Apply the position to the jacks only if enabled-->
-    
+
     <switch name="Jacks position z">
       <default value="contact/unit[10]/z-position" />
       <output>contact/unit[10]/z-position</output>
       <output>contact/unit[11]/z-position</output>
       <output>contact/unit[12]/z-position</output>
       <output>contact/unit[13]/z-position</output>
-      <test logic="OR" value="fcs/jacks-pos-z">
+      <test logic="OR"
+            value="fcs/jacks-pos-z">
         /controls/gear/jacks-operable eq 1
       </test>
     </switch>
   </channel>
-  
+
   <channel name="Landing Gear">
 
     <!-- Disable gear movement if electrical voltage is too low ("borrowed" from c172p)-->
@@ -231,7 +280,8 @@
       <!-- Route back the (normalized) output of the <kinematic>
            to its input in order to disable it.
       -->
-      <test logic="AND" value="gear/gear-pos-norm">
+      <test logic="AND"
+            value="gear/gear-pos-norm">
         /controls/gear/detecting eq 0
         /systems/electrical/outputs/main-bus lt 7
       </test>
@@ -270,7 +320,8 @@
     <switch name="Gear in transit">
       <default value="0" />
       <output>/controls/gear/gear-in-transit</output>
-      <test logic="AND" value="1">
+      <test logic="AND"
+            value="1">
         gear/gear-pos-norm gt 0
         gear/gear-pos-norm lt 1
       </test>

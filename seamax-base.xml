@@ -30,9 +30,9 @@
             <internal archive="y">true</internal>
             <config>
                 <x-offset-m archive="y"> -0.27 </x-offset-m>                <!-- Right -->
-                <y-offset-m archive="y"> 1.18 </y-offset-m>                <!-- Up    -->
-                <z-offset-m archive="y"> 1.8 </z-offset-m>                <!-- Back  -->
-                <pitch-offset-deg type="double">-10</pitch-offset-deg>
+                <y-offset-m archive="y"> 1.11 </y-offset-m>                <!-- Up    -->
+                <z-offset-m archive="y"> 1.94 </z-offset-m>                <!-- Back  -->
+                <pitch-offset-deg type="double">-5</pitch-offset-deg>
                 <default-field-of-view-deg type="double">85</default-field-of-view-deg>
             </config>
         </view>
@@ -208,6 +208,27 @@
                 <path></path>
             </electrical>
         </systems>
+        <aircraft-data>
+			<path>/engines/engine[0]/hobbs</path>
+			<path>/sim/weight[0]/weight-lb</path>
+			<path>/sim/weight[1]/weight-lb</path>
+			<path>/sim/weight[2]/weight-lb</path>
+			<path>/sim/weight[3]/weight-lb</path>
+			<path>/sim/weight[4]/weight-lb</path>
+            <path>/consumables/fuel/tank[0]/level-gal_us</path>
+		    <path>/consumables/fuel/tank[1]/level-gal_us</path>
+            <path>/controls/electric/master-switch</path>
+            <path>/controls/fuel/tank[0]/fuel_selector</path>
+            <path>/controls/fuel/tank[1]/fuel_selector</path>
+            <path>/controls/gear/brake-parking</path>
+			<path>/controls/switches/instrument-lights</path>
+            <path>/controls/switches/landing-lights</path>
+			<path>/controls/switches/master-cover</path>
+			<path>/controls/switches/nav-lights</path>
+			<path>/controls/switches/strobe-lights</path>
+            <path>/instrumentation/comm/frequencies</path>
+			
+		</aircraft-data>
     </sim>
     <input include="Systems/seamax-keyboard.xml" />
     <payload>
@@ -245,6 +266,7 @@
             <t-pressure-diff type="float">0</t-pressure-diff>
             <t-pressure-norm type="float">0</t-pressure-norm>
             <fuel-pressure-psi-lag type="float">0</fuel-pressure-psi-lag>
+            <hobbs type="double">162000</hobbs>
         </engine>
         <active-engine>
             <rpm alias="/engines/engine/rpm" />
@@ -255,6 +277,9 @@
             <battery-switch type="bool">1</battery-switch>
             <master-switch type="bool">0</master-switch>
         </electric>
+        <flight>
+            <flaps type="float">0.125</flaps>
+        </flight>
         <fuel>
             <tank n="0">
                 <fuel_selector type="bool">0</fuel_selector>
@@ -312,6 +337,9 @@
             <file>Aircraft/SeaMax/Nasal/seamax-electric.nas</file>
             <file>Aircraft/SeaMax/Nasal/jsbsim-hydrodynamics.nas</file>
         </seamax>
+        <hobbs>
+            <file>Models/Interior/Instruments/tach/hobbs.nas</file>
+        </hobbs>
         <hackman>
             <file>Aircraft/SeaMax/Nasal/hackman.nas</file>
         </hackman>

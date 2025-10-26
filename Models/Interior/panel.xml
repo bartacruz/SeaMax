@@ -112,7 +112,7 @@
       </model>
     
       <model>
-        <path>Instruments/rotax912-fuel-press/rotax912-fuel-press.xml</path>
+        <path>Instruments/rotax912-cht/rotax912-cht.xml</path>
         <offsets>
           <x-m> 1.11 </x-m>
           <y-m> 0.15 </y-m>
@@ -120,12 +120,27 @@
         </offsets>
       </model>
       <model>
-        <path>Instruments/rotax912-oil-press/rotax912-oil-press.xml</path>
+        <path>Instruments/rotax912-oil-temp/rotax912-oil-temp.xml</path>
         <offsets>
           <x-m> 1.11 </x-m>
           <y-m> 0.225 </y-m>
           <z-m> 0.78 </z-m>
         </offsets>
       </model>
-    
+      <model>
+        <path>Instruments/rotax912-oil-press/rotax912-oil-press.xml</path>
+        <offsets>
+          <x-m> 1.11 </x-m>
+          <y-m> 0.3 </y-m>
+          <z-m> 0.78 </z-m>
+        </offsets>
+      </model>
+      <model>
+        <path>Instruments/rotax912-fuel-press/rotax912-fuel-press.xml</path>
+        <offsets>
+          <x-m> 1.11 </x-m>
+          <y-m> 0.375 </y-m>
+          <z-m> 0.78 </z-m>
+        </offsets>
+      </model>
 </PropertyList>

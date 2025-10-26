@@ -74,13 +74,50 @@
 
   <animation>
     <type>select</type>
+    <object-name>flaps.right.5.led</object-name>
+    <object-name>flaps.left.5.led</object-name>
+    <condition>
+      <property>/systems/electrical/outputs/main-bus</property>
+      <equals>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>0</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
     <object-name>flaps.right.10.led</object-name>
     <object-name>flaps.left.10.led</object-name>
     <condition>
       <property>/systems/electrical/outputs/main-bus</property>
       <greater-than-equals>
         <property>surface-positions/flap-pos-norm</property>
-        <value>0.3</value>
+        <value>0.375</value>
+      </greater-than-equals>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>flaps.right.18.led</object-name>
+    <object-name>flaps.left.18.led</object-name>
+    <condition>
+      <property>/systems/electrical/outputs/main-bus</property>
+      <greater-than-equals>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>0.575</value>
+      </greater-than-equals>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>flaps.right.28.led</object-name>
+    <object-name>flaps.left.28.led</object-name>
+    <condition>
+      <property>/systems/electrical/outputs/main-bus</property>
+      <greater-than-equals>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>0.825</value>
       </greater-than-equals>
     </condition>
   </animation>
@@ -100,8 +137,14 @@
 
   <animation>
     <type>material</type>
+    <object-name>flaps.right.5.led</object-name>
+    <object-name>flaps.left.5.led</object-name>
     <object-name>flaps.right.10.led</object-name>
     <object-name>flaps.left.10.led</object-name>
+    <object-name>flaps.right.18.led</object-name>
+    <object-name>flaps.left.18.led</object-name>
+    <object-name>flaps.right.28.led</object-name>
+    <object-name>flaps.left.28.led</object-name>
     <object-name>flaps.right.35.led</object-name>
     <object-name>flaps.left.35.led</object-name>
     <emission>
