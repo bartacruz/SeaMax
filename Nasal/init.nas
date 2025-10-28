@@ -13,7 +13,7 @@ var autostart = func{
     setprop("/controls/gear/brake-parking",1);
     setprop("controls/switches/strobe-lights", 0);
     setprop("controls/switches/nav-lights", 1);
-    setprop("sim/messages/copilot", "Now press the s key to start engine");
+    setprop("sim/messages/copilot", "Now press the s key to start the engine");
 }
 
 
@@ -36,11 +36,13 @@ var check_gears = func(n) {
         # pitch up the water surfaces
         setprop("/fdm/jsbsim/contact/unit[3]/z-position",1.0);
         setprop("/fdm/jsbsim/contact/unit[4]/z-position",1.0);
+        print("Water surfaces up");
     } else {
         # pitch down the water surfaces
         # TODO: keep the original position inside a variable.
         setprop("/fdm/jsbsim/contact/unit[3]/z-position",0);
         setprop("/fdm/jsbsim/contact/unit[4]/z-position",0);
+        print("Water surfaces down");
     }
 }
  ###############################################################################
@@ -49,79 +51,36 @@ var enableOSD = func {
     var left  = screen.display.new(20, 10);
     var right = screen.display.new(-300, 10);
 
-    left.add("/fdm/jsbsim/gear/unit[0]/WOW");
-    left.add("/fdm/jsbsim/gear/unit[1]/WOW");
-    left.add("/fdm/jsbsim/gear/unit[2]/WOW");
-    left.add("/fdm/jsbsim/contact/unit[3]/WOW");
-    left.add("/fdm/jsbsim/contact/unit[4]/WOW");
-    left.add("/fdm/jsbsim/contact/unit[5]/WOW");
-    left.add("/fdm/jsbsim/contact/unit[6]/WOW");
-    left.add("/fdm/jsbsim/contact/unit[7]/WOW");
-    left.add("/fdm/jsbsim/contact/unit[8]/WOW");
-    left.add("/fdm/jsbsim/contact/unit[9]/WOW");
-    left.add("/fdm/jsbsim/contact/unit[10]/WOW");
-    left.add("/fdm/jsbsim/contact/unit[11]/WOW");
-    left.add("/fdm/jsbsim/contact/unit[12]/WOW");
+    left.add("/fdm/jsbsim/aero/alpha-wing-rad");
+    left.add("/fdm/jsbsim/aero/force/Lift_alpha");
+    left.add("/fdm/jsbsim/aero/function/kCLge");
+    # left.add("/fdm/jsbsim/gear/unit[0]/WOW");
+    # left.add("/fdm/jsbsim/gear/unit[1]/WOW");
+    # left.add("/fdm/jsbsim/gear/unit[2]/WOW");
     # left.add("/fdm/jsbsim/sim-time-sec");
     # left.add("/orientation/heading-magnetic-deg");
-    # left.add("/fdm/jsbsim/hydro/true-course-deg");
-    # left.add("/fdm/jsbsim/hydro/beta-deg");
-    # left.add("/fdm/jsbsim/hydro/pitch-deg");
-    # left.add("/fdm/jsbsim/hydro/roll-deg");
-    # left.add("/fdm/jsbsim/hydro/float/pitch-deg");
-    # left.add("/fdm/jsbsim/hydro/float/roll-deg");
-    # left.add("/fdm/jsbsim/hydro/float/height-agl-ft");
-    # left.add("/fdm/jsbsim/inertia/cg-x-in");
-    # left.add("/fdm/jsbsim/inertia/cg-z-in");
-    # left.add("/fdm/js7bsim/hydro/fdrag-lbs");
-    # left.add("/fdm/jsbsim/hydro/displacement-drag-lbs");
-    # left.add("/fdm/jsbsim/hydro/planing-drag-lbs");
-    # left.add("/fdm/jsbsim/hydro/fbz-lbs");
-    # left.add("/fdm/jsbsim/hydro/buoyancy-lbs");
-    # left.add("/fdm/jsbsim/hydro/planing-lift-lbs");
-    #left.add("/fdm/jsbsim/hydro/X/force-lbs");
-    #left.add("/fdm/jsbsim/hydro/Y/force-lbs");
-    # left.add("/fdm/jsbsim/hydro/yaw-moment-lbsft");
-    # left.add("/fdm/jsbsim/hydro/pitch-moment-lbsft");
-    # left.add("/fdm/jsbsim/hydro/roll-moment-lbsft");
-    #left.add("/fdm/jsbsim/hydro/transverse-wave/wave-length-ft");
-    #left.add("/fdm/jsbsim/hydro/transverse-wave/wave-amplitude-ft");
-    # left.add("/fdm/jsbsim/hydro/transverse-wave/squat-ft");
-    #left.add("/fdm/jsbsim/hydro/transverse-wave/pitch-trim-change-deg");
-    #left.add("/fdm/jsbsim/hydro/environment/wave/relative-heading-rad");
-    #left.add("/fdm/jsbsim/hydro/orientation/wave-pitch-trim-change-deg");
-    #left.add("/fdm/jsbsim/hydro/orientation/wave-roll-trim-change-deg");
-    #left.add("/fdm/jsbsim/hydro/environment/wave/angular-frequency-rad_sec");
-    #left.add("/fdm/jsbsim/hydro/environment/wave/wave-number-rad_ft");
-    #left.add("/fdm/jsbsim/hydro/environment/wave/level-fwd-ft");
-    #left.add("/fdm/jsbsim/hydro/environment/wave/level-at-hrp-ft");
-    #left.add("/fdm/jsbsim/hydro/environment/wave/level-aft-ft");
+    # left.add("/fdm/jsbsim/aero/moment/Yaw_alpha");
+    # left.add("/fdm/jsbsim/aero/moment/Yaw_beta");
+    # left.add("/fdm/jsbsim/aero/moment/Yaw_roll_rate");
+    # left.add("/fdm/jsbsim/aero/moment/Yaw_damp");
+    # left.add("/fdm/jsbsim/aero/moment/Yaw_rudder");
+    # left.add("/fdm/jsbsim/aero/moment/Yaw_aileron");
+    # left.add("/fdm/jsbsim/fcs/rudder-pos-rad");
 
     right.add("/engines/engine/rpm");
     right.add("/instrumentation/airspeed-indicator/indicated-speed-kt");
     right.add("/fdm/jsbsim/aero/alpha-rad");
     right.add("/fdm/jsbsim/aero/qbar-psf");
-    right.add("/fdm/jsbsim/propulsion/engine[0]/thrust-coefficient");
-    right.add("/fdm/jsbsim/aero/function/kCLge");
-    right.add("/fdm/jsbsim/aero/force/Lift_alpha");
-    right.add("/fdm/jsbsim/aero/force/Lift_hull");
+    #right.add("/fdm/jsbsim/propulsion/engine[0]/thrust-coefficient");
+    #right.add("/fdm/jsbsim/aero/function/kCLge");
     
-    
-    # right.add("/fdm/jsbsim/hydro/active-norm");
-    # right.add("/fdm/jsbsim/hydro/v-kt");
-    # right.add("/fdm/jsbsim/hydro/vbx-fps");
-    # right.add("/fdm/jsbsim/hydro/vby-fps");
-    # right.add("/fdm/jsbsim/hydro/qbar-u-psf");
-    # right.add("/fdm/jsbsim/hydro/Frode-number");
-    # right.add("/fdm/jsbsim/hydro/speed-length-ratio");
-    # right.add("/fdm/jsbsim/left-pontoon/leaked-water-lbs");
-    # right.add("/fdm/jsbsim/right-pontoon/leaked-water-lbs");
+    #right.add("/fdm/jsbsim/aero/force/Lift_hull");
 }
 
     
 setlistener("/sim/signals/fdm-initialized", func {
     print("Checking ground...");
-    setlistener("/controls/gear/gear_down", check_gears);
+    setlistener("/controls/gear/gear-down", check_gears,1,1);
     init_gears();
     
     # enableOSD();
