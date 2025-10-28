@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <PropertyList>
 	<path>atr833-ii.ac</path>
-	
+
 	<params>
 		<current-sel type="string">instrumentation/atr833-ii/current-selection</current-sel>
 		<cursor-sel type="string">instrumentation/atr833-ii/cursor-selection</cursor-sel>
 	</params>
-	
+
 	<effect>
 		<inherits-from>Effects/model-interior-display</inherits-from>
 		<parameters>
@@ -15,18 +15,18 @@
 		</parameters>
 		<object-name>atr833.display</object-name>
 	</effect>
-	
+
 	<animation>
 		<type>material</type>
 		<object-name>atr833.display</object-name>
 		<emission>
-			<red>   0.05 </red>
+			<red> 0.05 </red>
 			<green> 0.05 </green>
-			<blue>  0.05 </blue>
+			<blue> 0.05 </blue>
 			<factor-prop>instrumentation/comm[0]/brightness</factor-prop>
 		</emission>
 	</animation>
-	
+
 	<animation>
 		<type>knob</type>
 		<object-name>atr833.vol_sel_knob</object-name>
@@ -49,8 +49,13 @@
 			</binding>
 			<binding>
 				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
 					<equals>
-						<property alias="../../../../../../params/current-sel"/>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property alias="../../../../../../params/current-sel" />
 						<value>0</value>
 					</equals>
 				</condition>
@@ -63,8 +68,13 @@
 			</binding>
 			<binding>
 				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
 					<equals>
-						<property alias="../../../../../../params/current-sel"/>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property alias="../../../../../../params/current-sel" />
 						<value>1</value>
 					</equals>
 				</condition>
@@ -77,8 +87,13 @@
 			</binding>
 			<binding>
 				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
 					<equals>
-						<property alias="../../../../../../params/current-sel"/>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property alias="../../../../../../params/current-sel" />
 						<value>2</value>
 					</equals>
 				</condition>
@@ -91,8 +106,13 @@
 			</binding>
 			<binding>
 				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
 					<equals>
-						<property alias="../../../../../../params/current-sel"/>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property alias="../../../../../../params/current-sel" />
 						<value>3</value>
 					</equals>
 				</condition>
@@ -105,8 +125,13 @@
 			</binding>
 			<binding>
 				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
 					<equals>
-						<property alias="../../../../../../params/current-sel"/>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property alias="../../../../../../params/current-sel" />
 						<value>4</value>
 					</equals>
 				</condition>
@@ -119,8 +144,13 @@
 			</binding>
 			<binding>
 				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
 					<equals>
-						<property alias="../../../../../../params/current-sel"/>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property alias="../../../../../../params/current-sel" />
 						<value>5</value>
 					</equals>
 				</condition>
@@ -133,8 +163,13 @@
 			</binding>
 			<binding>
 				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
 					<equals>
-						<property alias="../../../../../../params/current-sel"/>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property alias="../../../../../../params/current-sel" />
 						<value>6</value>
 					</equals>
 				</condition>
@@ -147,8 +182,13 @@
 			</binding>
 			<binding>
 				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
 					<equals>
-						<property alias="../../../../../../params/current-sel"/>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property alias="../../../../../../params/current-sel" />
 						<value>7</value>
 					</equals>
 				</condition>
@@ -158,6 +198,56 @@
 				<min>0</min>
 				<max>9</max>
 				<wrap>0</wrap>
+			</binding>
+			<binding>
+				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
+					<equals>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>instrumentation/atr833-ii/memory-idx</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>20</max>
+				<wrap>1</wrap>
+			</binding>
+			<binding>
+				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
+					<equals>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>3</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>instrumentation/atr833-ii/storage/memory-save-idx</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>20</max>
+				<wrap>1</wrap>
+			</binding>
+			<binding>
+				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
+					<equals>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>2</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>instrumentation/atr833-ii/last-idx</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>10</max>
+				<wrap>1</wrap>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/atr833-ii/last-input</property>
+				<property>/sim/time/elapsed-sec</property>
 			</binding>
 		</action>
 	</animation>
@@ -184,14 +274,14 @@
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../../../params/cursor-sel"/>
+						<property alias="../../../../../../params/cursor-sel" />
 						<value>1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/comm[0]/frequencies/standby-mhz</property>
 				<mask>integer</mask>
-				<step>1</step>
+				<factor>1</factor>
 				<min>118</min>
 				<max>136</max>
 				<resolution>1</resolution>
@@ -200,14 +290,14 @@
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../../../params/cursor-sel"/>
+						<property alias="../../../../../../params/cursor-sel" />
 						<value>2</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/comm[0]/frequencies/standby-mhz</property>
 				<mask>decimal</mask>
-				<step>0.1</step>
+				<factor>0.1</factor>
 				<min>0</min>
 				<max>1</max>
 				<resolution>0.1</resolution>
@@ -216,18 +306,23 @@
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../../../params/cursor-sel"/>
+						<property alias="../../../../../../params/cursor-sel" />
 						<value>3</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/comm[0]/frequencies/standby-mhz</property>
 				<mask>decimal</mask>
-				<step>0.008333</step>
+				<factor>0.008333</factor>
 				<min>0</min>
 				<max>1</max>
 				<resolution>0.008333</resolution>
 				<wrap>true</wrap>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/atr833-ii/last-input</property>
+				<property>/sim/time/elapsed-sec</property>
 			</binding>
 		</action>
 	</animation>
@@ -244,6 +339,11 @@
 				<command>property-assign</command>
 				<property>instrumentation/atr833-ii/io-btn</property>
 				<value>1</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/atr833-ii/last-input</property>
+				<property>/sim/time/elapsed-sec</property>
 			</binding>
 			<mod-up>
 				<binding>
@@ -273,12 +373,37 @@
 		<action>
 			<button>0</button>
 			<binding>
+				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
+					<equals>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>0</value>
+					</equals>
+				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/atr833-ii/current-selection</property>
 				<step>1</step>
 				<min>0</min>
 				<max>7.1</max>
 				<wrap>1</wrap>
+			</binding>
+			<binding>
+				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
+					<equals>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<command>property-assign</command>
+				<property>instrumentation/comm[0]/frequencies/stdandby-mhz</property>
+				<property>instrumentation/atr833-ii/memory-freq</property>
+
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/atr833-ii/last-input</property>
+				<property>/sim/time/elapsed-sec</property>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -294,6 +419,7 @@
 			</mod-up>
 		</action>
 	</animation>
+
 	<animation>
 		<type>translate</type>
 		<object-name>atr833.set_btn</object-name>
@@ -303,18 +429,117 @@
 			<x>1</x>
 		</axis>
 	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>atr833.mem_btn</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
+					<less-than>
+						<property>instrumentation/atr833-ii/mode</property>
+						<value>3</value>
+					</less-than>
+				</condition>
+				<command>property-adjust</command>
+				<property>instrumentation/atr833-ii/mode</property>
+				<step>1</step>
+				<min>0</min>
+				<max>3</max>
+				<wrap>1</wrap>
+			</binding>
+			<binding>
+				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
+					<equals>
+						<property>instrumentation/atr833-ii/mode</property>
+						<value>3</value>
+					</equals>
+				</condition>
+				<command>property-assign</command>
+				<property>instrumentation/atr833-ii/mode</property>
+				<value>4</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/atr833-ii/last-input</property>
+				<property>/sim/time/elapsed-sec</property>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/atr833-ii/mem-btn</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>instrumentation/atr833-ii/mem-btn</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>1</button>
+			<binding>
+				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
+				</condition>
+				<command>property-assign</command>
+				<property>instrumentation/atr833-ii/mode</property>
+				<value>3</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/atr833-ii/last-input</property>
+				<property>/sim/time/elapsed-sec</property>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/atr833-ii/mem-btn</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>instrumentation/atr833-ii/mem-btn</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>atr833.mem_btn</object-name>
+		<property>instrumentation/atr833-ii/mem-btn</property>
+		<factor>-0.001</factor>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+
 	<animation>
 		<type>pick</type>
 		<object-name>atr833.cursor_btn</object-name>
 		<action>
 			<button>0</button>
 			<binding>
+				<condition>
+					<property>/instrumentation/atr833-ii/state</property>
+				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/atr833-ii/cursor-selection</property>
 				<step>1</step>
 				<min>0</min>
 				<max>3.1</max>
 				<wrap>1</wrap>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/atr833-ii/last-input</property>
+				<property>/sim/time/elapsed-sec</property>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -345,9 +570,43 @@
 		<action>
 			<button>0</button>
 			<binding>
+				<condition>
+					<equals>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>0</value>
+					</equals>
+					<property>/instrumentation/atr833-ii/state</property>
+				</condition>
 				<command>property-swap</command>
 				<property>instrumentation/comm[0]/frequencies/selected-mhz</property>
 				<property>instrumentation/comm[0]/frequencies/standby-mhz</property>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>1</value>
+					</equals>
+					<property>/instrumentation/atr833-ii/state</property>
+				</condition>
+				<command>nasal</command>
+				<script>atr833_ii.swap_memory()</script>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property>/instrumentation/atr833-ii/mode</property>
+						<value>2</value>
+					</equals>
+					<property>/instrumentation/atr833-ii/state</property>
+				</condition>
+				<command>nasal</command>
+				<script>atr833_ii.swap_last()</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/atr833-ii/last-input</property>
+				<property>/sim/time/elapsed-sec</property>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -372,6 +631,6 @@
 			<x>1</x>
 		</axis>
 	</animation>
-		
+
 
 </PropertyList>
