@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+    <path>rudder-pedals.ac</path>
+    <animation>
+        <type>rotate</type>
+        <object-name>rudder pedal left</object-name>
+        <object-name>brake pedal left</object-name>
+        <property>controls/flight/rudder</property>
+        <factor>20</factor>
+        <axis>
+          <x> 0 </x>
+          <y> 1 </y>
+          <z> 0 </z>
+        </axis>
+        <center>
+          <x-m> 0.025 </x-m>
+          <y-m>  -0.0315 </y-m>
+          <z-m> 0.01 </z-m>
+        </center>
+      </animation>
+      <animation>
+        <type>rotate</type>
+        <object-name>rudder pedal right</object-name>
+        <object-name>brake pedal right</object-name>
+        <property>controls/flight/rudder</property>
+        <factor>-20</factor>
+        <axis>
+          <x> 0 </x>
+          <y> 1 </y>
+          <z> 0 </z>
+        </axis>
+        <center>
+          <x-m> 0 </x-m>
+          <y-m> 0.0315 </y-m>
+          <z-m> 0.01 </z-m>
+        </center>
+      </animation>
+      <animation>
+		<type>rotate</type>
+        <object-name>brake pedal left</object-name>
+		<property>controls/gear/brake-left</property>
+		<factor>-35</factor>
+		<center>
+			<x-m> -0.007  </x-m>
+			<z-m> 0.083</z-m>
+		</center>
+		<axis>
+			<y>1</y>
+		</axis>
+	</animation>
+      
+    
+</PropertyList>

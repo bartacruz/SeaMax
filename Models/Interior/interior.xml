@@ -7,7 +7,22 @@
   <model>
     <path>panel.xml</path>
   </model>
-
+  <model>
+    <path>Pedals/rudder-pedals.xml</path>
+    <offsets>
+      <x-m> 0.9 </x-m>
+      <y-m> -0.24 </y-m>
+      <z-m> 0.375 </z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>Pedals/rudder-pedals.xml</path>
+    <offsets>
+      <x-m> 0.9 </x-m>
+      <y-m> 0.24 </y-m>
+      <z-m> 0.375 </z-m>
+    </offsets>
+  </model>
   <!-- Yoke-->
   <animation>
     <type>rotate</type>
