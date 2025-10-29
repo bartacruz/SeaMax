@@ -6,7 +6,7 @@
         <offsets>
           <x-m> 1.1 </x-m>
           <y-m>-0.22 </y-m>
-          <z-m> 0.963 </z-m>
+          <z-m> 0.96 </z-m>
         </offsets>
       </model>
       <model>
@@ -14,7 +14,7 @@
         <offsets>
           <x-m> 1.1 </x-m>
           <y-m>-0.23 </y-m>
-          <z-m> 0.95 </z-m>
+          <z-m> 0.947 </z-m>
         </offsets>
       </model>
       <model>
@@ -22,7 +22,7 @@
         <offsets>
           <x-m> 1.1 </x-m>
           <y-m>-0.21 </y-m>
-          <z-m> 0.95 </z-m>
+          <z-m> 0.947 </z-m>
         </offsets>
       </model>
     

@@ -576,7 +576,7 @@
     <type>rotate</type>
     <object-name>fuel switch left</object-name>
     <property>/controls/fuel/tank[0]/fuel_selector</property>
-    <factor>90</factor>
+    <factor>-90</factor>
     <axis>
       <x1-m> 1.919</x1-m>
       <y1-m>-0.457</y1-m>
@@ -621,7 +621,7 @@
     <type>rotate</type>
     <object-name>fuel switch right</object-name>
     <property>/controls/fuel/tank[1]/fuel_selector</property>
-    <factor>-90</factor>
+    <factor>90</factor>
     <axis>
       <x1-m> 1.919</x1-m>
       <y1-m> 0.457</y1-m>
