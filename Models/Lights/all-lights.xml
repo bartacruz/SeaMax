@@ -15,11 +15,12 @@
   <!-- tip wings -->
   <model>
     <name>RedLight</name>
-    <path>RedLight.xml</path>
+    <!-- <path>RedLight.xml</path> -->
+     <path>rednav.xml</path>
     <offsets>
-      <x-m> 1.8</x-m>
-      <y-m> -5.1</y-m>
-      <z-m> 1.493</z-m>
+      <x-m> 1.78</x-m>
+      <y-m> -5.08</y-m>
+      <z-m> 1.48</z-m>
     </offsets>
   </model>
 
@@ -27,19 +28,19 @@
     <name>StrobeLighLeft</name>
     <path>StrobeLight.xml</path>
     <offsets>
-      <x-m> 2.042</x-m>
-      <y-m> -5.205</y-m>
+      <x-m> 1.79</x-m>
+      <y-m> -5.09</y-m>
       <z-m> 1.5</z-m>
     </offsets>
   </model>
 
   <model>
     <name>GreenLight</name>
-    <path>GreenLight.xml</path>
+    <path>greennav.xml</path>
     <offsets>
-      <x-m> 1.8</x-m>
-      <y-m> 5.1</y-m>
-      <z-m> 1.493</z-m>
+      <x-m> 1.78</x-m>
+      <y-m> 5.08</y-m>
+      <z-m> 1.48</z-m>
     </offsets>
   </model>
 
@@ -47,8 +48,8 @@
     <name>StrobeLighRight</name>
     <path>StrobeLight.xml</path>
     <offsets>
-      <x-m> 2.042</x-m>
-      <y-m> 5.205</y-m>
+      <x-m> 1.79</x-m>
+      <y-m> 5.09</y-m>
       <z-m> 1.5</z-m>
     </offsets>
   </model>
@@ -72,7 +73,7 @@
       <x-m> 1.69 </x-m>
       <y-m> -2.856 </y-m>
       <z-m> 1.3878 </z-m>
-      <pitch-deg>-3.5</pitch-deg>
+      <pitch-deg>-3</pitch-deg>
     </offsets>
   </model>
 
@@ -83,7 +84,7 @@
       <x-m> 1.69 </x-m>
       <y-m> 2.856 </y-m>
       <z-m> 1.3878 </z-m>
-      <pitch-deg>-3.5</pitch-deg>
+      <pitch-deg>-3</pitch-deg>
     </offsets>
   </model>
 
