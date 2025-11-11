@@ -23,7 +23,9 @@
       <z-m> 0.375 </z-m>
     </offsets>
   </model>
+  
   <!-- Yoke-->
+  
   <animation>
     <type>rotate</type>
     <object-name>yoke</object-name>
@@ -191,30 +193,30 @@
       </binding>
     </action>
 
-		<action>
-			<button>3</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>controls.flapsDown(-1);</script>
-			</binding>
-		</action>
+    <action>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>controls.flapsDown(-1);</script>
+      </binding>
+    </action>
 
-		<action>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>controls.flapsDown(1);</script>
-			</binding>
-		</action>
-		<hovered>
-			<binding>
-				<command>set-tooltip</command>
-				<tooltip-id>flaps_switch</tooltip-id>
-				<label>left click or scroll-down to lower flaps, right-click or scroll-up to rise them</label>
-			</binding>
-		</hovered>
+    <action>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>controls.flapsDown(1);</script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>flaps_switch</tooltip-id>
+        <label>left click or scroll-down to lower flaps, right-click or scroll-up to rise them</label>
+      </binding>
+    </hovered>
   </animation>
 
   <!-- Overhead panel -->
@@ -952,6 +954,35 @@
       <z>-1</z>
     </axis>
     <factor>-0.006</factor>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>fuel hose left</object-name>
+    <property>/consumables/fuel/tank[0]/level-norm</property>
+    <!-- <bias>0.0001</bias> -->
+    <factor>1</factor>
+    <bias>0.001</bias>
+    <step>0.09</step>
+    <max>0.9</max>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>fuel hose right</object-name>
+    <property>/consumables/fuel/tank[1]/level-norm</property>
+    <!-- <bias>0.0001</bias> -->
+    <factor>1</factor>
+    <bias>0.001</bias>
+    <step>0.09</step>
+    <max>0.9</max>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+    </axis>
   </animation>
 
 </PropertyList>
