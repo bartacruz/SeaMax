@@ -3,6 +3,9 @@
 # A3XX Lower ECAM Canvas
 # Joshua Davidson (it0uchpods)
 
+# Updated by:
+# Julio Santa Cruz (barta) Memory and last frequency management.
+
 #Information based on manual https://www.funkeavionics.de/wp-content/uploads/2020/07/01.143.010.71d_ATR833-II_OI-Rev1.05_180425_WEB-PRINT.pdf
 #######################################
 
@@ -164,6 +167,9 @@ var canvas_ATR833_main = {
 		}
 	},
 	update_act_freq: func() {
+		if (state.getIntValue() < 1) {
+			return;
+		}
 		me["freq.act"].setText( sprintf("%6.3f", freq_act.getDoubleValue() ) );
 		var lasts = size(storage.getChildren("last"));
 		lasts = math.min(lasts,9);
@@ -227,6 +233,9 @@ var canvas_ATR833_main = {
 		}
 	},
 	update_last: func() {
+		if (state.getIntValue() < 1) {
+			return;
+		}
 		#cursor_sel.setIntValue(0);
 		me["setting_label"].setText("LST");
 		me["setting_value"].setText( sprintf("%2d",last_index.getIntValue() + 1 ) );
