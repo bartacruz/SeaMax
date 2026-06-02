@@ -53,7 +53,8 @@
     <location name="AERORP"
               unit="M">
       <!-- <x> 2.314 </x> -->
-      <x> 2.114 </x>
+      <x> 2.214 </x>
+      <!-- <x> 2.114 </x> -->
       <y> 0.00 </y>
       <z> 1.5 </z>
     </location>
@@ -141,7 +142,7 @@
       <rolling_friction> 0.02 </rolling_friction>
       <spring_coeff unit="LBS/FT"> 1396.90 </spring_coeff>
       <damping_coeff unit="LBS/FT/SEC"> 1198.45 </damping_coeff>
-      <max_steer unit="DEG"> 5.00 </max_steer>
+      <max_steer unit="DEG"> 25.00 </max_steer>
       <brake_group>NONE</brake_group>
       <retractable>1</retractable>
     </contact>
@@ -342,17 +343,17 @@
 
     <engine file="Rotax-912-is">
       <location unit="M">
-        <x> 2.95 </x>
+        <x> 2.85 </x>
         <y> 0.00 </y>
-        <z> 1.72</z>
+        <z> 1.6</z>
       </location>
       <feed>2</feed>
       <thruster file="Senseich-68">
         <sense> 1 </sense>
         <location unit="M">
-          <x> 3.3 </x>
+          <x> 3.0</x>
           <y> 0.00 </y>
-          <z> 1.72 </z>
+          <z> 1.6</z>
         </location>
         <orient unit="DEG">
           <pitch> 2.00 </pitch>
@@ -397,9 +398,8 @@
   </propulsion>
 
   <system file="seamax-fuel" />
-  <!-- <system file="seamax-hydrodynamics" />
-  <system file="seamax-hull" /> -->
-
+  <system file="seamax-hydrodynamics" />
+  <system file="mooring-jsbsim"/>
   <flight_control file="Systems/seamax-flight-control.xml" />
   <aerodynamics file="Systems/seamax-aerodynamics2.xml" />
 

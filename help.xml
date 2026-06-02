@@ -3,7 +3,9 @@
 <PropertyList>
 
     <title>SeaMax m22</title>
-    <line>cruise speed:  100kt)</line>
+    <line>cruise speeds:</line>
+    <line>4800 RPM: 85 kts</line>
+    <line>5000 RPM: 94 kts</line>
 
     <!-- <line>never exceed (Vne): 122 mph (106 kt)</line>
     <line>best glide (Vglide): 60 mph (52 kt)</line>
@@ -14,7 +16,7 @@
     <line>Startup procedure:</line>
     <line>Parking brake on (but optional)</line>
     <line>Turn at least one of the fuel selectors located above the side windows.</line>
-    <line>On he overhead panel, open the red security cap and turn on the master switch</line>
+    <line>On the overhead panel, open the red security cap and turn on the master switch</line>
     <line>Switch the fuel pump on and check for fuel pressure on the instrument located on the copilot part of the panel</line>
     <line>Turn the magnetos to "both" position by clicking on the key or pressing "}" 3 times</line>
     <line>Start the engine by clicking the key or pressing "s"</line>

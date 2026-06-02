@@ -17,13 +17,8 @@
 
     <flight-model archive="y">yasim</flight-model>
     <aero         archive="y">Systems/seamax-912uls2-yasim</aero>
-
-    <rating>
-      <FDM        type="int"> 1 </FDM>
-      <systems    type="int"> 1 </systems>
-      <cockpit    type="int"> 1 </cockpit>
-      <model      type="int"> 4 </model>
-    </rating>
+    <variant-of>SeaMax-jsb</variant-of>
+    
     <model>
         <variant type="int">0</variant>
     </model>

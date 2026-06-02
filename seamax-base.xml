@@ -219,6 +219,7 @@
             <electrical>
                 <path></path>
             </electrical>
+            
         </systems>
         <aircraft-data>
 			<path>/engines/engine[0]/hobbs</path>
@@ -242,6 +243,15 @@
 			
 		</aircraft-data>
     </sim>
+    <systems>
+        <mooring>
+            <boat-id></boat-id>
+            <dialog></dialog>
+            <moorage-id></moorage-id>
+            <route include="Systems/mooring-pos.xml"/>
+            <state></state>
+        </mooring>
+    </systems>
     <input include="Systems/seamax-keyboard.xml" />
     <payload>
         <weight>
@@ -307,7 +317,6 @@
         <engines>
             <engine>
                 <mixture type="float">1.0</mixture>
-                <hackman type="bool">false</hackman>
             </engine>
         </engines>
         <gear>
@@ -329,6 +338,13 @@
             <instrument-lights type="bool">false</instrument-lights>
             <breaker-test type="bool">false</breaker-test>
         </switches>
+        <mooring>
+            <automatic type="bool">true</automatic>
+            <allowed type="bool">true</allowed>
+            <anchor type="bool">false</anchor>
+            <go-to-mooring type="bool">false</go-to-mooring>
+            <port-available type="bool">false</port-available>
+        </mooring>
     </controls>
     <seamax>
         <debug type="bool">0</debug>
@@ -352,11 +368,11 @@
         <hobbs>
             <file>Models/Interior/Instruments/tach/hobbs.nas</file>
         </hobbs>
-        <hackman>
-            <file>Aircraft/SeaMax/Nasal/hackman.nas</file>
-        </hackman>
         <canvas_map>
             <file>Aircraft/SeaMax/Models/Interior/Instruments/ipad/canvas_map.nas</file>
         </canvas_map>
+        <mooring>
+            <file>Nasal/mooring.nas</file>
+        </mooring>
     </nasal>
 </PropertyList>

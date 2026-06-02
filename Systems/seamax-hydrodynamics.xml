@@ -12,8 +12,8 @@
     <property value="0.0">hydro/environment/wave-amplitude-ft</property>
     <property value="150.0">hydro/environment/wave-length-ft</property>
 
-    
-    <property value="5">hydro/coeffs/buoyancy</property>
+    <property value="1.2">hydro/coeffs/active</property>
+    <property value="1.2">hydro/coeffs/buoyancy</property>
     <property value="100">hydro/coeffs/side-factor</property>
     <property value="-90">hydro/coeffs/leveler-roll</property>
     <property value="-0.1">hydro/coeffs/leveler-yaw</property>
@@ -42,7 +42,7 @@
                     <not>
                         <property>ground/solid</property>
                     </not>
-                    <v>1.3</v>
+                    <property>hydro/coeffs/active</property>
                 </product>
 
             </function>
@@ -91,7 +91,7 @@
         <switch name="power-regime">
             <default value="0" />
             <test logic="AND" value="1">
-                /engines/active-engine/rpm LT 3000
+                /engines/active-engine/rpm GT 4000
             </test>
             <output>/fdm/jsbsim/hydro/power-regime</output>
         </switch>
@@ -128,10 +128,10 @@
             </documentation>
             <function>
                 <product>
-                    <value>1.0</value>
                     <property>hydro/environment/rho-slug_ft3</property>
                     <property>hydro/environment/gravity-ft_sec2</property>
                     <p>hydro/coeffs/buoyancy</p>
+                    <p>hydro/active-norm</p>
                 </product>
             </function>
         </fcs_function>
@@ -141,14 +141,16 @@
                 <product>
                     <property>hydro/ground-effect-speed-kt</property>
                     <p>hydro/coeffs/buoyancy</p>
+                    <p>hydro/active-norm</p>
                 </product>
             </function>
         </fcs_function>
 
-        <!-- <summer name="hydro/Z/force-lbs">
+        <summer name="hydro/Z/force-lbs">
             <input> hydro/fbz-lbs </input>
+            <input> hydro/buoyancy-lbs </input>
             <output>external_reactions/hydro-Z/magnitude</output>
-        </summer> -->
+        </summer>
     </channel>
 
     <channel name="Roll dampener">

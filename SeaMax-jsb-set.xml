@@ -17,7 +17,8 @@
 
     <flight-model archive="y">jsb</flight-model>
     <aero archive="y">seamax-jsb</aero>
-
+    <primary-set type="bool">true</primary-set>
+    
     <rating>
       <FDM type="int"> 1 </FDM>
       <systems type="int"> 1 </systems>

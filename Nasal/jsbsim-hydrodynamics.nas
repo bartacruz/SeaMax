@@ -116,5 +116,5 @@ var enableHydroOSD = func {
 }
 
 # Debug settings.
-enableHydroOSD();
+# enableHydroOSD();
 ###############################################################################

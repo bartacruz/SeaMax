@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <system name="seamax hull">
-    <property value="13">metrics/hull-sqft</property>
-    <property value="0.9">metrics/hull-cl</property>
-    <property value="-0.3">coeffs/hull-cp</property>
+    
+    <property value="10">metrics/hull-sqft</property>
+    <property value="0.5">coeffs/hull-cl</property>
+    <property value="-0.01">coeffs/hull-cp</property>
+
     <channel name="Force Z (up)">
 
         <fcs_function name="aero/force/Lift_hull">
@@ -38,11 +40,12 @@
                             0.60 0.710
                         </tableData> -->
                     </table>
-                    <property>metrics/hull-cl</property>
+                    <property>coeffs/hull-cl</property>
                 </product>
             </function>
         </fcs_function>
-        <fcs_function name="aero/force/Lift_hull_propwash">
+    
+        <!-- <fcs_function name="aero/force/Lift_hull_propwash">
             <description>Delta lift due to propeller induced velocity</description>
             <function>
                 <product>
@@ -63,14 +66,15 @@
                     <property>coeffs/prop-c</property>
                 </product>
             </function>
-        </fcs_function>
+        </fcs_function> -->
 
         <summer name="aero/hull-z-force-lbs">
             <input>aero/force/Lift_hull </input>
-            <input>aero/force/Lift_hull_propwash </input>
+            <!-- <input>aero/force/Lift_hull_propwash </input> -->
             <output>external_reactions/hull-Z/magnitude</output>
         </summer>
     </channel>
+
     <channel name="Moment Z (up)">
         <fcs_function name="aero/moment/Pitch_hull">
             <documentation>Pitch moment due to hull surface</documentation>
@@ -98,10 +102,12 @@
                 </product>
             </function>
         </fcs_function>
+
         <summer name="aero/moment/hull-z-lbs">
             <input>aero/moment/Pitch_hull</input>
             <output>external_reactions/hull-pitch/magnitude</output>
         </summer>
+        
     </channel>
 
 </system>
