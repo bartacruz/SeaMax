@@ -16,7 +16,6 @@ var autostart = func{
     setprop("sim/messages/copilot", "Now press the s key to start the engine");
 }
 
-
 var init_gears = func() {
     var solid = getprop("/fdm/jsbsim/ground/solid");
     print("SOLID? ", solid);
@@ -51,9 +50,12 @@ var enableOSD = func {
     var left  = screen.display.new(20, 10);
     var right = screen.display.new(-300, 10);
 
-    left.add("/fdm/jsbsim/aero/alpha-wing-rad");
-    left.add("/fdm/jsbsim/aero/force/Lift_alpha");
-    left.add("/fdm/jsbsim/aero/function/kCLge");
+    left.add("/engines/engine/rpm");
+    left.add("/instrumentation/airspeed-indicator/indicated-speed-kt");
+    left.add("/fdm/jsbsim/propulsion/engine/power-hp");
+    left.add("/controls/engines/engine/throttle");
+    #left.add("/fdm/jsbsim/aero/force/Lift_alpha");
+    #left.add("/fdm/jsbsim/aero/function/kCLge");
     # left.add("/fdm/jsbsim/gear/unit[0]/WOW");
     # left.add("/fdm/jsbsim/gear/unit[1]/WOW");
     # left.add("/fdm/jsbsim/gear/unit[2]/WOW");
@@ -67,21 +69,30 @@ var enableOSD = func {
     # left.add("/fdm/jsbsim/aero/moment/Yaw_aileron");
     # left.add("/fdm/jsbsim/fcs/rudder-pos-rad");
 
-    right.add("/engines/engine/rpm");
-    right.add("/instrumentation/airspeed-indicator/indicated-speed-kt");
     right.add("/fdm/jsbsim/aero/alpha-rad");
-    right.add("/fdm/jsbsim/aero/qbar-psf");
+    right.add("/fdm/jsbsim/aero/alpha-wing-rad");
+    right.add("/orientation/pitch-deg");
+    right.add("/controls/flight/elevator");
+    right.add("/controls/flight/elevator-trim");
+    # right.add("/fdm/jsbsim/aero/qbar-psf");
     #right.add("/fdm/jsbsim/propulsion/engine[0]/thrust-coefficient");
     #right.add("/fdm/jsbsim/aero/function/kCLge");
     
     #right.add("/fdm/jsbsim/aero/force/Lift_hull");
 }
 
+var engineHasStarted = setlistener("/engines/engine/running", func(val) {
+  if( val.getBoolValue() ) {
+    setprop("/engines/engine/has-started", 1);
+    setprop("/fdm/jsbsim/propulsion/engine/has-started", 1);
+    removelistener(engineHasStarted);
+  }
+});
     
 setlistener("/sim/signals/fdm-initialized", func {
     print("Checking ground...");
     setlistener("/controls/gear/gear-down", check_gears,1,1);
     init_gears();
     
-    # enableOSD();
+    enableOSD();
 }, 0, 0);

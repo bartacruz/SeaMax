@@ -1,16 +1,16 @@
 x Fuel switches
-- Fuel level indicator
-- Flap switch
+X Fuel level indicator
+Z Flap switch
 x Gear indicators
-- Gear lever
-- Lights
+X Gear lever
+X Lights
 - Panel shape
 - Cockpit legends (partially done)
-- Exterior legends
-- Engine instruments
+- Exterior legends (partially done)
+X Engine instruments
 - Canopy handles and locks
 - Stall warning when planning on water
-- Water rudder
-- Circuit breakers
-- Tiedowns )(and chocks?)
+X Water rudder
+X Circuit breakers
+- Tiedowns (and chocks?)
 - Pitot tube

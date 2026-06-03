@@ -1,35 +1,28 @@
 <?xml version="1.0"?>
+<!-- Rotax 912 ULS -->
 
-<!--
-  File:     Rotax-912-is.xml
-  Author:   AeromatiC++ v 3.3.11
-
-  See: http://wiki.flightgear.org/JSBSim_Engines#FGPiston
-
-  Inputs:
-    name:           Rotax-912-uls
-    type:           Piston Engine
-    power:          100 hp
--->
-
-<piston_engine name="Rotax-912-uls">
-  <minmp unit="INHG">         10.0 </minmp>
-  <maxmp unit="INHG">         29 </maxmp>
+<piston_engine name="Rotax912ULS">
+  <minmp unit="INHG">         11.0 </minmp>
+  <maxmp unit="INHG">         29.92 </maxmp>
   <displacement unit="IN3"> 82.6 </displacement>
-  <maxhp>        100   </maxhp>
+  <maxhp>        100.00 </maxhp>
   <cycles>         4.0 </cycles>
-  <idlerpm>     800 </idlerpm>
-  <maxrpm>      2800.0 </maxrpm>
+  <idlerpm>      1400.0 </idlerpm>
+  <maxrpm>      5800.0 </maxrpm>
   <sparkfaildrop>  0.1 </sparkfaildrop>
-  <volumetric-efficiency> 0.85 </volumetric-efficiency>
+  <volumetric-efficiency> 0.94 </volumetric-efficiency>
   <man-press-lag> 0.1 </man-press-lag>
-  <static-friction  unit="HP"> 0.500193 </static-friction>
-  <starter-torque> 90.0309 </starter-torque>
+  <static-friction unit="HP"> 2.00 </static-friction> 
+  <starter-torque> 120.00 </starter-torque>
   <starter-rpm> 1400 </starter-rpm>
- <!-- Defining <bsfc> over-rides the built-in horsepower calculations -->
- <!--<bsfc>           0.45 </bsfc>-->
-  <stroke unit="IN">		2.4	</stroke>
-  <bore unit="IN">		3.31	</bore>
-  <cylinders>         4  </cylinders>
-  <compression-ratio>  9.0 </compression-ratio>
+
+  <stroke unit="IN">  2.4 </stroke>
+  <bore unit="IN">    3.31 </bore>
+  <cylinders>         4.0  </cylinders>
+  <compression-ratio>  10.5 </compression-ratio>
+
+  <!-- Heating and cooling is done in rotax-thermal.xml -->
+  <cylinder-head-mass unit="LBS"> 13.0 </cylinder-head-mass>
+  <cooling-factor> 1 </cooling-factor>
+  <oil-cooling-factor> 1 </oil-cooling-factor>
 </piston_engine>
