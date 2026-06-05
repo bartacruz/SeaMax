@@ -1,15 +1,8 @@
 <?xml version="1.0"?>
 <aerodynamics>
    <property value="1.0">coeffs/lift-alpha</property>
-   <property value="1">coeffs/prop-c</property>
-   <property value="-17">coeffs/pitch-dampening</property>
-   <property value="-0.5">coeffs/pitch-alpha</property>
-   <property value="-0.02">coeffs/yaw-rudder</property>
    <property value="-500">coeffs/water-rudder-factor</property>
-   <property value="0.0015">coeffs/drag-flap</property>
-   <property value="0.01">coeffs/lift-flap</property>
-   <property value="10">metrics/hull-sqft</property>
-   <property value="0.5">coeffs/hull-cl</property>
+   <property value="25">metrics/hull-sqft</property>
    <property value="-0.01">coeffs/hull-cp</property>
 
    <function name="aero/function/kCDge">
@@ -134,7 +127,7 @@
                   <tableData>
                     -5.0  -0.0350 
                      0.0   0.0000
-                    10.0   0.1200 
+                    10.0   0.1650 
                     30.0   0.3500  
                   </tableData>
                </table>
@@ -149,7 +142,7 @@
                <table>
                   <independentVar lookup="row">aero/alpha-rad</independentVar>
                   <tableData>
-                    -0.10   -0.1500 
+                    -0.10   -0.1200 
                      0.00    0.0100
                      0.10    0.4500 
                   </tableData>
@@ -250,33 +243,31 @@
                   <tableData>
                     -5.0   -0.0065
                      0.0   0.0000
-                    10.0   0.0150
+                    10.0   0.0320
                     30.0   0.0650
                   </tableData>
                </table>
              </product>
         </function>
 
-
         <function name="aero/force/Drag_hull">
            <description>Drag due to hull geometry and sponsons</description>
            <product>
               <property>aero/qbar-psf</property>
-              <property>metrics/hull-sqft</property> <!-- Usa tus 10 sqft definidos -->
+              <property>metrics/hull-sqft</property>
               <table>
                 <independentVar lookup="row">aero/alpha-rad</independentVar>
                 <tableData>
-                  -0.35    0.4500  <!-- Gran resistencia si pica mucho -->
-                  -0.08    0.1200  <!-- Arrastre notable a ángulos bajos de descenso -->
-                   0.00    0.0500  <!-- Arrastre base del casco alineado -->
-                   0.08    0.1200  <!-- Sube rápido al levantar el morro (frena en el climb) -->
+                  -0.35    0.4500
+                  -0.08    0.1200
+                   0.00    0.0500
+                   0.08    0.1200
                    0.35    0.5500  
                 </tableData>
               </table>
            </product>
         </function>
 
-    
       </axis>
     
       <axis name="SIDE">
@@ -378,16 +369,13 @@
                <property>metrics/Sw-sqft</property>
                <property>metrics/cbarw-ft</property>
                <property>fcs/elevator-pos-rad</property>
-               <!-- Factor de escala: Usamos un valor negativo para que respete la dirección del elevador (- palanca atrás = nariz arriba) -->
-               <value> -0.8000 </value> 
-               
-               <!-- Esta tabla define cuánto sopla la hélice según el empuje actual -->
+               <value> -0.8000 </value>                
                <table>
                   <independentVar lookup="row">propulsion/engine/thrust-lbs</independentVar>
                   <tableData>
-                     0.0    0.00  <!-- Motor en idle: El flujo de la hélice no aporta nada extra -->
-                  150.0    0.40  <!-- Potencia parcial: Empieza a soplar la cola -->
-                  320.0    1.00  <!-- Potencia máxima de despegue: Aporta el 100% del efecto extra -->
+                    0.0    0.00
+                  150.0    0.40 
+                  320.0    1.00 
                   </tableData>
                </table>
             </product>
@@ -446,8 +434,7 @@
               </table>
            </product>
         </function>
-
-    
+        
       </axis>
     
       <axis name="ROLL">
@@ -548,26 +535,6 @@
     
       <axis name="YAW">
     
-        <!-- Stall initiator -->
-        <!-- <function name="aero/moment/Yaw_alpha">
-           <description>Yaw moment due to alpha</description>
-           <product>
-               <property>aero/qbar-psf</property>
-               <property>metrics/Sw-sqft</property>
-               <property>metrics/bw-ft</property>
-               <property>aero/alpha-rad</property>
-               <table>
-                 <independentVar lookup="row">aero/beta-rad</independentVar>
-                 <independentVar lookup="column">aero/Re</independentVar>
-                 <tableData>
-                              1897247  2086972
-                     -0.3491  -1.0000   0.0000
-                      0.3491   1.0000   0.0000
-                 </tableData>
-               </table>
-           </product>
-        </function> -->
-    
         <function name="aero/moment/Yaw_beta">
            <description>Yaw moment due to beta</description>
            <product>
@@ -618,8 +585,7 @@
                <property>metrics/Sw-sqft</property>
                <property>metrics/bw-ft</property>
                <property>fcs/rudder-pos-rad</property>
-               <!-- <value> -0.05 </value> -->
-               <property>coeffs/yaw-rudder</property>
+               <value> -0.02 </value>
            </product>
         </function>
 

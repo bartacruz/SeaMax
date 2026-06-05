@@ -20,14 +20,6 @@
     <property value="3">hydro/coeffs/hull-drag</property>
 
     <channel name="Enable/disable">
-        <!-- <switch name="active-norm">
-            <default value="0" />
-            <test logic="AND" value="1">
-                ground/solid eq 0
-                contact/unit[4]/WOW eq 1
-            </test>
-            <output>hydro/active-norm</output>
-        </switch> -->
         <fcs_function name="hydro/active-norm">
             <description>
                 A property that is 0 when no part of the hull is in the water.
@@ -117,8 +109,6 @@
         </fcs_function>
 
     </channel>
-
-
     <channel name="Implementation Force Z (up)">
 
         <fcs_function name="hydro/buoyancy-lbs">
@@ -154,15 +144,6 @@
     </channel>
 
     <channel name="Roll dampener">
-
-        <!-- <switch name="Side-location">
-            <default value="external_reactions/hydro-Y/location-x-in" />
-            <test logic="AND" value="inertia/cg-x-in">
-                hydro/active-norm eq 1
-            </test>
-            <output>external_reactions/hydro-Y/location-x-in</output>
-        </switch> -->
-
         <fcs_function name="hydro/roll-damp-lbsft">
             <function>
                 <product>
@@ -172,25 +153,12 @@
                 </product>
             </function>
         </fcs_function>
-
         <summer
             name="external_reactions/hydro-roll/magnitude-lbsft">
             <input>hydro/roll-damp-lbsft</input>
         </summer>
     </channel>
-
     <channel name="Yaw dampener">
-
-
-        <!-- <fcs_function name="hydro/yaw-damp-lbsft">
-            <function>
-                <product>
-                    <p>hydro/coeffs/leveler-yaw</p>
-                    <p>/orientation/yaw-deg</p>
-                    <p>hydro/active-norm</p>
-                </product>
-            </function>
-        </fcs_function> -->
         <fcs_function name="hydro/yaw-damp">
             <description>Yaw moment due to yaw rate</description>
             <function>
@@ -204,7 +172,7 @@
                 </product>
             </function>
         </fcs_function>
-        
+
         <fcs_function name="hydro/yaw-damp-lbsft">
             <description>Yaw moment due to yaw rate</description>
             <function>
@@ -226,9 +194,7 @@
             <input>hydro/yaw-damp-lbsft</input>
         </summer>
     </channel>
-
     <channel name="Hull drag">
-
         <fcs_function name="hydro/hull-drag-lbsft">
             <function>
                 <product>
@@ -239,11 +205,8 @@
                 </product>
             </function>
         </fcs_function>
-
         <summer name="external_reactions/hydro-hull-drag/magnitude">
             <input>hydro/hull-drag-lbsft</input>
         </summer>
-
     </channel>
-
 </system>
