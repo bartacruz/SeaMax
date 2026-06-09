@@ -25,30 +25,30 @@
     <animation>
 		<type>rotate</type>
 		<object-name>cht needle</object-name>
-		<property>/engines/engine/cht-degf</property>
+		<property>/engines/engine/cht-degc</property>
 		<interpolation>
 			<entry>
 				<ind>   0 </ind>
 				<dep>   0 </dep>
 			</entry>
 			<entry>
-				<ind>  120</ind>
+				<ind>  50</ind>
 				<dep>  13 </dep>
 			</entry>
 			<entry>
-				<ind>  210 </ind>
+				<ind>  100 </ind>
 				<dep>   46.5</dep>
 			</entry>
 			<entry>
-				<ind>  250 </ind>
+				<ind>  120 </ind>
 				<dep>  76.7 </dep>
 			</entry>
 			<entry>
-				<ind>  275 </ind>
+				<ind>  135 </ind>
 				<dep> 93.2 </dep>
 			</entry>
 			<entry>
-				<ind>  300 </ind>
+				<ind>  150 </ind>
 				<dep> 104.6</dep>
 			</entry>
 		</interpolation>

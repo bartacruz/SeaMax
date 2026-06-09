@@ -2,14 +2,15 @@
 <PropertyList>
 
   <path>SeaMax.ac</path>
-  
+
   <model>
     <usage>interior</usage>
     <path>Interior/interior.xml</path>
   </model>
+  
   <effect>
-		<inherits-from>Effects/fuselage-reflect</inherits-from>
-		<object-name>SeaMax</object-name>
+    <inherits-from>Effects/fuselage-reflect</inherits-from>
+    <object-name>SeaMax</object-name>
     <object-name>aileron left</object-name>
     <object-name>aileron right</object-name>
     <object-name>Right Wing</object-name>
@@ -26,13 +27,12 @@
     <object-name>prop</object-name>
 
   </effect>
-  
+
   <effect>
     <inherits-from>Effects/Glass/glass</inherits-from>
-    
+
     <object-name>canopy glass</object-name>
-    <object-name>window.left</object-name>
-    <object-name>window right</object-name>
+    <object-name>windows</object-name>
   </effect>
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
@@ -41,8 +41,7 @@
   <animation>
     <type>noshadow</type>
     <object-name>canopy glass</object-name>
-    <object-name>window.left</object-name>
-    <object-name>window right</object-name>
+    <object-name>windows</object-name>
     <object-name>glass</object-name>
   </animation>
 
@@ -486,7 +485,7 @@
   </model>
 
   <!-- Jacks -->
-   <animation>
+  <animation>
     <type>select</type>
     <object-name>jack.f</object-name>
     <object-name>jack.f.side</object-name>
@@ -500,9 +499,9 @@
         <value>0</value>
       </greater-than>
     </condition>
-   </animation>
-   
-   <animation>
+  </animation>
+
+  <animation>
     <type>translate</type>
     <object-name>jack.f.side</object-name>
     <object-name>jack.l.side</object-name>
@@ -532,6 +531,22 @@
       <y>0</y>
       <z>-1</z>
     </axis>
-   </animation>
+  </animation>
+
+  <!-- <model>
+    <path>Models/Effects/wake-hull.xml</path>
+    <offsets>
+      <x-m> 3.0 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> 0.3 </z-m>
+
+    </offsets>
+  </model>
+  <model>
+    <path>Models/Effects/wake-float-left.xml</path>
+    <x> 2.5 </x>
+    <y> -4.6 </y>
+    <z> 0.8 </z>
+  </model> -->
 </PropertyList>
   

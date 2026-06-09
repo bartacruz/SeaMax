@@ -25,35 +25,31 @@
     <animation>
 		<type>rotate</type>
 		<object-name>oil temp needle</object-name>
-		<property>/engines/engine/oil-temperature-degf</property>
+		<property>/engines/engine/oil-temperature-degc</property>
 		<interpolation>
 			<entry>
 				<ind>   0 </ind>
 				<dep>   0 </dep>
 			</entry>
 			<entry>
-				<ind>  120</ind>
+				<ind>  50</ind>
 				<dep>  38.3</dep>
 			</entry>
 			<entry>
-				<ind>  192 </ind>
+				<ind>  90 </ind>
 				<dep>  60.5 </dep>
 			</entry>
 			<entry>
-				<ind>  230 </ind>
+				<ind>  110 </ind>
 				<dep>  82.4 </dep>
 			</entry>
 			<entry>
-				<ind>  265 </ind>
+				<ind>  130 </ind>
 				<dep> 109.45 </dep>
 			</entry>
 			<entry>
-				<ind>  300 </ind>
+				<ind>  150 </ind>
 				<dep> 124.45 </dep>
-			</entry>
-			<entry>
-				<ind>  800 </ind>
-				<dep> 162.0 </dep>
 			</entry>
 		</interpolation>
 		<center>

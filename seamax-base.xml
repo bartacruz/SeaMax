@@ -41,11 +41,11 @@
             <name type="string">Cockpit View</name>
             <internal archive="y">true</internal>
             <config>
-                <x-offset-m archive="y"> -0.27 </x-offset-m>                <!-- Right -->
-                <y-offset-m archive="y"> 1.2 </y-offset-m>                <!-- Up    -->
-                <z-offset-m archive="y"> 1.92 </z-offset-m>                <!-- Back  -->
-                <pitch-offset-deg type="double">-10</pitch-offset-deg>
-                <default-field-of-view-deg type="double">85</default-field-of-view-deg>
+                <x-offset-m archive="y"> -0.33 </x-offset-m>                <!-- Right -->
+                <y-offset-m archive="y"> 1.18 </y-offset-m>                <!-- Up    -->
+                <z-offset-m archive="y"> 1.65 </z-offset-m>                <!-- Back  -->
+                <pitch-offset-deg type="double">-14</pitch-offset-deg>
+                <default-field-of-view-deg type="double">91</default-field-of-view-deg>
             </config>
         </view>
         <view n="1">
@@ -125,10 +125,10 @@
                 <from-model type="bool">true</from-model>
                 <from-model-idx type="int">1</from-model-idx>
                 <dynamic-view type="bool">true</dynamic-view>
-                <x-offset-m archive="y"> 0.27 </x-offset-m>                <!-- Right -->
-                <y-offset-m archive="y"> 1.13 </y-offset-m>                <!-- Up    -->
-                <z-offset-m archive="y"> 1.54 </z-offset-m>                <!-- Back  -->
-                <pitch-offset-deg type="double">-10</pitch-offset-deg>
+                <x-offset-m archive="y"> 0.33 </x-offset-m>                <!-- Right -->
+                <y-offset-m archive="y"> 1.18 </y-offset-m>                <!-- Up    -->
+                <z-offset-m archive="y"> 1.65 </z-offset-m>                <!-- Back  -->
+                <pitch-offset-deg type="double">-14</pitch-offset-deg>
                 <default-field-of-view-deg type="double">100</default-field-of-view-deg>
             </config>
         </view>
@@ -243,6 +243,12 @@
 			
 		</aircraft-data>
     </sim>
+    <aircraft>
+        <ipad>
+            <ison type="bool">0</ison>
+        </ipad>
+        
+    </aircraft>
     <systems>
         <mooring>
             <boat-id></boat-id>
