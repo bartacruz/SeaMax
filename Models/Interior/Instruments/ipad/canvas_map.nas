@@ -1,11 +1,17 @@
+# var window = canvas.new({
+#   "name": "canvas_map",   # The name is optional but allow for easier identification
+#   "size": [1848, 2524], # Size of the underlying texture (should be a power of 2, required) [Resolution]
+#   "view": [3072, 4096],  # Virtual resolution (Defines the coordinate system of the canvas [Dimensions]
+#                         # which will be stretched the size of the texture, required)
+#   "mipmapping": 1       # Enable mipmapping (optional)
+# });
 var window = canvas.new({
   "name": "canvas_map",   # The name is optional but allow for easier identification
-  "size": [1848, 2524], # Size of the underlying texture (should be a power of 2, required) [Resolution]
-  "view": [3072, 4096],  # Virtual resolution (Defines the coordinate system of the canvas [Dimensions]
+  "size": [2048, 4096], # Size of the underlying texture (should be a power of 2, required) [Resolution]
+  "view": [1024, 2048],  # Virtual resolution (Defines the coordinate system of the canvas [Dimensions]
                         # which will be stretched the size of the texture, required)
   "mipmapping": 1       # Enable mipmapping (optional)
 });
-
 
 window.setColorBackground(1,1,1,1);
 var (width,height) = (1020,1920);
@@ -26,7 +32,7 @@ var maps_base = getprop("/sim/fg-home") ~ '/cache/maps';
 var makeUrl = string.compileTemplate('https://tile.openstreetmap.org/{z}/{x}/{y}.png');
 var makePath = string.compileTemplate(maps_base ~ '/tablet-cache/{z}/{x}/{y}.png');
 
-var num_tiles = [4, 5];
+var num_tiles = [2, 3];
 
 
 
@@ -34,10 +40,6 @@ var center_tile_offset = [
   (num_tiles[0] - 1)/2.0,
   (num_tiles[1] - 1)/2.0
 ];
-# g.setTranslation(
-# 	window.get("view[0]")/2,
-# 	window.get("view[1]")/2
-# );
 g.addEventListener("wheel", func(e) {
   print("wheel ", e.deltaY);
   set_zoom(e.deltaY);
@@ -132,6 +134,10 @@ var set_zoom = func(direction) {
   if (zoom >18) zoom = 18;
 
 }
+var instrument_dir = "Aircraft/SeaMax/Models/Interior/Instruments/ipad/";
+var tablet = window.createGroup('tablet');
+canvas.parsesvg(tablet, instrument_dir ~ "tablet_main.svg");
+
 ##
 # set up a timer that will invoke updateTiles at 2-second intervals
 var update_timer = maketimer(1, mapstart);

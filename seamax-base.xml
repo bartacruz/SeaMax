@@ -300,6 +300,13 @@
             <rpm alias="/engines/engine/rpm" />
         </active-engine>
     </engines>
+    <instrumentation>
+        <ipad>
+            <gps>
+                <aircraft-heading-up type="bool">1</aircraft-heading-up>
+            </gps>
+        </ipad>
+    </instrumentation>
     <controls>
         <electric>
             <battery-switch type="bool">1</battery-switch>
@@ -374,11 +381,14 @@
         <hobbs>
             <file>Models/Interior/Instruments/tach/hobbs.nas</file>
         </hobbs>
-        <canvas_map>
-            <file>Aircraft/SeaMax/Models/Interior/Instruments/ipad/canvas_map.nas</file>
-        </canvas_map>
-        <mooring>
+        <ipad>
+            <file>Aircraft/SeaMax/Models/Interior/Instruments/ipad/ipad.nas</file>
+            <file>Aircraft/SeaMax/Models/Interior/Instruments/ipad/apps/home.nas</file>
+            <file>Aircraft/SeaMax/Models/Interior/Instruments/ipad/apps/map.nas</file>
+            <file>Aircraft/SeaMax/Models/Interior/Instruments/ipad/apps/gpsmap.nas</file>
+        </ipad>
+        <!-- <mooring>
             <file>Nasal/mooring.nas</file>
-        </mooring>
+        </mooring> -->
     </nasal>
 </PropertyList>
