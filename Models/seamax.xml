@@ -9,7 +9,7 @@
   </model>
   
   <effect>
-    <inherits-from>Effects/fuselage-reflect</inherits-from>
+    <inherits-from>Effects/fuselage-reflect2</inherits-from>
     <object-name>SeaMax</object-name>
     <object-name>aileron left</object-name>
     <object-name>aileron right</object-name>
@@ -20,6 +20,7 @@
     <object-name>float right</object-name>
     <object-name>elevator left</object-name>
     <object-name>elevator right</object-name>
+    <object-name>engine support</object-name>
     <object-name>flap left</object-name>
     <object-name>flap right</object-name>
     <object-name>canopy</object-name>
@@ -38,6 +39,7 @@
     <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>glass</object-name>
   </effect>
+  
   <animation>
     <type>noshadow</type>
     <object-name>canopy glass</object-name>
