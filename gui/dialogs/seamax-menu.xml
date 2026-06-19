@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <name type="string">SeaMax M-22</name>
+    <default>
+        <menu n="10">
+            <label>SeaMax M-22</label>
+            <enabled type="bool">true</enabled>
+
+            <!--<item>
+				<label>Aircraft Options</label>
+				<binding>
+					<command>dialog-show</command>
+					<dialog-name>aircraft-dialog</dialog-name>
+				</binding>
+			</item>-->
+
+            <item>
+                <label>Autostart (Q)</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>seamax.autostart();</script>
+                </binding>
+            </item>
+            <item>
+                <label>Toggle debug</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>seamax.toggleOSD();</script>
+                </binding>
+            </item>
+        </menu>
+    </default>
+</PropertyList>

@@ -3,16 +3,7 @@
 <PropertyList>
 
     <title>SeaMax m22</title>
-    <line>cruise speeds:</line>
-    <line>4800 RPM: 85 kts</line>
-    <line>5000 RPM: 94 kts</line>
-
-    <!-- <line>never exceed (Vne): 122 mph (106 kt)</line>
-    <line>best glide (Vglide): 60 mph (52 kt)</line>
-    <line>maneuvering (Va): 70 mph (61 kt)</line>
-    <line>approach speed: 50-60 mph (44-52 kt)</line> -->
-    <line>stall speed (Vs): 39kt</line>
-
+    
     <line>Startup procedure:</line>
     <line>Parking brake on (but optional)</line>
     <line>Turn at least one of the fuel selectors located above the side windows.</line>
@@ -21,10 +12,21 @@
     <line>Turn the magnetos to "both" position by clicking on the key or pressing "}" 3 times</line>
     <line>Start the engine by clicking the key or pressing "s"</line>
     <line></line>
-    <line>hit d to open/close door</line>
-    <line>hit Q to autostart</line>
-    <line>hit J to put the aircraft on jacks</line>
+    <line>Take off:</line>
+    <line>Flaps 10, full power, lift nose at 45-50kts, rotate at 60kts </line>
+    <line>Best climb rate:</line>
+    <line>Flaps 10, full power, 850-1000 ft/min </line>
+    <line>cruise speeds:</line>
+    <line>4800 RPM: 85 kts</line>
+    <line>5000 RPM: 94 kts</line>
+    <line>5200 RPM: 102 kts</line>
+    <line>On leveled cruise, use the -5 deg flaps to earn some extra kts.</line>
 
+    <!-- <line>never exceed (Vne): 122 mph (106 kt)</line>
+    <line>best glide (Vglide): 60 mph (52 kt)</line>
+    <line>maneuvering (Va): 70 mph (61 kt)</line>
+    <line>approach speed: 50-60 mph (44-52 kt)</line> -->
+    <line>stall speed (Vs): 39kt</line>
     <line></line>
     <key>
         <name>d</name>

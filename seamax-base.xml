@@ -2,7 +2,10 @@
 
 <PropertyList>
     <sim>
-        <help include="help.xml"/>
+        <checklists include="seamax-jsb-checklists.xml" />
+        <flaps include="Systems/flaps.xml" />
+        <help include="gui/dialogs/help.xml" />
+        <menubar include="gui/dialogs/seamax-menu.xml" />
         <model>
             <path archive="y">Aircraft/SeaMax/Models/seamax.xml</path>
             <livery>
@@ -17,7 +20,7 @@
                 </crew>
             </door-positions>
             <rendering>
-				<rain-enabled type="int">2</rain-enabled>
+                <rain-enabled type="int">2</rain-enabled>
 				<reflection-enabled type="int">1</reflection-enabled>
 				<reflection-type type="int">1</reflection-type>
 				<reflection-dynamic type="int">1</reflection-dynamic>
@@ -27,9 +30,12 @@
 				<reflection-rainbow type="float">0.0</reflection-rainbow>
 				<reflection-noise type="float">0.00</reflection-noise>
 				<ambient-correction type="float">0.15</ambient-correction>
-			</rendering>
+            </rendering>
+            <securing>
+                <pitot-cover type="bool">1</pitot-cover>
+            </securing>
         </model>
-        
+
         <multiplay>
             <generic>
                 <bool n="13" alias="/controls/lighting/strobe/enabled" />
@@ -182,7 +188,7 @@
                 <splash type="bool">true</splash>
             </preview>
         </previews>
-        <flaps include="Systems/flaps.xml" />
+
         <sound>
             <path>Sounds/seamax-sound.xml</path>
         </sound>
@@ -220,45 +226,44 @@
             <electrical>
                 <path></path>
             </electrical>
-            
+            <mooring>
+                <boat-id></boat-id>
+                <dialog></dialog>
+                <moorage-id></moorage-id>
+                <route include="Systems/mooring-pos.xml" />
+                <state></state>
+            </mooring>
         </systems>
         <aircraft-data>
-			<path>/engines/engine[0]/hobbs</path>
-			<path>/sim/weight[0]/weight-lb</path>
-			<path>/sim/weight[1]/weight-lb</path>
-			<path>/sim/weight[2]/weight-lb</path>
-			<path>/sim/weight[3]/weight-lb</path>
-			<path>/sim/weight[4]/weight-lb</path>
+            <path>/engines/engine[0]/hobbs</path>
+            <path>/sim/weight[0]/weight-lb</path>
+            <path>/sim/weight[1]/weight-lb</path>
+            <path>/sim/weight[2]/weight-lb</path>
+            <path>/sim/weight[3]/weight-lb</path>
+            <path>/sim/weight[4]/weight-lb</path>
             <path>/consumables/fuel/tank[0]/level-gal_us</path>
-		    <path>/consumables/fuel/tank[1]/level-gal_us</path>
+            <path>/consumables/fuel/tank[1]/level-gal_us</path>
             <path>/controls/electric/master-switch</path>
             <path>/controls/fuel/tank[0]/fuel_selector</path>
-            <path>/controls/fuel/tank[1]/fuel_selector</path>
+            <path>/controls/fuel/tank[0]/fuel_selector_untied</path>
+            <path>/controls/fuel/tank[1]/fuel_selector_untied</path>
             <path>/controls/gear/brake-parking</path>
-			<path>/controls/switches/instrument-lights</path>
+            <path>/controls/switches/instrument-lights</path>
             <path>/controls/switches/landing-lights</path>
-			<path>/controls/switches/master-cover</path>
-			<path>/controls/switches/nav-lights</path>
-			<path>/controls/switches/strobe-lights</path>
+            <path>/controls/switches/master-cover</path>
+            <path>/controls/switches/nav-lights</path>
+            <path>/controls/switches/strobe-lights</path>
             <path>/instrumentation/comm/frequencies</path>
-			
-		</aircraft-data>
+
+        </aircraft-data>
+
     </sim>
     <aircraft>
         <ipad>
             <ison type="bool">0</ison>
         </ipad>
-        
+
     </aircraft>
-    <systems>
-        <mooring>
-            <boat-id></boat-id>
-            <dialog></dialog>
-            <moorage-id></moorage-id>
-            <route include="Systems/mooring-pos.xml"/>
-            <state></state>
-        </mooring>
-    </systems>
     <input include="Systems/seamax-keyboard.xml" />
     <payload>
         <weight>
@@ -319,9 +324,11 @@
         <fuel>
             <tank n="0">
                 <fuel_selector type="bool">0</fuel_selector>
+                <fuel_selector_pos type="float">0</fuel_selector_pos>
             </tank>
             <tank n="1">
                 <fuel_selector type="bool">0</fuel_selector>
+                <fuel_selector_pos type="float">0</fuel_selector_pos>
             </tank>
             <tank n="2">
                 <boost-pump type="bool">false</boost-pump>

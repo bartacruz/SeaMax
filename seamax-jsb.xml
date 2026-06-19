@@ -88,7 +88,7 @@
       <weight unit="KG"> 80 </weight>
       <location name="Pilot"
         unit="M">
-        <x> 1.67 </x>
+        <x> 1.78 </x>
         <y> -0.35 </y>
         <z> 0.7 </z>
       </location>
@@ -98,7 +98,7 @@
       <weight unit="KG"> 80 </weight>
       <location name="Co-Pilot"
         unit="M">
-        <x> 1.67 </x>
+        <x> 1.78 </x>
         <y> 0.35 </y>
         <z> 0.7 </z>
       </location>

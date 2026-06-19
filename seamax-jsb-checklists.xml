@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+    <group>
+
+        <name>STANDARD</name>
+
+        <checklist>
+            <title>Preflight Inspection</title>
+            <page>
+                <item>
+                    <name>CABIN</name>
+                </item>
+                <item>
+                    <name>Documents</name>
+                    <value>AVAILABLE ON BOARD</value>
+                </item>
+                <item>
+                    <name>Master Switch</name>
+                    <value>OFF</value>
+                    <marker>
+                        <x-m>1.835</x-m>
+                        <y-m> 0.032</y-m>
+                        <z-m> 1.29 </z-m>
+                        <scale>3.0000</scale>
+                    </marker>
+                    <condition>
+                        <equals>
+                            <property>/controls/electric/master-switch</property>
+                            <value>0</value>
+                        </equals>
+                    </condition>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>/controls/electric/master-switch</property>
+                        <value>0</value>
+                    </binding>
+                </item>
+                <item>
+                    <name>Weight and balance</name>
+                    <value>Gross weight below 1200 lb</value>
+                    <condition>
+                        <less-than-equals>
+                            <property>/fdm/jsbsim/inertia/weight-lbs</property>
+                            <value>1200</value>
+                        </less-than-equals>
+                    </condition>
+                    <binding>
+                        <command>nasal</command>
+                        <script>gui.showWeightDialog()</script>
+                    </binding>
+                </item>
+            </page>
+        </checklist>
+        <checklist>
+            <title>Startup</title>
+            <page>
+                <item>
+                    <name>Fuel Tanks</name>
+                </item>
+                <item>
+                    <name>Left Fuel Tank</name>
+                    <value>OPEN</value>
+                    <marker>
+                        <x-m> 1.919</x-m>
+                        <y-m>-0.457</y-m>
+                        <z-m> 1.217</z-m>
+                        <scale>3.0000</scale>
+                    </marker>
+                    <condition>
+                        <equals>
+                            <property>/controls/fuel/tank[0]/fuel_selector_pos</property>
+                            <value>1</value>
+                        </equals>
+                    </condition>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>/controls/fuel/tank[0]/fuel_selector</property>
+                        <value>1</value>
+                    </binding>
+                    <!-- <binding>
+                        <command>property-assign</command>
+                        <property>/controls/fuel/tank[0]/fuel_selector_untied</property>
+                        <value>1</value>
+                    </binding> -->
+                </item>
+            </page>
+        </checklist>
+    </group>
+</PropertyList>

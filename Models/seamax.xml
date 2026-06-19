@@ -4,10 +4,14 @@
   <path>SeaMax.ac</path>
 
   <model>
+    <path>Aircraft/Generic/marker.xml</path>
+  </model>
+
+  <model>
     <usage>interior</usage>
     <path>Interior/interior.xml</path>
   </model>
-  
+
   <effect>
     <inherits-from>Effects/fuselage-reflect2</inherits-from>
     <object-name>SeaMax</object-name>
@@ -25,13 +29,15 @@
     <object-name>flap right</object-name>
     <object-name>canopy</object-name>
     <object-name>rudder</object-name>
-    <object-name>prop</object-name>
+    <object-name>pitot</object-name>
+    <object-name>pitot cover</object-name>
+    <object-name>pitot cover sign</object-name>
+    <!-- <object-name>prop</object-name> -->
 
   </effect>
 
   <effect>
     <inherits-from>Effects/Glass/glass</inherits-from>
-
     <object-name>canopy glass</object-name>
     <object-name>windows</object-name>
   </effect>
@@ -39,7 +45,7 @@
     <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>glass</object-name>
   </effect>
-  
+
   <animation>
     <type>noshadow</type>
     <object-name>canopy glass</object-name>
@@ -535,6 +541,43 @@
     </axis>
   </animation>
 
+  <animation>
+    <type>select</type>
+    <object-name>pitot cover</object-name>
+    <object-name>pitot cover sign</object-name>
+    <condition>
+      <property>/sim/model/securing/pitot-cover</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>pitot</object-name>
+    <object-name>pitot cover</object-name>
+    <object-name>pitot cover sign</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/model/securing/pitot-cover</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>pitot-cover</tooltip-id>
+        <label>%s pitot cover</label>
+        <property>/sim/model/securing/pitot-cover</property>
+        <mapping>nasal</mapping>
+        <script>
+          var m = arg[0];
+          if (m == 1) return 'Remove';
+          return 'Put';
+        </script>
+      </binding>
+    </hovered>
+  </animation>
   <!-- <model>
     <path>Models/Effects/wake-hull.xml</path>
     <offsets>
