@@ -21,11 +21,12 @@
         </direction>
     </moment>
 
-
-    <force name="hydro-X" frame="LOCAL">
+    <!-- 1. RESISTENCIA DEL CASCO (Unificada en BODY y empujando puramente hacia atrás) -->
+    <force name="hydro-hull-drag" frame="BODY">
         <location unit="M">
+            <!-- Aplicada en el fondo del casco, cerca del escalón (Ajustar según tu CG) -->
             <x> 2.1 </x>
-            <y> 0.00 </y>
+            <y> 0.0 </y>
             <z> 0.3 </z>
         </location>
         <direction>
@@ -34,10 +35,12 @@
             <z> 0.0 </z>
         </direction>
     </force>
-    <force name="hydro-Y" frame="LOCAL">
+
+    <!-- 2. FUERZA LATERAL DEL AGUA (Evita que el avión derrape de costado en el agua, frame BODY) -->
+    <force name="hydro-Y" frame="BODY">
         <location unit="M">
             <x> 2.2 </x>
-            <y> 0.00 </y>
+            <y> 0.0 </y>
             <z> 0.2 </z>
         </location>
         <direction>
@@ -46,30 +49,23 @@
             <z> 0.0 </z>
         </direction>
     </force>
-    <force name="hydro-Z" frame="LOCAL">
+
+    <!-- 3. FLOTABILIDAD Y PLANEO (Empuja perpendicular al casco hacia arriba, frame BODY) -->
+    <force name="hydro-Z" frame="BODY">
         <location unit="M">
+            <!-- Centrado en el volumen del casco sumergido -->
             <x> 1.7 </x>
-            <y> 0.00 </y>
+            <y> 0.0 </y>
             <z> 0.3 </z>
         </location>
         <direction>
             <x> 0.0 </x>
             <y> 0.0 </y>
-            <z>-1.0 </z>
+            <z>-1.0 </z> <!-- En JSBSim BODY, Z negativo es hacia ARRIBA (dentro del avión) -->
         </direction>
     </force>
-    <force name="hydro-hull-drag" frame="BODY">
-        <location unit="M">
-            <x> 0 </x>
-            <y> 0 </y>
-            <z> 0 </z>
-        </location>
-        <direction>
-            <x> -1.0 </x>
-            <y> 0.0 </y>
-            <z> -0.5 </z>
-        </direction>
-    </force>
+
+    <!-- 4. MOMENTOS PUROS (Controlados por tus canales XML de amortiguamiento) -->
     <moment name="hydro-pitch" frame="BODY" unit="LBSFT">
         <direction>
             <x> 0.0 </x>
@@ -77,6 +73,7 @@
             <z> 0.0 </z>
         </direction>
     </moment>
+
     <moment name="hydro-roll" frame="BODY" unit="LBSFT">
         <direction>
             <x> 1.0 </x>
@@ -84,6 +81,7 @@
             <z> 0.0 </z>
         </direction>
     </moment>
+
     <moment name="hydro-yaw" frame="BODY" unit="LBSFT">
         <direction>
             <x> 0.0 </x>
@@ -91,8 +89,10 @@
             <z> 1.0 </z>
         </direction>
     </moment>
+
+    <!-- Amarre / Mooring (Mantenlo en LOCAL si simula un ancla a la Tierra) -->
     <force name="mooring-north" frame="LOCAL">
-        <location unit="">
+        <location unit="M">
             <x> 0.0 </x>
             <y> 0.0 </y>
             <z> 0.0 </z>
@@ -103,6 +103,7 @@
             <z> 0.0 </z>
         </direction>
     </force>
+
     <force name="mooring-east" frame="LOCAL">
         <location unit="">
             <x> 0.0 </x>

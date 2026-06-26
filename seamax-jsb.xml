@@ -51,7 +51,7 @@
     <vtailarea unit="FT2"> 7.27 </vtailarea>
     <vtailarm unit="FT"> 8.86 </vtailarm>
     <location name="AERORP"
-              unit="M">
+      unit="M">
       <x> 2.165 </x>
       <y> 0.00 </y>
       <z> 1.5 </z>
@@ -183,30 +183,45 @@
     <contact type="STRUCTURE"
       name="BOW_IN_WATER">
       <location unit="M">
-        <x> 0.3 </x>
+        <x> 0.4 </x>
         <y> 0 </y>
-        <z> 0 </z>
+        <z> 0.3 </z>
       </location>
-      <static_friction> 0 </static_friction>
-      <dynamic_friction> 0.01 </dynamic_friction>
-      <spring_coeff unit="LBS/FT"> 300 </spring_coeff> <!-- 11250 -->
-      <damping_coeff unit="LBS/FT/SEC"> 150 </damping_coeff> <!-- 5625 -->
+      <static_friction> 0.10 </static_friction>
+      <dynamic_friction> 0.10 </dynamic_friction>
+      <spring_coeff unit="LBS/FT"> 900 </spring_coeff> <!-- 11250 -->
+      <damping_coeff unit="LBS/FT/SEC"> 1050 </damping_coeff> <!-- 5625 -->
     </contact>
 
     <!-- contact[4] -->
     <contact type="STRUCTURE"
-      name="HULL_STEP_IN_WATER">
+      name="HULL_LEFT">
       <location unit="M">
-        <x> 3</x>
-        <y> 0 </y>
-        <z> 0 </z>
+        <x> 2.8</x>
+        <y> -0.5 </y>
+        <z> 0.30 </z>
       </location>
-      <static_friction> 0 </static_friction>
-      <dynamic_friction> 0.01 </dynamic_friction>
-      <spring_coeff unit="LBS/FT"> 600 </spring_coeff>
-      <damping_coeff unit="LBS/FT/SEC"> 200 </damping_coeff>
+      <static_friction> 0.10 </static_friction>
+      <dynamic_friction> 0.10 </dynamic_friction>
+      <spring_coeff unit="LBS/FT"> 1000 </spring_coeff>
+      <damping_coeff unit="LBS/FT/SEC"> 1050 </damping_coeff>
     </contact>
 
+    <!-- contact[5] -->
+    <contact type="STRUCTURE"
+      name="HULL_RIGHT">
+      <location unit="M">
+        <x> 2.8</x>
+        <y> 0.5 </y>
+        <z> 0.30 </z>
+      </location>
+      <static_friction> 0.10 </static_friction>
+      <dynamic_friction> 0.10 </dynamic_friction>
+      <spring_coeff unit="LBS/FT"> 1000 </spring_coeff>
+      <damping_coeff unit="LBS/FT/SEC"> 1050 </damping_coeff>
+    </contact>
+
+    <!-- contact[6] -->
     <contact type="STRUCTURE"
       name="LEFT_FLOAT">
       <location unit="M">
@@ -214,13 +229,13 @@
         <y> -4.6 </y>
         <z> 0.8 </z>
       </location>
-      <static_friction>0.01</static_friction>
-      <dynamic_friction>0.01</dynamic_friction>
-      <rolling_friction> 0.01</rolling_friction>
+      <static_friction>0.1</static_friction>
+      <dynamic_friction>0.1</dynamic_friction>
       <spring_coeff unit="LBS/FT">1000.00 </spring_coeff>
       <damping_coeff unit="LBS/FT/SEC">250.00 </damping_coeff>
     </contact>
 
+    <!-- contact[7] -->
    <contact type="STRUCTURE"
       name="RIGHT_FLOAT">
       <location unit="M">
@@ -228,13 +243,13 @@
         <y> 4.6 </y>
         <z> 0.8 </z>
       </location>
-      <static_friction>0.01</static_friction>
-      <dynamic_friction>0.01</dynamic_friction>
-      <rolling_friction> 0.01</rolling_friction>
+      <static_friction>0.1</static_friction>
+      <dynamic_friction>0.1</dynamic_friction>
       <spring_coeff unit="LBS/FT">1000.00 </spring_coeff>
       <damping_coeff unit="LBS/FT/SEC">250.00 </damping_coeff>
     </contact>
 
+    <!-- contact[8] -->
     <contact type="STRUCTURE"
       name="TAIL">
       <location unit="M">
@@ -249,6 +264,7 @@
       <damping_coeff unit="LBS/FT/SEC">250.00 </damping_coeff>
     </contact>
 
+    <!-- contact[9] -->
     <contact type="STRUCTURE"
       name="LEFT_WING">
       <location unit="M">
@@ -261,7 +277,7 @@
       <spring_coeff unit="LBS/FT"> 1323.00 </spring_coeff>
       <damping_coeff unit="LBS/FT/SEC"> 1323.00 </damping_coeff>
     </contact>
-
+    <!-- contact[10] -->
     <contact type="STRUCTURE"
       name="RIGHT_WING">
       <location unit="M">
@@ -276,6 +292,7 @@
     </contact>
 
     <!-- jacks -->
+    <!-- contact[11] -->
     <contact type="STRUCTURE"
       name="NOSE_RJACK">
       <location unit="M">
@@ -396,7 +413,8 @@
 
   <system file="seamax-fuel" />
   <system file="seamax-hydrodynamics" />
-  <system file="mooring-jsbsim" />
+  <!-- <system file="seamax-hydrodynamics" /> -->
+  <!-- <system file="mooring-jsbsim" /> -->
   <system file="rotax-thermal" />
   <flight_control file="Systems/seamax-flight-control.xml" />
   <aerodynamics file="Systems/seamax-aerodynamics.xml" />

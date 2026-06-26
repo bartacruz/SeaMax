@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <system name="seamax hydrodynamics">
-    <property value="0.0">hydro/environment/water-level-ft</property>
     <property value="1.9736403">hydro/environment/rho-slug_ft3</property>
     <property value="1.1302106e-05">hydro/environment/kinematic-viscosity-ft2_sec</property>    <!-- Sea
     water at 20 degC. -->
@@ -12,12 +11,10 @@
     <property value="0.0">hydro/environment/wave-amplitude-ft</property>
     <property value="150.0">hydro/environment/wave-length-ft</property>
 
-    <property value="1.2">hydro/coeffs/active</property>
-    <property value="1.2">hydro/coeffs/buoyancy</property>
+    <property value="1">hydro/coeffs/active</property>
+    <property value="120">hydro/coeffs/buoyancy</property>
     <property value="100">hydro/coeffs/side-factor</property>
-    <property value="-90">hydro/coeffs/leveler-roll</property>
-    <property value="-0.1">hydro/coeffs/leveler-yaw</property>
-    <property value="3">hydro/coeffs/hull-drag</property>
+    <property value="15">hydro/coeffs/hull-drag</property>
 
     <channel name="Enable/disable">
         <fcs_function name="hydro/active-norm">
@@ -27,16 +24,16 @@
             </description>
             <function>
                 <product>
-                    <max>
+                    <sum>
                         <property>/fdm/jsbsim/contact/unit[3]/compression-ft</property>
                         <property>/fdm/jsbsim/contact/unit[4]/compression-ft</property>
-                    </max>
+                        <property>/fdm/jsbsim/contact/unit[5]/compression-ft</property>
+                    </sum>
                     <not>
                         <property>ground/solid</property>
                     </not>
                     <property>hydro/coeffs/active</property>
                 </product>
-
             </function>
             <clipto>
                 <min>0</min>
@@ -47,7 +44,7 @@
         <fcs_function name="hydro/center-ground-effect-speed-kt">
             <function>
                 <product>
-                    <property>/fdm/jsbsim/contact/unit[3]/WOW</property>
+                    <property>/fdm/jsbsim/contact/unit[3]/compression-ft</property>
                     <property>/velocities/groundspeed-kt</property>
                 </product>
             </function>
@@ -55,7 +52,7 @@
         <fcs_function name="hydro/left-ground-effect-speed-kt">
             <function>
                 <product>
-                    <property>/fdm/jsbsim/contact/unit[4]/WOW</property>
+                    <property>/fdm/jsbsim/contact/unit[4]/compression-ft</property>
                     <property>/velocities/groundspeed-kt</property>
                 </product>
             </function>
@@ -64,7 +61,7 @@
         <fcs_function name="hydro/right-ground-effect-speed-kt">
             <function>
                 <product>
-                    <property>/fdm/jsbsim/contact/unit[5]/WOW</property>
+                    <property>/fdm/jsbsim/contact/unit[5]/compression-ft</property>
                     <property>/velocities/groundspeed-kt</property>
                 </product>
             </function>
@@ -87,6 +84,22 @@
             </test>
             <output>/fdm/jsbsim/hydro/power-regime</output>
         </switch>
+        <!-- <fcs_function name="hydro/immersion-ft">
+            <function>
+                <product>
+                    <not>
+                        <property>ground/solid</property>
+                    </not>
+                    <max>
+                        <difference>
+                            <property>hydro/environment/water-level-ft</property>
+                            <property>/position/altitude-ft</property>
+                        </difference>
+                        <value>0.0</value>
+                    </max>
+                </product>
+            </function>
+        </fcs_function> -->
     </channel>
     <channel name="Environment">
 
@@ -111,21 +124,6 @@
     </channel>
     <channel name="Implementation Force Z (up)">
 
-        <fcs_function name="hydro/buoyancy-lbs">
-            <documentation>
-                Lift due to buoyancy.
-                This data was computed in Gerris using the 3d model.
-            </documentation>
-            <function>
-                <product>
-                    <property>hydro/environment/rho-slug_ft3</property>
-                    <property>hydro/environment/gravity-ft_sec2</property>
-                    <p>hydro/coeffs/buoyancy</p>
-                    <p>hydro/active-norm</p>
-                </product>
-            </function>
-        </fcs_function>
-
         <fcs_function name="hydro/fbz-lbs">
             <function>
                 <product>
@@ -134,72 +132,16 @@
                     <p>hydro/active-norm</p>
                 </product>
             </function>
-        </fcs_function>
-
-        <summer name="hydro/Z/force-lbs">
-            <input> hydro/fbz-lbs </input>
-            <input> hydro/buoyancy-lbs </input>
             <output>external_reactions/hydro-Z/magnitude</output>
-        </summer>
-    </channel>
-
-    <channel name="Roll dampener">
-        <fcs_function name="hydro/roll-damp-lbsft">
-            <function>
-                <product>
-                    <p>hydro/coeffs/leveler-roll</p>
-                    <p>/orientation/roll-deg</p>
-                    <p>hydro/active-norm</p>
-                </product>
-            </function>
-        </fcs_function>
-        <summer
-            name="external_reactions/hydro-roll/magnitude-lbsft">
-            <input>hydro/roll-damp-lbsft</input>
-        </summer>
-    </channel>
-    <channel name="Yaw dampener">
-        <fcs_function name="hydro/yaw-damp">
-            <description>Yaw moment due to yaw rate</description>
-            <function>
-                <product>
-                    <property>aero/qbar-psf</property>
-                    <property>metrics/Sw-sqft</property>
-                    <property>metrics/bw-ft</property>
-                    <property>aero/bi2vel</property>
-                    <property>velocities/r-aero-rad_sec</property>
-                    <p>hydro/active-norm</p>
-                </product>
-            </function>
         </fcs_function>
 
-        <fcs_function name="hydro/yaw-damp-lbsft">
-            <description>Yaw moment due to yaw rate</description>
-            <function>
-                <product>
-                    <sum>
-                        <p>hydro/yaw-damp</p>
-                        <product>
-                            <p>fcs/rudder-pos-norm</p>
-                            <v>100</v>
-                        </product>
-                    </sum>
-                    <p>hydro/active-norm</p>
-                    <p>hydro/coeffs/leveler-yaw</p>
-                </product>
-            </function>
-        </fcs_function>
-        <summer
-            name="external_reactions/hydro-yaw/magnitude-lbsft">
-            <input>hydro/yaw-damp-lbsft</input>
-        </summer>
     </channel>
+
     <channel name="Hull drag">
         <fcs_function name="hydro/hull-drag-lbsft">
             <function>
                 <product>
-                    <p>/fdm/jsbsim/contact/unit[4]/compression-ft</p>
-                    <p>/fdm/jsbsim/velocities/u-fps</p>
+                    <property>hydro/ground-effect-speed-kt</property>
                     <p>hydro/coeffs/hull-drag</p>
                     <p>hydro/active-norm</p>
                 </product>
