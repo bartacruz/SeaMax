@@ -12,8 +12,21 @@
       </clipto>
     </summer>
 
-    <aerosurface_scale name="Elevator Control">
+    <kinematic name="fcs/elevator-actuator">
       <input>fcs/pitch-trim-sum</input>
+      <traverse>
+        <setting>
+          <position>-1.0</position>
+          <time>0.25</time> <!-- Segundos para llegar a deflexión máxima arriba -->
+        </setting>
+        <setting>
+          <position>1.0</position>
+          <time>0.25</time> <!-- Segundos para llegar a deflexión máxima abajo -->
+        </setting>
+      </traverse>
+    </kinematic>
+    <aerosurface_scale name="Elevator Control">
+      <input>fcs/elevator-actuator</input>
       <range>
         <min> -0.25 </min>
         <max> 0.25 </max>
@@ -41,14 +54,27 @@
     <summer name="Roll Trim Sum">
       <input>fcs/aileron-cmd-norm</input>
       <input>fcs/roll-trim-cmd-norm</input>
+      <bias>-0.02</bias>
       <clipto>
         <min> -1 </min>
         <max> 1 </max>
       </clipto>
     </summer>
-
-    <aerosurface_scale name="Left Aileron Control">
+    <kinematic name="fcs/aileron-actuator">
       <input>fcs/roll-trim-sum</input>
+      <traverse>
+        <setting>
+          <position>-1.0</position>
+          <time>0.20</time> <!-- Segundos de centro a deflexión máxima -->
+        </setting>
+        <setting>
+          <position>1.0</position>
+          <time>0.20</time>
+        </setting>
+      </traverse>
+    </kinematic>
+    <aerosurface_scale name="Left Aileron Control">
+      <input>fcs/aileron-actuator</input>
       <range>
         <min> -0.25 </min>
         <max> 0.25 </max>
@@ -57,10 +83,10 @@
     </aerosurface_scale>
 
     <aerosurface_scale name="Right Aileron Control">
-      <input>fcs/roll-trim-sum</input>
+      <input>fcs/aileron-actuator</input>
       <range>
-        <min> -0.25 </min>
-        <max> 0.25 </max>
+        <min> 0.25 </min>
+        <max> -0.25 </max>
       </range>
       <output>fcs/right-aileron-pos-rad</output>
     </aerosurface_scale>
@@ -104,8 +130,21 @@
       </clipto>
     </summer>
 
-    <aerosurface_scale name="Rudder Control">
+    <kinematic name="fcs/rudder-actuator">
       <input>fcs/rudder-command-sum</input>
+      <traverse>
+        <setting>
+          <position>-1.0</position>
+          <time>0.20</time>
+        </setting>
+        <setting>
+          <position>1.0</position>
+          <time>0.20</time>
+        </setting>
+      </traverse>
+    </kinematic>
+    <aerosurface_scale name="Rudder Control">
+      <input>fcs/rudder-actuator</input>
       <range>
         <min> -0.35 </min>
         <max> 0.35 </max>
@@ -135,8 +174,8 @@
         <min>-1</min>
         <max>1</max>
       </clipto>
-   </summer>
-    
+    </summer>
+
     <kinematic name="Flaps Control">
       <input>fcs/flap-cmd-norm</input>
       <traverse>
@@ -182,7 +221,6 @@
     </fcs_function>
 
 
-
     <!-- <aerosurface_scale name="flaps normalization">
       <input>fcs/flap-pos-norm</input>
       <domain>
@@ -209,7 +247,7 @@
       <default value="0" />
       <output>/controls/flight/flaps-in-transit</output>
       <test logic="AND"
-            value="1">
+        value="1">
         fcs/flap-pos-norm ne 0
         fcs/flap-pos-norm ne 0.125
         fcs/flap-pos-norm ne 0.375
@@ -259,13 +297,13 @@
     <!-- Apply the position to the jacks only if enabled-->
 
     <switch name="Jacks position z">
-      <default value="contact/unit[10]/z-position" />
-      <output>contact/unit[10]/z-position</output>
+      <default value="contact/unit[11]/z-position" />
       <output>contact/unit[11]/z-position</output>
       <output>contact/unit[12]/z-position</output>
       <output>contact/unit[13]/z-position</output>
+      <output>contact/unit[14]/z-position</output>
       <test logic="OR"
-            value="fcs/jacks-pos-z">
+        value="fcs/jacks-pos-z">
         /controls/gear/jacks-operable eq 1
       </test>
     </switch>
@@ -281,7 +319,7 @@
            to its input in order to disable it.
       -->
       <test logic="AND"
-            value="gear/gear-pos-norm">
+        value="gear/gear-pos-norm">
         /controls/gear/detecting eq 0
         /systems/electrical/outputs/main-bus lt 7
       </test>
@@ -321,7 +359,7 @@
       <default value="0" />
       <output>/controls/gear/gear-in-transit</output>
       <test logic="AND"
-            value="1">
+        value="1">
         gear/gear-pos-norm gt 0
         gear/gear-pos-norm lt 1
       </test>
