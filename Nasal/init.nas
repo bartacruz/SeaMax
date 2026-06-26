@@ -1,4 +1,7 @@
 canopy  = aircraft.door.new("/sim/model/door-positions/canopy", 1, 0 );
+var leftOSD = nil;
+var rightOSD = nil;
+
 
 var autostart = func{
     setprop("controls/electric/master-switch",1);
@@ -46,40 +49,60 @@ var check_gears = func(n) {
 }
  ###############################################################################
 # On-screen displays
-var enableOSD = func {
-    var left  = screen.display.new(20, 10);
-    var right = screen.display.new(-300, 10);
+var initOSD = func {
+    leftOSD  = screen.display.new(20, 10);
+    leftOSD.interval = 0.2;
+    leftOSD.format = "%.3g";    
+    rightOSD = screen.display.new(-300, 10);
+    rightOSD.interval = 0.2;
+    rightOSD.format = "%.3g";    
 
-    left.add("/engines/engine/rpm");
-    left.add("/instrumentation/airspeed-indicator/indicated-speed-kt");
-    left.add("/fdm/jsbsim/propulsion/engine/power-hp");
-    left.add("/controls/engines/engine/throttle");
-    #left.add("/fdm/jsbsim/aero/force/Lift_alpha");
-    #left.add("/fdm/jsbsim/aero/function/kCLge");
-    # left.add("/fdm/jsbsim/gear/unit[0]/WOW");
-    # left.add("/fdm/jsbsim/gear/unit[1]/WOW");
-    # left.add("/fdm/jsbsim/gear/unit[2]/WOW");
-    # left.add("/fdm/jsbsim/sim-time-sec");
-    # left.add("/orientation/heading-magnetic-deg");
-    # left.add("/fdm/jsbsim/aero/moment/Yaw_alpha");
-    # left.add("/fdm/jsbsim/aero/moment/Yaw_beta");
-    # left.add("/fdm/jsbsim/aero/moment/Yaw_roll_rate");
-    # left.add("/fdm/jsbsim/aero/moment/Yaw_damp");
-    # left.add("/fdm/jsbsim/aero/moment/Yaw_rudder");
-    # left.add("/fdm/jsbsim/aero/moment/Yaw_aileron");
-    # left.add("/fdm/jsbsim/fcs/rudder-pos-rad");
-
-    right.add("/fdm/jsbsim/aero/alpha-rad");
-    right.add("/fdm/jsbsim/aero/alpha-wing-rad");
-    right.add("/orientation/pitch-deg");
-    right.add("/controls/flight/elevator");
-    right.add("/controls/flight/elevator-trim");
-    # right.add("/fdm/jsbsim/aero/qbar-psf");
-    #right.add("/fdm/jsbsim/propulsion/engine[0]/thrust-coefficient");
-    #right.add("/fdm/jsbsim/aero/function/kCLge");
+    leftOSD.add("/engines/engine/rpm");
+    leftOSD.add("/instrumentation/airspeed-indicator/indicated-speed-kt");
+    leftOSD.add("/fdm/jsbsim/propulsion/engine/power-hp");
+    leftOSD.add("/fdm/jsbsim/propulsion/engine/thrust-lbs");
+    leftOSD.add("/controls/engines/engine/throttle");
+    #leftOSD.add("/fdm/jsbsim/aero/force/Lift_alpha");
+    #leftOSD.add("/fdm/jsbsim/aero/function/kCLge");
+    # leftOSD.add("/fdm/jsbsim/gear/unit[0]/WOW");
+    # leftOSD.add("/fdm/jsbsim/gear/unit[1]/WOW");
+    # leftOSD.add("/fdm/jsbsim/gear/unit[2]/WOW");
+    # leftOSD.add("/fdm/jsbsim/sim-time-sec");
+    # leftOSD.add("/orientation/heading-magnetic-deg");
+    # leftOSD.add("/fdm/jsbsim/aero/moment/Yaw_alpha");
+    # leftOSD.add("/fdm/jsbsim/aero/moment/Yaw_beta");
+    # leftOSD.add("/fdm/jsbsim/aero/moment/Yaw_roll_rate");
+    # leftOSD.add("/fdm/jsbsim/aero/moment/Yaw_damp");
+    # leftOSD.add("/fdm/jsbsim/aero/moment/Yaw_rudder");
+    # leftOSD.add("/fdm/jsbsim/aero/moment/Yaw_aileron");
+    # leftOSD.add("/fdm/jsbsim/fcs/rudder-pos-rad");
     
-    #right.add("/fdm/jsbsim/aero/force/Lift_hull");
-}
+    rightOSD.add("/fdm/jsbsim/aero/function/kCLge");
+    rightOSD.add("/fdm/jsbsim/hydro/fbz-lbs");
+    rightOSD.add("/fdm/jsbsim/hydro/hull-drag-lbsft");
+    rightOSD.add("/fdm/jsbsim/contact/unit[3]/compression-ft");
+    rightOSD.add("/fdm/jsbsim/contact/unit[4]/compression-ft");
+    rightOSD.add("/fdm/jsbsim/contact/unit[5]/compression-ft");
+    rightOSD.add("/fdm/jsbsim/aero/alpha-rad");
+    rightOSD.add("/fdm/jsbsim/aero/alpha-wing-rad");
+    rightOSD.add("/orientation/pitch-deg");
+    rightOSD.add("/controls/flight/elevator");
+    rightOSD.add("/controls/flight/elevator-trim");
+    # rightOSD.add("/fdm/jsbsim/aero/qbar-psf");
+    #rightOSD.add("/fdm/jsbsim/propulsion/engine[0]/thrust-coefficient");
+    
+    
+    #rightOSD.add("/fdm/jsbsim/aero/force/Lift_hull");
+};
+
+var toggleOSD = func() {
+    if (leftOSD == nil) {
+        initOSD();
+    } else {
+        leftOSD.toggle();
+        rightOSD.toggle();
+    }
+};
 
 var engineHasStarted = setlistener("/engines/engine/running", func(val) {
   if( val.getBoolValue() ) {
@@ -89,10 +112,9 @@ var engineHasStarted = setlistener("/engines/engine/running", func(val) {
   }
 });
     
-setlistener("/sim/signals/fdm-initialized", func {
+var sl = setlistener("/sim/signals/fdm-initialized", func {
+    removelistener(sl);
     print("Checking ground...");
-    setlistener("/controls/gear/gear-down", check_gears,1,1);
+    # setlistener("/controls/gear/gear-down", check_gears,1,1);
     init_gears();
-    
-    enableOSD();
 }, 0, 0);

@@ -1,7 +1,7 @@
 var e = electric;
 
-# Create new electric system that updates 5 times a second.
-var electricsystem = e.System.new("seamax",0.2);
+# Create new electric system that updates 2 times a second.
+var electricsystem = e.System.new("seamax",0.5);
 var starter_bus = e.Bus.new("starter-bus");
 var main_bus = e.Bus.new("main-bus");
 
