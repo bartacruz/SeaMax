@@ -23,9 +23,9 @@
       <z-m> 0.375 </z-m>
     </offsets>
   </model>
-  
+
   <!-- Yoke-->
-  
+
   <animation>
     <type>rotate</type>
     <object-name>yoke</object-name>
@@ -557,13 +557,17 @@
         <command>property-toggle</command>
         <property>/controls/fuel/tank[0]/fuel_selector</property>
       </binding>
+      <!-- <binding>
+        <command>property-toggle</command>
+        <property>/controls/fuel/tank[0]/fuel_selector_untied</property>
+      </binding> -->
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>left-fuel-switch</tooltip-id>
         <label>Fuel left: %s</label>
-        <property>/controls/fuel/tank[0]/fuel_selector</property>
+        <property>/controls/fuel/tank[0]/fuel_selector_pos</property>
         <mapping>nasal</mapping>
         <script>
           var m = arg[0];
@@ -577,17 +581,10 @@
   <animation>
     <type>rotate</type>
     <object-name>fuel switch left</object-name>
-    <property>/controls/fuel/tank[0]/fuel_selector</property>
+    <property>/controls/fuel/tank[0]/fuel_selector_pos</property>
     <factor>-90</factor>
     <axis>
-      <x1-m> 1.919</x1-m>
-      <y1-m>-0.457</y1-m>
-      <z1-m> 1.217</z1-m>
-      <x2-m> 1.918</x2-m>
-      <y2-m>-0.4516</y2-m>
-      <z2-m> 1.2098</z2-m>
-
-
+      <object-name>fuel switch left axis</object-name>
     </axis>
   </animation>
 
@@ -608,7 +605,7 @@
         <command>set-tooltip</command>
         <tooltip-id>right-fuel-switch</tooltip-id>
         <label>Fuel right: %s</label>
-        <property>/controls/fuel/tank[1]/fuel_selector</property>
+        <property>/controls/fuel/tank[1]/fuel_selector_pos</property>
         <mapping>nasal</mapping>
         <script>
           var m = arg[0];
@@ -622,16 +619,10 @@
   <animation>
     <type>rotate</type>
     <object-name>fuel switch right</object-name>
-    <property>/controls/fuel/tank[1]/fuel_selector</property>
+    <property>/controls/fuel/tank[1]/fuel_selector_pos</property>
     <factor>90</factor>
     <axis>
-      <x1-m> 1.919</x1-m>
-      <y1-m> 0.457</y1-m>
-      <z1-m> 1.217</z1-m>
-      <x2-m> 1.918</x2-m>
-      <y2-m> 0.4516</y2-m>
-      <z2-m> 1.2098</z2-m>
-
+      <object-name>fuel switch right axis</object-name>
     </axis>
   </animation>
 
@@ -960,7 +951,6 @@
     <type>textranslate</type>
     <object-name>fuel hose left</object-name>
     <property>/consumables/fuel/tank[0]/level-norm</property>
-    <!-- <bias>0.0001</bias> -->
     <factor>1</factor>
     <bias>0.001</bias>
     <step>0.09</step>
@@ -974,7 +964,6 @@
     <type>textranslate</type>
     <object-name>fuel hose right</object-name>
     <property>/consumables/fuel/tank[1]/level-norm</property>
-    <!-- <bias>0.0001</bias> -->
     <factor>1</factor>
     <bias>0.001</bias>
     <step>0.09</step>
@@ -994,14 +983,14 @@
       <object-name>throttle left.axis</object-name>
     </axis>
     <action>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[0]/throttle</property>
-				<factor>0.05</factor>
-				<min>0</min>
-				<max>1</max>
-				<wrap>0</wrap>
-			</binding>
-		</action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/engines/engine[0]/throttle</property>
+        <factor>0.05</factor>
+        <min>0</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
   </animation>
 </PropertyList>

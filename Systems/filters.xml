@@ -32,4 +32,25 @@
             <property>/aircraft/water-still</property>
         </output>
     </logic>
+    <filter>
+        <type>gain</type>
+        <gain>0.05</gain>
+        <input>/velocities/groundspeed-kt</input>
+        <output>/aircraft/roll-volume</output>
+
+    </filter>
+    <filter>
+        <type>noise-spike</type>
+		<max-rate-of-change>3</max-rate-of-change>
+        <input>/controls/fuel/tank[0]/fuel_selector</input>
+        <output>/controls/fuel/tank[0]/fuel_selector_pos</output>
+        
+    </filter>
+    <filter>
+        <type>noise-spike</type>
+		<max-rate-of-change>3</max-rate-of-change>
+        <input>/controls/fuel/tank[1]/fuel_selector</input>
+        <output>/controls/fuel/tank[1]/fuel_selector_pos</output>
+    </filter>
+
 </PropertyList>
