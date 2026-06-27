@@ -15,7 +15,7 @@
                     </greater-than>
                     <less-than>
                         <property>/velocities/groundspeed-kt</property>
-                        <value>20</value>
+                        <value>10</value>
                     </less-than>
                 </and>
             </condition>
@@ -44,7 +44,7 @@
                     </greater-than>
                     <greater-than>
                         <property>/velocities/groundspeed-kt</property>
-                        <value>20</value>
+                        <value>10</value>
                     </greater-than>
                 </and>
             </condition>
@@ -54,15 +54,11 @@
                 <z>0.2</z>
             </position>
             <volume>
-                <property>velocities/groundspeed-kt</property>
-                <type>log</type>
-                <factor>0.5</factor>
-            </volume>
-            <volume>
                 <property>/aircraft/sound-boost</property>
                 <factor>0.6</factor>
+                <offset>0.7</offset>
             </volume>
-            
+
             <reference-dist>5</reference-dist>
             <max-dist>200.0</max-dist>
         </splash>
@@ -79,7 +75,7 @@
             <volume>
                 <property>/aircraft/sound-boost</property>
                 <factor>1</factor>
-                <offset>0.35</offset>
+                <offset>0.5</offset>
             </volume>
             <reference-dist>100</reference-dist>
             <max-dist>1000</max-dist>
@@ -89,6 +85,7 @@
             <name>crank</name>
             <mode>looped</mode>
             <path>Rotax912-Cranking.wav</path>
+            <!-- <path>DA40/xDA20_starter.wav</path> -->
             <condition>
                 <property>engines/engine[0]/cranking</property>
                 <not>
@@ -102,8 +99,8 @@
             </position>
             <volume>
                 <property>/aircraft/sound-boost</property>
-                <factor>0.6</factor>
-                <offset>0.4</offset>
+                <factor>1</factor>
+                <offset>0.5</offset>
             </volume>
             <reference-dist>100</reference-dist>
             <max-dist>1000</max-dist>
@@ -140,8 +137,8 @@
             </position>
             <volume>
                 <property>/aircraft/sound-boost</property>
-                <factor>0.6</factor>
-                <offset>0.4</offset>
+                <factor>1</factor>
+                <offset>0.5</offset>
             </volume>
             <reference-dist>100</reference-dist>
             <max-dist>1000</max-dist>
@@ -150,7 +147,8 @@
         <engine>
             <name>engine-external</name>
             <mode>looped</mode>
-            <path>Rotax912-Engine.wav</path>
+            <!-- <path>Rotax912-Engine.wav</path> -->
+            <path>rotax912.wav</path>
             <position>
                 <x>2.8</x>
                 <y>0</y>
@@ -161,14 +159,8 @@
             </condition>
             <volume>
                 <property>/aircraft/sound-boost</property>
-                <factor>0.7</factor>
-            </volume>
-            <volume>
-                <property>engines/engine[0]/mp-osi</property>
-                <factor>0.007</factor>
-                <min>0.1</min>
-                <max>2</max>
-                <offset>0.1</offset>
+                <factor>1.5</factor>
+                <offset>0.5</offset>
             </volume>
             <pitch>
                 <property>engines/engine[0]/rpm</property>
@@ -253,11 +245,6 @@
             <name>gear-lever</name>
             <mode>in-transit</mode>
             <path>DoorOpen.wav</path>
-            <!-- <condition>
-                <not>
-                    <property>/controls/gear/detecting</property>
-                </not>
-            </condition> -->
             <property>controls/gear/gear-lever-norm</property>
             <pitch>
                 <internal>dt_play</internal>
@@ -347,101 +334,97 @@
             <reference-dist>5.0</reference-dist>
             <max-dist>30.0</max-dist>
         </canopy>
-
-        <pavement-roll>
-            <name>pavement-roll</name>
+        <rumble>
+            <name>rumble</name>
             <mode>looped</mode>
-            <path>tires-rolling-asphalt.wav</path>
+            <path>rumble.wav</path>
+            <condition>
+                <or>
+                    <property>/gear/gear[0]/wow</property>
+                    <property>/gear/gear[1]/wow</property>
+                    <property>/gear/gear[2]/wow</property>
+                </or>
+            </condition>
+            <volume>
+                <property>/velocities/groundspeed-kt</property>
+                <factor>0.050</factor>
+                <offset> -0.01</offset>
+                <max>1.01</max>
+                <min>0.01</min>
+            </volume>
+            <position>
+                <x>2</x>
+                <y>0</y>
+                <z>0.5</z>
+            </position>
+            <pitch>
+                <property>/velocities/groundspeed-kt</property>
+                <factor>0.01</factor>
+                <offset>0.85</offset>
+            </pitch>
+            <!-- <reference-dist>100</reference-dist>
+            <max-dist>1000</max-dist> -->
+        </rumble>
+
+        <left>
+            <name>left</name>
+            <path>touchdown.wav</path>
+            <mode>once</mode>
+            <position>
+                <x>2</x>
+                <y>-1</y>
+                <z>0</z>
+            </position>
             <condition>
                 <and>
-                    <property>/fdm/jsbsim/gear/on-pavement</property>
-                    <or>
-                        <property>gear/gear[0]/wow</property>
-                        <property>gear/gear[1]/wow</property>
-                        <property>gear/gear[2]/wow</property>
-                    </or>
-                    <or>
-                        <greater-than>
-                            <property>/gear/gear[0]/rollspeed-ms</property>
-                            <value>5</value>
-                        </greater-than>
-                        <greater-than>
-                            <property>/gear/gear[1]/rollspeed-ms</property>
-                            <value>5</value>
-                        </greater-than>
-                        <greater-than>
-                            <property>/gear/gear[2]/rollspeed-ms</property>
-                            <value>5</value>
-                        </greater-than>
-                    </or>
+                    <greater-than>
+                        <property>/velocities/groundspeed-kt</property>
+                        <value>10</value>
+                    </greater-than>
+                    <property>gear/gear[0]/wow</property>
                 </and>
             </condition>
-            <position>
-                <x>2.3</x>
-                <y>0.0</y>
-                <z>0.2</z>
-            </position>
-            <volume>
-                <property>velocities/groundspeed-kt</property>
-                <type>log</type>
-                <factor>0.25</factor>
-            </volume>
-            <volume>
-                <property>/aircraft/sound-boost</property>
-                <factor>0.4</factor>
-            </volume>
-            <reference-dist>2.5</reference-dist>
-            <max-dist>200.0</max-dist>
-        </pavement-roll>
+        </left>
 
-        <gravel-roll>
-            <name>gravel-roll</name>
-            <mode>looped</mode>
-            <path>tires-rolling-gravel.wav</path>
+        <right>
+            <name>right</name>
+            <path>touchdown.wav</path>
+            <mode>once</mode>
+            <position>
+                <x>2</x>
+                <y>1</y>
+                <z>0</z>
+            </position>
             <condition>
                 <and>
-                    <not>
-                        <property>/fdm/jsbsim/gear/on-pavement</property>
-                    </not>
-                    <or>
-                        <property>gear/gear[0]/wow</property>
-                        <property>gear/gear[1]/wow</property>
-                        <property>gear/gear[2]/wow</property>
-                    </or>
-                    <or>
-                        <greater-than>
-                            <property>/gear/gear[0]/rollspeed-ms</property>
-                            <value>5</value>
-                        </greater-than>
-                        <greater-than>
-                            <property>/gear/gear[1]/rollspeed-ms</property>
-                            <value>5</value>
-                        </greater-than>
-                        <greater-than>
-                            <property>/gear/gear[2]/rollspeed-ms</property>
-                            <value>5</value>
-                        </greater-than>
-                    </or>
+                    <greater-than>
+                        <property>/velocities/groundspeed-kt</property>
+                        <value>10</value>
+                    </greater-than>
+                    <property>gear/gear[1]/wow</property>
                 </and>
             </condition>
+        </right>
+
+        <front>
+            <name>front</name>
+            <path>touchdown.wav</path>
+            <mode>once</mode>
             <position>
-                <x>2.5</x>
-                <y>0.0</y>
-                <z>0.2</z>
+                <x>0</x>
+                <y>0</y>
+                <z>0</z>
             </position>
-            <volume>
-                <property>velocities/groundspeed-kt</property>
-                <type>log</type>
-                <factor>0.25</factor>
-            </volume>
-            <volume>
-                <property>/aircraft/sound-boost</property>
-                <factor>0.4</factor>
-            </volume>
-            
-            <reference-dist>2.5</reference-dist>
-            <max-dist>200.0</max-dist>
-        </gravel-roll>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>/velocities/groundspeed-kt</property>
+                        <value>10</value>
+                    </greater-than>
+                    <property>gear/gear[2]/wow</property>
+                </and>
+            </condition>
+        </front>
 
         <!-- Toggle Switches -->
         <switch>
