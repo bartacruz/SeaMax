@@ -30,6 +30,7 @@ var BaseApp = {
   svg_keys: [],
   elements: {},
   loaded: false,
+  node: nil,
 
   # new: func(a_canvas) {
   #       var obj = {parents:[BaseApp]};
@@ -38,14 +39,19 @@ var BaseApp = {
   #       obj.init();
   #       return obj;
   # },
+  _init: func() {
+    # BaseApp internal initialization.
+    me.node = baseNode.initNode("apps/" ~ me.name);
+    me.init();
+    me.loaded = true;
+  },
   init: func(){
   },
   start: func() {  
   },
   show: func() {
     if( ! me.loaded) {
-      me.init();
-      me.loaded = true;
+      me._init();  
     }
     me._group.show();
   },
@@ -74,28 +80,12 @@ var IPad = {
   apps: {},
   active_app: nil,
   home_app: nil,
-  update_period: 0.2,
+  update_period: 0.5,
   svg_keys: {},
   new: func(a_canvas) {
     var obj = {parents:[IPad]};
     obj._canvas = a_canvas;
-    obj._group = a_canvas.createGroup(obj.name);
-    obj._svg = canvas.parsesvg(obj._group, instrument_dir ~ "surround.svg");
-    
-    obj.init();
-    return obj;
-  },
-  init: func() {
-    me._group.setInt("z-index", 4);
-    me._group.hide();
-    var svg_keys = ["time.utc"];
-		foreach(var key; svg_keys) {
-			me.svg_keys[key] = me._group.getElementById(key);
-			print("canvas key "~key);
-		}
-    me.loop = updateloop.UpdateLoop.new(components: [me], update_period: me.update_period, enable: 0);
-    
-    var m = me;
+
     setlistener(homeNode, func(node) {
         var is_pressed = node.getValue();
         
@@ -103,15 +93,48 @@ var IPad = {
             # 1. Si el iPad está apagado, el botón lo enciende
             if (!startedNode.getValue()) {
                 print("IPad: Encendiendo dispositivo desde botón físico");
-                m.enable();
+                obj.enable();
             } 
             # 2. Si ya está encendido, actúa como botón de navegación normal
             else {
                 print("IPad: Navegando al Home");
-                m.goHome();
+                obj.goHome();
             }
         }
     }, 0, 0);
+    print("IPad created");
+    return obj;
+  },
+
+  init: func() {
+    me._group = me._canvas.createGroup(me.name);
+    me._svg = canvas.parsesvg(me._group, instrument_dir ~ "surround.svg");
+    me._group.setInt("z-index", 4);
+    me._group.hide();
+    var svg_keys = ["time.utc"];
+		foreach(var key; svg_keys) {
+			me.svg_keys[key] = me._group.getElementById(key);
+			#print("canvas key "~key);
+		}
+    me.loop = updateloop.UpdateLoop.new(components: [me], update_period: me.update_period, enable: 0);
+    
+    #var m = me;
+    # setlistener(homeNode, func(node) {
+    #     var is_pressed = node.getValue();
+        
+    #     if (is_pressed == 1) {
+    #         # 1. Si el iPad está apagado, el botón lo enciende
+    #         if (!startedNode.getValue()) {
+    #             print("IPad: Encendiendo dispositivo desde botón físico");
+    #             m.enable();
+    #         } 
+    #         # 2. Si ya está encendido, actúa como botón de navegación normal
+    #         else {
+    #             print("IPad: Navegando al Home");
+    #             m.goHome();
+    #         }
+    #     }
+    # }, 0, 0);
   },
   addApp: func(app) {
     me.apps[app.name] = app.new(me._canvas);
@@ -137,6 +160,7 @@ var IPad = {
   # UpdateLoop methods
   enable: func {
     startedNode.setValue(1);
+    me.init();
     me._group.show();
     me.loop.reset();
     me.loop.enable();

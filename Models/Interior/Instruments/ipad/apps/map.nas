@@ -37,6 +37,7 @@ var MapApp = {
   update: func(dt){
     me.updateTiles(dt);
     me.updateOverlay(dt);
+    me.marker.setRotation(getprop('orientation/heading-deg') * D2R);
   },
   setupTiles: func() {
     me.makeUrl = string.compileTemplate('https://tile.openstreetmap.org/{z}/{x}/{y}.png');

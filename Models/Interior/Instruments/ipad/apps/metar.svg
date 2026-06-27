@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1024"
+   height="1430"
+   viewBox="0 0 1024 1430"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   sodipodi:docname="metar.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="0.53846154"
+     inkscape:cx="691.78571"
+     inkscape:cy="628.64286"
+     inkscape:window-width="1680"
+     inkscape:window-height="986"
+     inkscape:window-x="1680"
+     inkscape:window-y="36"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="view_detail" />
+  <defs
+     id="defs1">
+    <rect
+       x="45.81713"
+       y="271.8483"
+       width="943.83288"
+       height="430.68102"
+       id="rect3" />
+    <rect
+       x="195.48642"
+       y="125.23349"
+       width="241.30355"
+       height="113.01558"
+       id="rect2" />
+    <marker
+       style="overflow:visible"
+       id="RoundedArrow"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path8" />
+    </marker>
+    <rect
+       x="195.48642"
+       y="125.23349"
+       width="198.10675"
+       height="84.937657"
+       id="rect4" />
+    <rect
+       x="45.81713"
+       y="271.8483"
+       width="740.8079"
+       height="141.26243"
+       id="rect5" />
+  </defs>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#f2f2f2;stroke:none;stroke-width:5.34693;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="rect9"
+       width="1024"
+       height="1365"
+       x="0"
+       y="65"
+       sodipodi:insensitive="true" />
+    <g
+       id="view_detail"
+       inkscape:label="view_detail"
+       style="display:inline">
+      <rect
+         style="display:inline;fill:#b3b3b3;stroke:none;stroke-width:5.50842;paint-order:stroke fill markers"
+         id="rect10"
+         width="1000"
+         height="150"
+         x="12"
+         y="140"
+         ry="20.617723"
+         inkscape:label="det_header" />
+      <rect
+         style="fill:#b3b3b3;stroke:none;stroke-width:10.7942;stroke-dasharray:none;paint-order:stroke fill markers"
+         id="det_decoded"
+         width="1000"
+         height="653.2428"
+         x="12"
+         y="624.92059"
+         ry="26.772381"
+         inkscape:label="det_decoded" />
+      <text
+         xml:space="preserve"
+         id="det_obs"
+         style="font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';white-space:pre;shape-inside:url(#rect3);display:none"
+         transform="translate(33.480469,39.708179)"
+         inkscape:label="det_obs"><tspan
+           x="45.816406"
+           y="315.08387"
+           id="tspan1">KTTN 051853Z 04011KT 1 1/2SM VCTS </tspan><tspan
+           x="45.816406"
+           y="375.08387"
+           id="tspan2">SN FZFG BKN003 OVC010 M02/M02 </tspan><tspan
+           x="45.816406"
+           y="435.08387"
+           id="tspan4">A3006 RMK AO2 TSB40 SLP176 P0002 </tspan><tspan
+           x="45.816406"
+           y="495.08387"
+           id="tspan5">T10171017=</tspan></text>
+      <rect
+         style="display:inline;fill:#000080;stroke:none;stroke-width:2.70261;paint-order:stroke fill markers"
+         id="rect8"
+         width="277.75424"
+         height="130"
+         x="373.12286"
+         y="150"
+         ry="17.868692"
+         inkscape:label="det_station_bg" />
+      <text
+         xml:space="preserve"
+         style="font-size:85.3333px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';fill:#f9f9f9"
+         x="389.47919"
+         y="244.37498"
+         id="det_station"
+         inkscape:label="det_station"><tspan
+           sodipodi:role="line"
+           id="tspan9"
+           x="389.47919"
+           y="244.37498"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:85.3333px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';fill:#f9f9f9">ABCD</tspan></text>
+      <path
+         style="fill:none;stroke:#000000;stroke-width:8.14532;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow)"
+         d="M 972.75914,214.99999 H 909.34506"
+         id="btn_back"
+         sodipodi:nodetypes="cc"
+         inkscape:label="btn_back" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;display:inline;fill:#1a1a1a"
+         x="417.58975"
+         y="1239.146"
+         id="det_cover"
+         inkscape:label="det_cover"><tspan
+           sodipodi:role="line"
+           id="tspan21"
+           x="417.58975"
+           y="1239.146">CAVOK</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#1a1a1a"
+         x="86.393608"
+         y="1239.146"
+         id="text22"><tspan
+           sodipodi:role="line"
+           id="tspan22"
+           x="86.393608"
+           y="1239.146">Cover:</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;display:inline;fill:#1a1a1a"
+         x="419.06631"
+         y="1140.792"
+         id="det_altim"
+         inkscape:label="det_altim"><tspan
+           sodipodi:role="line"
+           id="tspan13"
+           x="419.06631"
+           y="1140.792">1015</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#1a1a1a"
+         x="86.393608"
+         y="1140.792"
+         id="text14"><tspan
+           sodipodi:role="line"
+           id="tspan14"
+           x="86.393608"
+           y="1140.792">Altim:</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;display:inline;fill:#1a1a1a"
+         x="419.41788"
+         y="1042.4379"
+         id="det_visib"
+         inkscape:label="det_visib"><tspan
+           sodipodi:role="line"
+           id="tspan15"
+           x="419.41788"
+           y="1042.4379">6+</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#1a1a1a"
+         x="86.393608"
+         y="1042.4379"
+         id="text16"><tspan
+           sodipodi:role="line"
+           id="tspan16"
+           x="86.393608"
+           y="1042.4379">Visib:</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;display:inline;fill:#1a1a1a"
+         x="418.92569"
+         y="905.08368"
+         id="det_wspd"
+         inkscape:label="det_wspd"><tspan
+           sodipodi:role="line"
+           id="tspan17"
+           x="418.92569"
+           y="905.08368">300</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#1a1a1a"
+         x="86.393608"
+         y="905.08368"
+         id="text18"><tspan
+           sodipodi:role="line"
+           id="tspan18"
+           x="86.393608"
+           y="905.08368">Wind:</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;display:inline;fill:#1a1a1a"
+         x="419.46475"
+         y="827.15814"
+         id="det_temp"
+         inkscape:label="det_temp"><tspan
+           sodipodi:role="line"
+           id="tspan19"
+           x="419.46475"
+           y="827.15814">15.2</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline;fill:#1a1a1a"
+         x="86.393608"
+         y="827.15814"
+         id="text20"><tspan
+           sodipodi:role="line"
+           id="tspan20"
+           x="86.393608"
+           y="827.15814">Temp:</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;display:inline;fill:#1a1a1a"
+         x="511.73047"
+         y="723.15814"
+         id="det_date"
+         inkscape:label="det_date"><tspan
+           sodipodi:role="line"
+           id="tspan23"
+           x="511.73047"
+           y="723.15814">2026-06-10T22:00:00</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:42.6667px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';display:inline;fill:#1a1a1a"
+         x="96.010094"
+         y="467.73029"
+         id="det_obs3"
+         inkscape:label="det_obs3"><tspan
+           sodipodi:role="line"
+           id="tspan27"
+           x="96.010094"
+           y="467.73029">12345678901234567890123456789012345</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:42.6667px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';display:inline;fill:#1a1a1a"
+         x="96.010094"
+         y="416.19458"
+         id="det_obs2"
+         inkscape:label="det_obs2"><tspan
+           sodipodi:role="line"
+           id="tspan25"
+           x="96.010094"
+           y="416.19458">12345678901234567890123456789012345</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:42.6667px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';fill:#1a1a1a"
+         x="96.010094"
+         y="364.65887"
+         id="det_obs1"
+         inkscape:label="det_obs1"><tspan
+           sodipodi:role="line"
+           id="tspan26"
+           x="96.010094"
+           y="364.65887">12345678901234567890123456789012345</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;display:inline;fill:#1a1a1a"
+         x="418.92569"
+         y="966.36938"
+         id="det_wdir"
+         inkscape:label="det_wdir"><tspan
+           sodipodi:role="line"
+           id="tspan28"
+           x="418.92569"
+           y="966.36938">300</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;display:inline;fill:#1a1a1a"
+         x="196.6076"
+         y="235.38841"
+         id="det_cat"
+         inkscape:label="det_cat"><tspan
+           sodipodi:role="line"
+           id="tspan29"
+           x="196.6076"
+           y="235.38841">VFR</tspan></text>
+    </g>
+    <g
+       id="view_list"
+       inkscape:label="view_list" />
+  </g>
+</svg>

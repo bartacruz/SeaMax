@@ -24,33 +24,5 @@
             </mod-up>
         </action>
     </animation>
-    <animation>
-        <object-name>heading</object-name>
-        <type>select</type>
-        <condition>
-            <equals>
-                <property>/instrumentation/ipad/app</property>
-                <value>Map</value>
-            </equals>
-        </condition>
-
-    </animation>
-    <animation>
-        <object-name>heading</object-name>
-        <type>rotate</type>
-        <property>orientation/heading-deg</property>
-        <factor>1</factor>
-        <offset-deg>0</offset-deg>
-        <center>
-            <x-m>0.00589</x-m>
-            <y-m> 0 </y-m>
-            <z-m> 0.12363</z-m>
-        </center>
-        <axis>
-            <x>-1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-    </animation>
 
 </PropertyList>

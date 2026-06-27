@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1024"
+   height="150"
+   viewBox="0 0 1024 150"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   sodipodi:docname="metar_card.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="0.78183485"
+     inkscape:cx="545.51163"
+     inkscape:cy="58.196434"
+     inkscape:window-width="1680"
+     inkscape:window-height="986"
+     inkscape:window-x="1680"
+     inkscape:window-y="36"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="-4.581713"
+       y="325.30162"
+       width="248.93974"
+       height="99.270448"
+       id="rect1" />
+    <rect
+       x="45.817131"
+       y="271.8483"
+       width="740.80792"
+       height="141.26244"
+       id="rect5" />
+    <rect
+       x="195.48642"
+       y="125.23349"
+       width="198.10675"
+       height="84.93766"
+       id="rect4" />
+  </defs>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#b3b3b3;stroke:none;stroke-width:5.50842;paint-order:stroke fill markers"
+       id="card_bg"
+       width="1000"
+       height="150"
+       x="12"
+       y="0"
+       ry="20.617723"
+       inkscape:label="card_bg" />
+    <rect
+       style="fill:#000080;stroke:none;stroke-width:2.29334;paint-order:stroke fill markers"
+       id="card_icao_bg"
+       width="200"
+       height="130"
+       x="26.657839"
+       y="10"
+       ry="17.868692"
+       inkscape:label="card_icao_bg" />
+    <text
+       xml:space="preserve"
+       style="font-size:64px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';fill:#f9f9f9"
+       x="34.767216"
+       y="97.03125"
+       id="icao"
+       inkscape:label="icao"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         x="34.767216"
+         y="97.03125"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';fill:#f9f9f9">ABCD</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.6667px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000"
+       x="929.17554"
+       y="91.523438"
+       id="cover"
+       inkscape:label="cover"><tspan
+         sodipodi:role="line"
+         id="tspan9"
+         x="929.17554"
+         y="91.523438">CAVOK</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.6667px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000"
+       x="764.1701"
+       y="91.523438"
+       id="altim"
+       inkscape:label="altim"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         x="764.1701"
+         y="91.523438">Q1015</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.6667px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000"
+       x="574.42511"
+       y="91.523438"
+       id="wind"
+       inkscape:label="wind"><tspan
+         sodipodi:role="line"
+         id="tspan14"
+         x="574.42511"
+         y="91.523438">20kt@320</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.6667px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000"
+       x="401.14883"
+       y="91.523438"
+       id="temp"
+       inkscape:label="temp"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         x="401.14883"
+         y="91.523438">15°C</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.6667px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000"
+       x="284.23718"
+       y="91.523438"
+       id="cat"
+       inkscape:label="cat"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         x="242.65381"
+         y="91.523438">VFR</tspan></text>
+  </g>
+</svg>

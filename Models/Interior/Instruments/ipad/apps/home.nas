@@ -48,7 +48,6 @@ var HomeApp = {
   icon: "home.png",
   svg_file: "home.svg",
   icon_size: 128,
-  started: false,
   
   new: func(a_canvas) {
         var obj = {parents:[HomeApp]};
@@ -67,31 +66,29 @@ var HomeApp = {
         .set("stroke", "none")
         .setInt("z-index", -1);   
 
-    print("HomeApp initiated");
-  },
-  update: func(dt) {
-    if (me.started) {
-        return;
-    }
     var apps  = values(ipad.apps);
     var max_cols = 4;          # Número máximo de apps por fila
     var padding_x = 40;        # Espacio horizontal entre apps
     var padding_y = 50;        # Espacio vertical entre filas de apps
-    var start_x = 40;          # Margen izquierdo inicial de la pantalla
+    var row_width =(width - (2 * padding_y)) / max_cols;
+    var start_x = padding_y + row_width/2 - me.icon_size/2;
+    #var start_x = 40;          # Margen izquierdo inicial de la pantalla
     var start_y = 128;         # Margen superior inicial de la pantalla
 
+    
     for(var i=0; i < size(apps); i+=1) {
         var col = math.mod(i, max_cols);
         var row = int(i / max_cols); # 'int()' remueve los decimales para dar la fila entera
-        var x = start_x + (me.icon_size + padding_x) * col;
+        #var x = start_x + (me.icon_size + padding_x) * col;
+        var x = start_x + row_width * col;
+        
         var y = start_y + (me.icon_size + padding_y) * row;
         var app = apps[i];
         var entry = AppEntry.new(me,app,i,x,y);
         append(me._entries,entry);
     }
-    print("HomeApp started");
-    me.started = true;
-  }
+    print("HomeApp initiated");
+  },
 };
 ipad.home_app = HomeApp.new(ipad._canvas);
 ipad.home_app.hide();
