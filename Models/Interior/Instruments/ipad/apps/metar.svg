@@ -7,7 +7,7 @@
    viewBox="0 0 1024 1430"
    version="1.1"
    id="svg1"
-   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
    sodipodi:docname="metar.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     inkscape:zoom="0.53846154"
-     inkscape:cx="691.78571"
-     inkscape:cy="628.64286"
+     inkscape:zoom="0.76149961"
+     inkscape:cx="616.5466"
+     inkscape:cy="281.68104"
      inkscape:window-width="1680"
      inkscape:window-height="986"
      inkscape:window-x="1680"
@@ -46,25 +46,6 @@
        width="241.30355"
        height="113.01558"
        id="rect2" />
-    <marker
-       style="overflow:visible"
-       id="RoundedArrow"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       inkscape:stockid="Rounded arrow"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.7)"
-         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
-         id="path8" />
-    </marker>
     <rect
        x="195.48642"
        y="125.23349"
@@ -120,16 +101,16 @@
          inkscape:label="det_obs"><tspan
            x="45.816406"
            y="315.08387"
-           id="tspan1">KTTN 051853Z 04011KT 1 1/2SM VCTS </tspan><tspan
+           id="tspan11">KTTN 051853Z 04011KT 1 1/2SM VCTS </tspan><tspan
            x="45.816406"
            y="375.08387"
-           id="tspan2">SN FZFG BKN003 OVC010 M02/M02 </tspan><tspan
+           id="tspan12">SN FZFG BKN003 OVC010 M02/M02 </tspan><tspan
            x="45.816406"
            y="435.08387"
-           id="tspan4">A3006 RMK AO2 TSB40 SLP176 P0002 </tspan><tspan
+           id="tspan24">A3006 RMK AO2 TSB40 SLP176 P0002 </tspan><tspan
            x="45.816406"
            y="495.08387"
-           id="tspan5">T10171017=</tspan></text>
+           id="tspan30">T10171017=</tspan></text>
       <rect
          style="display:inline;fill:#000080;stroke:none;stroke-width:2.70261;paint-order:stroke fill markers"
          id="rect8"
@@ -151,12 +132,6 @@
            x="389.47919"
            y="244.37498"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:85.3333px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';fill:#f9f9f9">ABCD</tspan></text>
-      <path
-         style="fill:none;stroke:#000000;stroke-width:8.14532;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow)"
-         d="M 972.75914,214.99999 H 909.34506"
-         id="btn_back"
-         sodipodi:nodetypes="cc"
-         inkscape:label="btn_back" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;display:inline;fill:#1a1a1a"
@@ -328,9 +303,74 @@
            id="tspan29"
            x="196.6076"
            y="235.38841">VFR</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.6667px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;display:inline;fill:#1a1a1a"
+         x="967.45502"
+         y="229.90796"
+         id="btn_back"
+         inkscape:label="btn_back"><tspan
+           sodipodi:role="line"
+           id="tspan10"
+           x="967.45502"
+           y="229.90796"
+           style="font-size:42.6667px">[BACK]</tspan></text>
     </g>
     <g
        id="view_list"
        inkscape:label="view_list" />
+    <rect
+       style="display:inline;fill:#008000;stroke:none;stroke-width:3.52199;paint-order:stroke fill markers"
+       id="rect1"
+       width="1000"
+       height="61.32143"
+       x="12"
+       y="75"
+       ry="23.781164"
+       inkscape:label="current_header" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:45.33333333px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;display:inline;fill:#f9f9f9"
+       x="998.90387"
+       y="120.91073"
+       id="curr_wind"
+       inkscape:label="curr_wind"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         x="998.90387"
+         y="120.91073">220@12kt</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:45.33333333px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;display:inline;fill:#f9f9f9"
+       x="525.72766"
+       y="120.91073"
+       id="curr_press"
+       inkscape:label="curr_press"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         x="525.72766"
+         y="120.91073">30.11 inHg (1018hPa)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:45.33333333px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;display:inline;fill:#f9f9f9"
+       x="126.59047"
+       y="120.91073"
+       id="curr_temp"
+       inkscape:label="curr_temp"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         x="126.59047"
+         y="120.91073">15.2°C</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:45.33333333px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;display:inline;fill:#f9f9f9"
+       x="118.74236"
+       y="120.91073"
+       id="text8"
+       inkscape:label="curr_label"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         x="118.74236"
+         y="120.91073">Act:</tspan></text>
   </g>
 </svg>

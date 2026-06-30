@@ -4,18 +4,25 @@ var MetarApp = {
   icon: "weather.png",
   svg_file: "metar.svg",
   
-  # Mapeamos los contenedores del SVG principal
-  svg_keys: ["view_list", "view_detail", "btn_back", "det_station", "det_obs1", "det_obs2", "det_obs3",'det_date','det_temp','det_wspd', 'det_wdir','det_visib','det_altim','det_cover'],
-
+  svg_keys: ["view_list", "view_detail", "btn_back", "det_station", "det_obs1", "det_obs2", "det_obs3",'det_date','det_temp','det_wspd', 'det_wdir','det_visib','det_altim','det_cover', 'curr_temp','curr_press','curr_wind'],
+  tempNode: props.globals.getNode("/environment/temperature-degc", 1),
+  pressNode: props.globals.getNode("/environment/pressure-inhg", 1),
+  windFromNode: props.globals.getNode("/environment/wind-from-heading-deg", 1),
+  windSpeedNode: props.globals.getNode("/environment/wind-speed-kt", 1),
     new: func(a_canvas) {
         var obj = {parents:[MetarApp]};
         obj._canvas = a_canvas;
         obj._group = a_canvas.createGroup(me.name);
         return obj;
     },
-
+    update: func(dt){
+        me.elements['curr_temp'].setText( sprintf("%.1f °C", me.tempNode.getDoubleValue()));
+        var phg = me.pressNode.getDoubleValue();
+        var phpa = math.round(phg * 33.8639);
+        me.elements['curr_press'].setText( sprintf("%.2f inHg (%d hPa)", phg, phpa));
+        me.elements['curr_wind'].setText(sprintf("%3d@%dkt", me.windFromNode.getDoubleValue(), me.windSpeedNode.getDoubleValue()));
+    },
     init: func() {
-        # Lista inicial de aeropuertos favoritos
         me.favorites = ["SAAR", "SABE", "SAEZ"]; 
         me.current_station = "";
         me._cards_group = nil;
@@ -39,7 +46,7 @@ var MetarApp = {
             if (me.elements["view_detail"]) me.elements["view_detail"].show();
         }
     },
-    addCard: func(icao) {
+    addCard: func(icao, name) {
         var i =  size(me.cards);
         var card_group = me._cards_group.createChild('group',"row_" ~ i);
         var m = me;
@@ -57,7 +64,7 @@ var MetarApp = {
         card_group.setTranslation(0, calculated_y);
         
         # Capturamos los IDs internos que diseñaste dentro de la tarjeta clonada
-        var ids = ['icao','cat','temp','wind','altim','cover'];
+        var ids = ['icao','cat','temp','wind','altim','cover','name'];
         var card_data = {};
         foreach (var key; ids) {
             print("key",key);
@@ -65,12 +72,14 @@ var MetarApp = {
             card_data[key].setText("...");
         }
         card_data.icao.setText(icao);
+        card_data.name.setText(name);
         me.cards[icao] = card_data;
         if (me.obs[icao]) {
             me.updateCard(icao);
         } else {
             me.fetchMetar(icao);
         }
+        return card_data;
     },
     updateCard: func(icao) {
         var card = me.cards[icao];
@@ -91,9 +100,13 @@ var MetarApp = {
             me._cards_group.removeAllChildren();
         }
         me.cards = {};
-        for (var i = 0; i < size(me.favorites); i += 1) {
-            var icao = me.favorites[i];
-            me.addCard(icao);
+        var apts = findAirportsWithinRange(100);
+        foreach(var apt; apts){
+        # for (var i = 0; i < size(me.favorites); i += 1) {
+            # var icao = me.favorites[i];
+            if (apt.has_metar) {
+                var card = me.addCard(apt.id, apt.name);
+            }
             
         }
     },
@@ -105,19 +118,23 @@ var MetarApp = {
         };
         var d = me.elements;
         me.elements.det_station.setText(icao);
-        
+
         # Spooky way to split the observation...
         var lines = ['','',''];
         var lidx = 0;
-        var max_ll = 35; # max line length
-        var aux = split(obs.rawOb,' ');
+        var max_ll = 32; # max line length
+        var aux = split(" ",obs.rawOb);
         while (size(aux)> 0) {
             lines[lidx] = lines[lidx] ~ ' ' ~ aux[0];
+            print(lidx,aux[0]);
             aux = subvec(aux,1);
             if (size(lines[lidx]) > max_ll) {
                 lidx +=1;
             }
         }
+        print("det_obs1" ~ lines[0]);
+        print("det_obs2" ~ lines[1]);
+        print("det_obs3" ~ lines[2]);
         d.det_obs1.setText(lines[0]);
         d.det_obs2.setText(lines[1]);
         d.det_obs3.setText(lines[2]);
@@ -128,7 +145,7 @@ var MetarApp = {
         #d.det_cat.setText(obs.fltCat);
         d.det_wspd.setText(obs.wspd ~"kt");
         d.det_wdir.setText(obs.wdir ~ '°');
-        d.det_altim.setText(obs.altim);
+        d.det_altim.setText(sprintf("%d",obs.altim));
         d.det_cover.setText(obs.cover);
 
         me.showScreen("detail");
@@ -158,14 +175,14 @@ var MetarApp = {
                     debug.dump(metar);
                     me.updateObs(icao,metar[0]);
                 } else {
-                    print("Server error " ~ response.status);
+                    print(icao ~ ": Server error " ~ r.status);
+
                 }
             })
-            .fail(func(response) {
-                print("Server network error");
+            .fail(func(r) {
+                print(icao ~ ": Server network error");
             });
     }
 };
 
-# Inyección asíncrona en tu iPad genérico
 ipad.addApp(MetarApp);
