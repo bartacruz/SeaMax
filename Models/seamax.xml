@@ -578,20 +578,28 @@
       </binding>
     </hovered>
   </animation>
-  <!-- <model>
-    <path>Models/Effects/wake-hull.xml</path>
+  <model>
+    <path>Models/Effects/left-spray.xml</path>
     <offsets>
-      <x-m> 3.0 </x-m>
-      <y-m> 0.0 </y-m>
+      <x-m> 0.9 </x-m>
+      <y-m>-0.7 </y-m>
       <z-m> 0.3 </z-m>
-
     </offsets>
   </model>
   <model>
-    <path>Models/Effects/wake-float-left.xml</path>
+    <path>Models/Effects/right-spray.xml</path>
+    <offsets>
+      <x-m> 0.9 </x-m>
+      <y-m> 0.7 </y-m>
+      <z-m> 0.3 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Models/Effects/left-float-spray.xml</path>
     <x> 2.5 </x>
     <y> -4.6 </y>
     <z> 0.8 </z>
-  </model> -->
+  </model>
 </PropertyList>
   
