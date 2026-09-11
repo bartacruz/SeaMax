@@ -87,10 +87,10 @@ var cb3 = e.Breaker.new("cb3",5.0);
 electricsystem.connect(main_bus,cb3);
 
 electricsystem.add_instrument(cb3,"turn-coordinator",1.0,0,"/controls/electric/master-switch");
-electricsystem.add_instrument(cb3,"gps",1.0,0,"/controls/electric/master-switch");
-electricsystem.add_instrument(main_bus,"transponder",3.0,5.0);
+# electricsystem.add_instrument(cb3,"gps",1.0,0,"/controls/electric/master-switch");
 # electricsystem.add_instrument(main_bus,"G5",3.0,5.0);
-electricsystem.add_instrument(main_bus,"comm",0.2,10,"/controls/electric/master-switch");
+electricsystem.add_instrument(main_bus,"transponder",3.0,5.0);
+electricsystem.add_instrument(main_bus,"comm",0.2,10);
 
 electricsystem.connect(
     main_bus,

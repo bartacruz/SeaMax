@@ -546,11 +546,17 @@ var Battery = {
     # polynomial percent charge vs. volts function.
     #
     get_volts: func {
-        var x = 1.0 - me.charge_percent;
-        var tmp = -(3.0 * x - 1.0);
+        var soc = me.charge_percent;
+        if (soc > 1.0) soc = 1.0;
+        if (soc < 0.0) soc = 0.0;
+        var factor = 0.84 + (0.21 * soc);
+        var v = me.volts * factor - me.current * 0.02;
+        return v;
+        # var x = 1.0 - me.charge_percent;
+        # var tmp = -(3.0 * x - 1.0);
         
-        var factor = (tmp*tmp*tmp*tmp*tmp + 32) / 32;
-        return me.volts * factor;
+        # var factor = (tmp*tmp*tmp*tmp*tmp + 32) / 32;
+        # return me.volts * factor;
     },
     ##
     # Get available amps/h
@@ -574,8 +580,8 @@ var Battery = {
         var amps_used = load_amps * dt / 3600.0;
         var percent_used = amps_used / me.amps;
         me.charge_percent = std.max(0.0, me.charge_percent - percent_used);
-        me.voltage = me.get_volts();
         me.current = load_amps;
+        me.voltage = me.get_volts();
         return  amps - me.get_cc_amps();
     },
     ##
@@ -626,8 +632,8 @@ var Alternator = {
         me.super(Source,"init",name);
         me.rpm_source= source;
         me.rpm_threshold= rpm_threshold;
-        me.volts= volts;
-        me.amps= amps;        
+        me.volts = volts;
+        me.amps = amps;
         if (me.rpm_source) {
             setprop( me.rpm_source, 0.0 );
         }
@@ -773,12 +779,18 @@ var System = {
     update: func(dt){
         var start = systime();
         var serviceable = getprop(me.path ~ "serviceable");
+        var sources = me.get_sources();
         foreach(var load; values(me.loads)){
-            load.reset();
+            if (load != sources[0]) {
+                load.reset();
+            # } else {
+            #     printf("Avoiding %s", load.str());
+            }
         }
         var load_buses = [];
         foreach (var source; me.get_sources()) {
-            source.reset();
+            #printf("source %s volts %s", source.str(),source.get_volts() );
+            #source.reset();
             if (source.get_volts() <=0 ) continue;
             foreach (var load;source.loads){
                 if (!contains(load_buses,load)) append(load_buses,load);
@@ -804,7 +816,6 @@ var System = {
                         # apply load to the source and get remaining amps.
                         # remaing > 0 means it didn't fulfill the load.
                         # remaining < 0 means it has power left to charge batteries.
-
                         remaining_amps= source.apply_load( remaining_amps, dt);
                         if (remaining_amps <=0) break;
                 } else {

@@ -13,7 +13,7 @@ var ATR833_main = nil;
 var ATR833_start = nil;
 var ATR833_display = nil;
 
-var volts = props.globals.getNode("/systems/electrical/outputs/comm", 1);
+var volts = props.globals.getNode("/systems/electrical/outputs/main-bus", 1);
 
 var instrument_dir = "Aircraft/SeaMax/Models/Interior/Instruments/ATR833-II/";
 var comm = props.globals.getNode("/instrumentation/comm[0]");
@@ -55,6 +55,7 @@ var last_input = base.initNode("last-input",0,"DOUBLE");
 # Initialize storage
 var storage = base.initNode("storage");
 var memory_save_index  = storage.initNode("memory-save-idx",0,"INT");
+var saving_mode = 0;
 for (var i=0; i<20 ; i +=1 ) {
 	var m = storage.getChild("memory",i,1);
 	m.initNode("freq",118.0,"DOUBLE");
@@ -158,6 +159,7 @@ var canvas_ATR833_main = {
 		var time_diff = time.getDoubleValue() -  last_input.getDoubleValue();
 		if (time_diff > 10) {
 			print("cleaning display", time_diff);
+			saving_mode = 0;
 			memory_index.setIntValue(0);
 			memory_save_index.setIntValue(0);
 			last_index.setIntValue(0);
@@ -219,17 +221,28 @@ var canvas_ATR833_main = {
 		me["freq.name"].show();
 		me["setting_value"].hide();
 		me["setting_label"].setText("MEM");
-		
+		var record = storage.getChild("memory",memory_save_index.getIntValue());
+
 		if (mode.getIntValue() == 4) {
 			me["freq.name"].setText(sprintf("     %2d",memory_save_index.getIntValue()+1));
-			var record = storage.getChild("memory",memory_save_index.getIntValue());
-			record.getNode("freq").setDoubleValue(freq_sby.getDoubleValue());
-			record.getNode("label").setValue("STORED");
-			record.getNode("set").setBoolValue(1);
-			aircraft.data.add(record);
-			aircraft.data.save();
+			if (saving_mode) {
+				var f = sprintf("%6.3f", freq_sby.getDoubleValue());
+				record.getNode("freq").setValue(f);
+				record.getNode("label").setValue("STORED");
+				record.getNode("set").setBoolValue(1);
+				aircraft.data.add(record);
+				aircraft.data.save();
+				printf("Saved %s (%s) in pos %d",record.getNode("freq").getValue(), f, memory_save_index.getIntValue());
+				saving_mode=0;
+			}
+			
 		} else {
-			me["freq.name"].setText(sprintf("SAVE %2d",memory_save_index.getIntValue()+1));
+			var order = 'SAVE';
+			if (record.getNode("set").getBoolValue() ) {
+				order = 'OVER';
+			}
+			me["freq.name"].setText(sprintf("%s %2d", order, memory_save_index.getIntValue()+1));
+			saving_mode=1;
 		}
 	},
 	update_last: func() {
@@ -350,6 +363,7 @@ var ls = setlistener("sim/signals/fdm-initialized", func {
 	setlistener( current_sel, func{ ATR833_main.update_settings(); } );
 	setlistener(mode, func {
 		if (mode.getIntValue() == 0) {
+			saving_mode=0;
 			memory_index.setIntValue(0);
 			memory_save_index.setIntValue(0);
 			last_index.setIntValue(0);

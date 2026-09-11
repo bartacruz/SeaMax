@@ -112,6 +112,14 @@
       </model>
     
       <model>
+        <path>Aircraft/Instruments-3d/bxp6401/bxp6401.xml</path>
+        <offsets>
+          <x-m> 1.11 </x-m>
+          <y-m> 0.15 </y-m>
+          <z-m> 0.96 </z-m>
+        </offsets>
+      </model>
+      <model>
         <path>Instruments/rotax912-cht/rotax912-cht.xml</path>
         <offsets>
           <x-m> 1.11 </x-m>
