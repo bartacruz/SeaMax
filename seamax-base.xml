@@ -307,11 +307,20 @@
         </active-engine>
     </engines>
     <instrumentation>
+        <comm>
+            <power-btn type="bool">0</power-btn>
+        </comm>
         <ipad>
             <gps>
                 <aircraft-heading-up type="bool">1</aircraft-heading-up>
             </gps>
         </ipad>
+        <transponder>
+            <power-btn type="bool">0</power-btn>
+            <inputs>
+                <knob-mode type="int">0</knob-mode>
+            </inputs>
+        </transponder>
     </instrumentation>
     <controls>
         <electric>
@@ -396,6 +405,9 @@
             <file>Aircraft/SeaMax/Models/Interior/Instruments/ipad/apps/gpsmap.nas</file>
             <file>Aircraft/SeaMax/Models/Interior/Instruments/ipad/apps/metar.nas</file>
         </ipad>
+        <bxp6401>
+			<file>Aircraft/Instruments-3d/bxp6401/bxp6401.nas</file>
+		</bxp6401>
         <!-- <mooring>
             <file>Nasal/mooring.nas</file>
         </mooring> -->

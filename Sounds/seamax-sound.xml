@@ -379,7 +379,7 @@
                 <and>
                     <greater-than>
                         <property>/velocities/groundspeed-kt</property>
-                        <value>10</value>
+                        <value>30</value>
                     </greater-than>
                     <property>gear/gear[0]/wow</property>
                 </and>
@@ -399,7 +399,7 @@
                 <and>
                     <greater-than>
                         <property>/velocities/groundspeed-kt</property>
-                        <value>10</value>
+                        <value>30</value>
                     </greater-than>
                     <property>gear/gear[1]/wow</property>
                 </and>
@@ -419,7 +419,7 @@
                 <and>
                     <greater-than>
                         <property>/velocities/groundspeed-kt</property>
-                        <value>10</value>
+                        <value>30</value>
                     </greater-than>
                     <property>gear/gear[2]/wow</property>
                 </and>
