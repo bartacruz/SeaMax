@@ -139,7 +139,7 @@
       <rolling_friction> 0.02 </rolling_friction>
       <spring_coeff unit="LBS/FT"> 1396.90 </spring_coeff>
       <damping_coeff unit="LBS/FT/SEC"> 1198.45 </damping_coeff>
-      <max_steer unit="DEG"> 25.00 </max_steer>
+      <max_steer unit="DEG"> 360.00 </max_steer>
       <brake_group>NONE</brake_group>
       <retractable>1</retractable>
     </contact>
@@ -151,9 +151,9 @@
         <y> -0.88 </y>
         <z> 0 </z>
       </location>
-      <static_friction> 0.70 </static_friction>
-      <dynamic_friction> 0.50 </dynamic_friction>
-      <rolling_friction> 0.02 </rolling_friction>
+      <static_friction> 0.80 </static_friction>
+      <dynamic_friction> 0.60 </dynamic_friction>
+      <rolling_friction> 0.05 </rolling_friction>
       <spring_coeff unit="LBS/FT"> 4323.00 </spring_coeff>
       <damping_coeff unit="LBS/FT/SEC"> 1661.50 </damping_coeff>
       <max_steer unit="DEG">0</max_steer>
@@ -168,9 +168,9 @@
         <y> 0.88 </y>
         <z> 0 </z>
       </location>
-      <static_friction> 0.70 </static_friction>
-      <dynamic_friction> 0.50 </dynamic_friction>
-      <rolling_friction> 0.02 </rolling_friction>
+      <static_friction> 0.80 </static_friction>
+      <dynamic_friction> 0.60 </dynamic_friction>
+      <rolling_friction> 0.05 </rolling_friction>
       <spring_coeff unit="LBS/FT"> 4323.00 </spring_coeff>
       <damping_coeff unit="LBS/FT/SEC"> 1661.50 </damping_coeff>
       <max_steer unit="DEG">0</max_steer>
@@ -413,7 +413,6 @@
 
   <system file="seamax-fuel" />
   <system file="seamax-hydrodynamics" />
-  <!-- <system file="seamax-hydrodynamics" /> -->
   <!-- <system file="mooring-jsbsim" /> -->
   <system file="rotax-thermal" />
   <flight_control file="Systems/seamax-flight-control.xml" />

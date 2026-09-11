@@ -31,6 +31,16 @@ var init_gears = func() {
         },5);
     } 
 };
+var brakeSteer = func(n) {
+    var val = n.getDoubleValue();
+    var left = 0;
+    var right = 0;
+    if (val < 0) left=val*-1;
+    if (val > 0) right=val;
+    #print("brakeSteer ", val, ' ', left,' ',right);
+    setprop("/controls/gear/brake-left",left);
+    setprop("/controls/gear/brake-right",right);
+}
 
 var check_gears = func(n) {
     var gear_down = n.getBoolValue();
@@ -103,7 +113,22 @@ var toggleOSD = func() {
         rightOSD.toggle();
     }
 };
-
+setlistener("/instrumentation/atr833-ii/state", func(n){
+    if (n.getIntValue() > 0) {
+        setprop( "/instrumentation/comm/power-btn", 1);
+    } else {
+        setprop( "/instrumentation/comm/power-btn", 0);
+    }
+    print("comm " ~ n.getIntValue());
+});
+setlistener("/instrumentation/transponder/inputs/knob-mode", func(n){
+    if (n.getIntValue() > 0) {
+        setprop( "/instrumentation/transponder/power-btn", 1);
+    } else {
+        setprop( "/instrumentation/transponder/power-btn", 0);
+    }
+    print("transponder " ~ n.getIntValue());
+});
 var engineHasStarted = setlistener("/engines/engine/running", func(val) {
   if( val.getBoolValue() ) {
     setprop("/engines/engine/has-started", 1);
@@ -117,4 +142,5 @@ var sl = setlistener("/sim/signals/fdm-initialized", func {
     print("Checking ground...");
     # setlistener("/controls/gear/gear-down", check_gears,1,1);
     init_gears();
+    setlistener("/controls/flight/rudder",brakeSteer);
 }, 0, 0);
